@@ -1566,6 +1566,23 @@ mark.dk-hole{background:#F5EBCF;color:#6B5212;padding:0 4px;font-size:12px;borde
 .dk-acts > .btn-ghost{margin-top:8px}
 .dk-reset{margin-top:22px;min-height:44px;border-color:var(--line-2);color:var(--mute)}
 .dk-reset:hover{background:var(--black);color:var(--white)}
+.st{background:var(--white)}
+.st-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:64px 28px 60px}
+.st-hero > *:not(.sky){position:relative;z-index:1}
+.st-crest{width:96px;margin-bottom:6px}
+.st-crest.sm{width:56px;margin-bottom:0}
+.st-title{font-weight:400;font-size:26px;max-width:16em}
+.st-lede{text-align:center;color:#D6D6D6}
+.st-since{font-family:var(--wide);font-size:9.5px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#8C8C8C;margin-top:6px}
+.st-ch{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:56px 30px;border-bottom:1px solid var(--line)}
+.st-ch.alt{background:var(--mist)}
+.st-no{font-family:var(--wide);font-weight:300;font-size:34px;line-height:1;color:#C8C8C8}
+.st-ch .pf-en{color:var(--mute)}
+.st-h{margin:2px 0 0;font-family:var(--sans);font-weight:500;font-size:21px;line-height:1.45}
+.st-p{margin:6px 0 0;max-width:30em;font-size:14.5px;line-height:2;color:#3A3A3A;font-weight:300}
+.st-end{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:60px 28px calc(70px + env(safe-area-inset-bottom,0px))}
+.st-quote{margin:6px 0 0;font-size:20px;line-height:1.6;font-weight:400;max-width:14em;color:#FFFFFF}
+.st-sign{font-size:11px;letter-spacing:.32em;color:#A9A9A9}
 .od-ship{margin-bottom:14px;padding:18px 16px;background:var(--black);color:#FFFFFF;display:flex;flex-direction:column;gap:10px}
 .od-ship .pf-en{color:#A9A9A9}
 .od-ship-tag{font-size:11px;padding:3px 10px;border:1px solid #444;color:#E2E2E2}
@@ -1578,6 +1595,11 @@ mark.dk-hole{background:#F5EBCF;color:#6B5212;padding:0 4px;font-size:12px;borde
 .od-tk-c{font-family:var(--wide);font-size:15px;font-weight:600;letter-spacing:.08em;overflow-wrap:anywhere}
 .od-tk-cp{flex:0 0 auto;min-height:36px;padding:0 14px;border:1px solid #FFFFFF;background:transparent;color:#FFFFFF;font-size:12px;cursor:pointer}
 .od-tk-cp:hover{background:#FFFFFF;color:#000}
+.od-call{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid #3A3A3A}
+.od-call .pf-en{color:#A9A9A9}
+.od-call b{font-family:var(--wide);font-size:18px;font-weight:600;letter-spacing:.04em}
+.od-call span:last-child{font-size:12.5px;color:#D6D6D6;line-height:1.7}
+.od-note b{color:var(--black);font-weight:600}
 .od-note{margin:14px 0 0;font-size:11.5px;line-height:1.75;color:var(--mute);padding:12px 14px;background:var(--mist)}
 .dk-gate{padding:28px 16px 120px;background:var(--white)}
 .dk-mode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-bottom:14px;border:1px solid var(--black)}
@@ -1863,8 +1885,17 @@ const CONFIG = {
   },
   story: {
     label: 'The Story',
-    title: 'ทุกเส้นด้าย คือความทรงจำของท่าพระจันทร์',
-    body: '[เรื่องราวของแบรนด์ — แรงบันดาลใจจากสถาปัตยกรรม และความภูมิใจของชาวธรรมศาสตร์]',
+    title: 'ทุกการออกแบบ คือความทรงจำของยอดโดม',
+    body: 'ตั้งแต่ปี 2477 ยอดโดมแห่งท่าพระจันทร์เฝ้ามองนักศึกษาหลายรุ่นเดินผ่านประตูบานเดียวกัน Thammasat Legacy เกิดจากความทรงจำเหล่านั้น เราหยิบเส้นสาย สีเหลืองแดง และจิตวิญญาณแห่งเสรีภาพ มาถักทอเป็นเสื้อที่ส่งต่อเรื่องราวจากรุ่นสู่รุ่น',
+    // หน้า "อ่านเรื่องราว" (#story) — [หัวข้ออังกฤษ, หัวข้อไทย, เนื้อหา]
+    chapters: [
+      ['The Dome', 'ยอดโดม', 'ยอดแหลมสีขาวเหนือริมน้ำเจ้าพระยา คือภาพแรกที่ชาวธรรมศาสตร์จดจำ เป็นหมุดหมายของวันแรกที่ก้าวเข้ามา และเป็นที่ที่เรากลับมายืนมองอีกครั้งในวันที่จากไป ยอดโดมไม่เคยเปลี่ยน แต่ทุกคนที่เคยยืนอยู่ใต้มันล้วนเปลี่ยนไปตลอดกาล'],
+      ['1934', 'ประตูที่เปิดให้ทุกคน', 'มหาวิทยาลัยแห่งนี้ถือกำเนิดขึ้นเมื่อวันที่ 27 มิถุนายน 2477 ด้วยความเชื่อเรียบง่ายว่า ความรู้ควรเป็นของทุกคน เกือบหนึ่งศตวรรษผ่านไป ความเชื่อนั้นยังคงอยู่ในทุกห้องเรียน ทุกลานกว้าง และในตัวตนของคนธรรมศาสตร์ทุกรุ่น'],
+      ['The Colours', 'สีเหลืองและแดง', 'สองสีที่เราสวมด้วยความภาคภูมิ ทั้งในวันรับปริญญา บนอัฒจันทร์ และในทุกการเดินทาง สำหรับเรา เหลืองแดงไม่ใช่เพียงสีของเครื่องแบบ แต่คือสีของความทรงจำร่วมกันที่ไม่เคยจางหาย'],
+      ['The Atelier', 'จากยอดโดมสู่เส้นด้าย', 'ทุกคอลเลกชันเริ่มต้นจากการกลับไปมองยอดโดม เส้นโค้งของหลังคา จังหวะของหน้าต่าง และเงาที่ทอดยาวในยามเย็น ถูกถอดออกมาเป็นลายเส้น ตราสัญลักษณ์ และรายละเอียดเล็ก ๆ ที่ซ่อนอยู่บนเสื้อทุกตัว ก่อนจะปิดท้ายด้วยชื่อและหมายเลขของคุณเอง'],
+      ['The Legacy', 'มรดกที่ส่งต่อ', 'เราไม่ได้ทำเพียงเสื้อ แต่เก็บรักษาความทรงจำให้สวมใส่ได้ เพื่อให้วันหนึ่ง เมื่อใครสักคนถามว่าธรรมศาสตร์มีความหมายอย่างไร คุณจะตอบได้โดยไม่ต้องเอ่ยคำใด'],
+    ],
+    closing: 'ทุกการออกแบบ คือความทรงจำของยอดโดม',
     image: ''
   },
   preorder: {
@@ -1950,6 +1981,8 @@ const CONFIG = {
   giftWrap: { fee: 0, text: 'กล่องสีดำประทับตราแบรนด์ ริบบิ้น และการ์ดเขียนข้อความด้วยลายมือ' },
   // โค้ดส่วนลด: ชื่อโค้ด → เปอร์เซ็นต์
   promoCodes: { 'LEGACY10': 10 },
+  // รอบจัดส่งจากร้าน: เปลี่ยน shipped เป็น true เมื่อร้านส่งพัสดุให้บริษัทขนส่งแล้ว
+  dispatch: { from: '2026-10-16', to: '2026-10-18', shipped: false },
   // ไซซ์ใหญ่: บวกเพิ่มต่อตัว
   sizeSurcharge: { sizes: ['3XL', '4XL', '5XL'], fee: 100 },
   shipping: [
@@ -2072,7 +2105,7 @@ function load() {
   if (!pf.since) { const d = new Date(); pf.since = String(d.getMonth() + 1).padStart(2, '0') + '/' + String(d.getFullYear()).slice(2); }
   return out;
 }
-const ACC_V = '2026-10-15-v7';
+const ACC_V = '2026-10-15-v8';
 function save() { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} }
 
 const $ = (s) => document.querySelector(s);
@@ -2222,12 +2255,12 @@ function vHome() {
   ${rc.enabled && racer && paddockOn() ? paddockTeaser(rc, racer) : ''}
 
   <section class="night">
-    ${CONFIG.story.image ? `<img src="${esc(CONFIG.story.image)}" alt="" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover">` : `<div class="ph" style="aspect-ratio:4/5">ภาพเอดิทอเรียล · ตึกโดมยามค่ำ</div>`}
+    ${CONFIG.story.image ? `<img src="${esc(CONFIG.story.image)}" alt="" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover">` : `<div class="ph" style="aspect-ratio:4/5;font-family:var(--sans);letter-spacing:0;font-size:12px;font-weight:400">ภาพเอดิทอเรียล · ยอดโดมยามค่ำ</div>`}
     <div class="stack center" style="gap:16px;padding:48px 28px 64px">
       <div class="label" style="color:var(--glow)">${esc(CONFIG.story.label)}</div>
       <h2 class="th-title" style="font-weight:400">${esc(CONFIG.story.title)}</h2>
       <p class="body" style="text-align:center">${esc(CONFIG.story.body)}</p>
-      <a class="btn btn-ghost btn-fit" href="#shop" style="margin-top:8px"><span class="th">อ่านเรื่องราว</span></a>
+      <a class="btn btn-ghost btn-fit" href="#story" style="margin-top:8px"><span class="th">อ่านเรื่องราว</span></a>
     </div>
   </section>
 
@@ -2840,7 +2873,7 @@ function vOrder(id) {
   const tlFind = (re) => tl.find((x) => re.test(x[0]));
   const prodT = tlFind(/production/i), shipT = tlFind(/shipping/i), delT = tlFind(/delivery/i), verT = tlFind(/verification/i);
   // when each order phase is expected to happen (only known for racing pre-orders)
-  const when = [o.date, '', prodT ? 'ถึง ' + thDate(prodT[2]) : '', shipT ? thRange(shipT[1], shipT[2]) : '', shipT ? thDate(shipT[2]) : '', delT ? thRange(delT[1], delT[2]) : ''];
+  const when = [o.date, '', prodT ? 'ถึง ' + thDate(prodT[2]) : '', shipT ? thRange(shipT[1], shipT[2]) : '', (CONFIG.dispatch || {}).from ? dispatchRange() : shipT ? thDate(shipT[2]) : '', (CONFIG.dispatch || {}).from ? '1–3 วันหลังส่งออก' : delT ? thRange(delT[1], delT[2]) : ''];
   const eta = delT ? thRange(delT[1], delT[2]) : '';
   const paid = st.s >= 2;
   const qty = items.reduce((s, it) => s + (it.qty || 0), 0);
@@ -2868,7 +2901,7 @@ function vOrder(id) {
     <div class="od-dial">${guilloche('od-guil')}${phaseRing(st.s, st.n, acc)}</div>
     <h1 class="od-status">${esc(ph[1])}</h1>
     <p class="od-desc">${esc(ph[2])}${st.s === 3 && prodT ? ` คาดว่าผลิตเสร็จ ${thDate(prodT[2])}` : ''}</p>
-    ${eta && st.s < st.n ? `<div class="od-eta"><span class="pf-en">Estimated arrival</span><b>${esc(eta)}</b></div>` : ''}
+    ${(CONFIG.dispatch || {}).from && o.real && st.s < st.n ? `<div class="od-eta"><span class="pf-en">${dispatched() ? 'Dispatched' : 'Dispatch from the Maison'}</span><b>${esc(dispatched() ? 'ส่งออกแล้ว · ' + dispatchRange() : 'ส่งออกจากร้าน ' + dispatchRange())}</b></div>` : eta && st.s < st.n ? `<div class="od-eta"><span class="pf-en">Estimated arrival</span><b>${esc(eta)}</b></div>` : ''}
     ${o.demo ? `<div class="od-demo">คำสั่งซื้อตัวอย่าง ไม่นับยอดสะสม · <button class="ulink" data-act="deldemo" data-id="${o.id}">ลบตัวอย่าง</button></div>` : ''}
   </section>
 
@@ -2911,7 +2944,7 @@ function vOrder(id) {
       ${o.gift ? `<div><dt>ห่อของขวัญ</dt><dd>${fee(o.giftFee)}</dd></div>` : ''}
       <div class="od-total"><dt>${o.listPrice ? 'ยอดรวมตามราคาเสื้อ' : 'ยอดชำระทั้งหมด'}</dt><dd>${money(o.total)}</dd></div>
     </dl>
-    ${o.listPrice ? `<p class="od-note">ราคาอิงจากราคาเสื้อต่อตัว ${money(CONFIG.racing && prod('tl-racing') ? prod('tl-racing').price : 529)} (ไซซ์ 3XL ขึ้นไป +${money((CONFIG.sizeSurcharge || {}).fee || 0)}) รวมค่าจัดส่ง ยังไม่ได้หักส่วนลดจากโปรโมชั่น ยอดที่ชำระจริงเป็นไปตามที่ร้านยืนยันกับคุณ</p>` : ''}
+    ${o.listPrice ? `<p class="od-note"><b>หมายเหตุเรื่องราคา</b><br>ราคาที่แสดงคำนวณจากราคาเสื้อต่อตัว ${money(prod('tl-racing') ? prod('tl-racing').price : 529)} (ไซซ์ 3XL ขึ้นไป +${money((CONFIG.sizeSurcharge || {}).fee || 0)}) รวมค่าจัดส่ง หากไม่ตรงกับยอดที่คุณชำระ อาจเป็นเพราะโปรโมชั่น ราคาทีม หรือส่วนลดในช่วงพรีออเดอร์ ยอดที่คุณชำระและร้านยืนยันแล้วคือยอดที่ถูกต้อง ไม่มีค่าใช้จ่ายเพิ่มเติมใด ๆ</p>` : ''}
   </section>
 
   <section class="pf-sec">
@@ -3246,7 +3279,7 @@ function orderStatus(o) {
   const n = CONFIG.phases.length, s = Math.min(o.stage || 1, n);
   const verify = CONFIG.reviewPhases.includes(s) && !(o.verify && o.verify.status) && !o.shipMode;
   const kind = s >= n ? 'done' : s >= n - 1 || o.shipMode ? 'ship' : s === 1 ? 'wait' : verify ? 'verify' : 'work';
-  const title = o.shipMode === 'express' && s < n ? 'จัดส่งด่วน · รอทีมงานโทรนัดหมาย' : o.shipMode === 'normal' && s < n ? 'จัดส่งแล้ว · ติดตามด้วยเลขพัสดุ' : verify ? 'รอคุณตรวจสอบข้อมูล' : CONFIG.phases[s - 1][1];
+  const title = o.shipMode && s < n && !dispatched() ? 'กำลังเดินทางมาที่ร้าน · ส่งออก ' + dispatchRange() : o.shipMode === 'express' && s < n ? 'จัดส่งด่วน · รอทีมงานโทรนัดหมาย' : o.shipMode === 'normal' && s < n ? 'จัดส่งแล้ว · ติดตามด้วยเลขพัสดุ' : verify ? 'รอคุณตรวจสอบข้อมูล' : CONFIG.phases[s - 1][1];
   return { s, n, kind, title };
 }
 
@@ -3291,20 +3324,30 @@ async function openAccount(email, phone) {
   }
   return false;
 }
+function dispatchRange() {
+  const d = CONFIG.dispatch || {}; if (!d.from) return '';
+  const a = new Date(d.from + 'T00:00:00'), b = new Date((d.to || d.from) + 'T00:00:00');
+  const m = (x) => x.toLocaleDateString('th-TH', { month: 'short' }), y = b.getFullYear() + 543;
+  return a.getMonth() === b.getMonth() ? `${a.getDate()}–${b.getDate()} ${m(b)} ${y}` : `${a.getDate()} ${m(a)} – ${b.getDate()} ${m(b)} ${y}`;
+}
+const dispatched = () => !!(CONFIG.dispatch || {}).shipped;
 function odShipCard(o) {
   if (o.shipMode === 'express') return `<div class="od-ship express">
       <div class="row between"><span class="pf-en">Express Delivery</span><span class="od-ship-tag">จัดส่งด่วน</span></div>
-      <p class="od-ship-t">ทีมงานจะโทรติดต่อคุณ เพื่อนัดหมายวันและเวลาจัดส่ง</p>
-      <p class="small" style="margin:0">โปรดเปิดรับสายจากเบอร์ ${esc(dkContact('Phone', '(+66) 64 579 1198'))} หรือแจ้งเวลาที่สะดวกทาง Instagram ${esc(dkContact('Instagram', '@tu.legacy.jersey'))}</p>
+      <p class="od-ship-t">ทีมงานจะโทรติดต่อคุณ เพื่อนัดหมายวันและเวลาจัดส่ง${dispatched() ? '' : ` ในช่วงวันที่ ${esc(dispatchRange())}`}</p>
+      ${dispatched() ? '' : '<p class="small" style="margin:0">ขณะนี้ชิ้นงานกำลังเดินทางจากผู้ผลิตมาที่ร้าน</p>'}
+      <div class="od-call"><span class="pf-en">Call Window</span><b>18:00 – 00:00 น.</b><span>ทีมงานอาจโทรหาคุณในช่วงเย็นถึงเที่ยงคืน โปรดเปิดรับสาย แม้เป็นเบอร์ที่ไม่คุ้นเคย</span></div>
+      <p class="small" style="margin:0">หากพลาดสาย หรือต้องการแจ้งเวลาที่สะดวก ติดต่อเราทาง Instagram ${esc(dkContact('Instagram', '@tu.legacy.jersey'))}</p>
     </div>`;
   if (o.shipMode !== 'normal' || !(o.tracks || []).length) return '';
   const multi = o.tracks.length > 1;
   return `<div class="od-ship">
       <div class="row between"><span class="pf-en">Standard Delivery</span><span class="od-ship-tag">จัดส่งแบบปกติ</span></div>
-      <p class="od-ship-t">${multi ? `ชิ้นงานของคุณจัดส่งแยก ${o.tracks.length} พัสดุ` : 'ชิ้นงานของคุณออกเดินทางแล้ว'}</p>
+      <p class="od-ship-t">${dispatched() ? (multi ? `ชิ้นงานของคุณจัดส่งแยก ${o.tracks.length} พัสดุ` : 'ชิ้นงานของคุณออกเดินทางแล้ว') : `เราจะจัดส่งออกจากร้านในวันที่ ${esc(dispatchRange())}`}</p>
+      ${dispatched() ? '' : `<p class="small" style="margin:0">ขณะนี้ชิ้นงานกำลังเดินทางจากผู้ผลิตมาที่ร้าน เราเตรียมเลขพัสดุ${multi ? `แยก ${o.tracks.length} พัสดุ` : ''}ไว้ให้แล้ว และจะเริ่มติดตามได้หลังจากวันจัดส่ง</p>`}
       <ul class="od-tk">${o.tracks.map((t) => { const its = (t.items || []).map((i) => o.items[i]).filter(Boolean);
         return `<li><span class="stack" style="gap:2px;min-width:0"><span class="od-tk-k">${multi ? esc(t.to) : 'เลขพัสดุ'}</span><span class="od-tk-c">${esc(t.code)}</span>${multi && its.length ? `<span class="small">${its.map((it) => esc(it.size + ' · ' + (it.personal && it.personal.name ? it.personal.name : 'ไม่สกรีนชื่อ'))).join(', ')}</span>` : ''}</span><button type="button" class="od-tk-cp" data-act="copytext" data-v="${esc(t.code)}">คัดลอก</button></li>`; }).join('')}</ul>
-      <p class="small" style="margin:0">ใช้เลขพัสดุนี้ติดตามสถานะกับบริษัทขนส่ง</p>
+      <p class="small" style="margin:0">${dispatched() ? 'ใช้เลขพัสดุนี้ติดตามสถานะกับบริษัทขนส่ง' : 'เลขพัสดุจะเริ่มแสดงสถานะเมื่อพัสดุถึงมือบริษัทขนส่งแล้ว'}</p>
     </div>`;
 }
 function preorderToOrder(po, acc) {
@@ -3319,7 +3362,7 @@ function preorderToOrder(po, acc) {
   const total = items.reduce((t, it) => t + it.total, 0) + shipFee;
   const shipMode = po.sm === 'n' ? 'normal' : po.sm === 'x' ? 'express' : '';
   const tracks = (po.tk || []).map(([to, code, idx]) => ({ to, code, items: idx || null }));
-  return { id: po.id, real: true, listPrice: true, shipMode, tracks, stage: shipMode === 'normal' ? 5 : shipMode === 'express' ? 4 : 3, date: 'Pre-Order รอบ ' + po.r, items, disc: 0, ship: 'ค่าจัดส่ง', shipFee, gift: false, giftFee: 0, total, paid: po.t || null,
+  return { id: po.id, real: true, listPrice: true, shipMode, tracks, stage: shipMode === 'normal' && dispatched() ? 5 : shipMode ? 4 : 3, date: 'Pre-Order รอบ ' + po.r, items, disc: 0, ship: 'ค่าจัดส่ง', shipFee, gift: false, giftFee: 0, total, paid: po.t || null,
     pay: 'โอนชำระกับร้าน', addr: { first: acc.first, last: acc.last, phone: acc.phone, line1: acc.addr } };
 }
 function lookupCard() {
@@ -3499,6 +3542,30 @@ function vFavs() {
   const list = PRODUCTS.filter((p) => store.favs.includes(p.id));
   return `${header('', true)}<div class="view"><div class="chapter-head" style="padding-block:28px 18px"><h1 class="title">Wishlist</h1></div>${list.length ? `<div class="grid2" style="padding-bottom:40px">${list.map(card).join('')}</div>`
     : `<div class="empty"><div class="crest-wrap">${crest('ink')}</div><p class="body" style="text-align:center">แตะรูปหัวใจบนสินค้าเพื่อบันทึกไว้ที่นี่</p><a class="btn btn-black btn-fit" href="#shop"><span class="th">เลือกชมสินค้า</span></a></div>`}</div>${tabs('account')}`;
+}
+function vStory() {
+  const st = CONFIG.story, ch = st.chapters || [];
+  return `${header('dark', true)}<div class="view st">
+  <section class="st-hero night">${sky('sky')}
+    <span class="st-crest">${crest()}</span>
+    <div class="label" style="color:var(--glow)">${esc(st.label)}</div>
+    <h1 class="th-title st-title">${esc(st.title)}</h1>
+    <p class="body st-lede">${esc(st.body)}</p>
+    <span class="st-since">Est. 1934 · Tha Phra Chan</span>
+  </section>
+  ${ch.map(([en, th, body], i) => `<section class="st-ch${i % 2 ? ' alt' : ''}">
+    <span class="st-no">${['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'][i] || i + 1}</span>
+    <span class="pf-en">${esc(en)}</span>
+    <h2 class="st-h">${esc(th)}</h2>
+    <p class="st-p">${esc(body)}</p>
+  </section>`).join('')}
+  <section class="st-end night">
+    <span class="st-crest sm">${crest()}</span>
+    <p class="st-quote">${esc(st.closing || st.title)}</p>
+    <span class="st-sign wm">Thammasat Legacy</span>
+    <a class="btn btn-white btn-fit" href="#shop" style="margin-top:14px"><span class="th">ค้นพบคอลเลกชัน</span></a>
+  </section>
+  </div>${tabs('home')}`;
 }
 function vMissing() { return `${header('', true)}<div class="empty view"><h1 class="title">ไม่พบหน้านี้</h1><a class="btn btn-black btn-fit" href="#home"><span class="th">กลับหน้าแรก</span></a></div>${tabs('')}`; }
 
@@ -3943,7 +4010,7 @@ const DK_OPTS = {
     ['พร้อมส่ง', { 'สถานะที่ร้าน': 'ชิ้นงานทั้งหมดได้รับการบรรจุเรียบร้อย และพร้อมออกเดินทาง' }],
   ] }],
   shipped: [{ label: 'บริษัทขนส่ง', c: ['ไปรษณีย์ไทย EMS', 'Kerry Express', 'Flash Express', 'J&T Express'].map((x) => [x, { 'บริษัทขนส่ง': x }]) }],
-  express: [{ label: 'ช่วงเวลาที่จะโทร', c: ['วันนี้ 10:00 – 18:00 น.', 'พรุ่งนี้ 10:00 – 18:00 น.', 'ภายใน 24 ชั่วโมง'].map((x) => [x, { 'ช่วงเวลาที่จะโทรติดต่อ': x }]) }],
+  express: [{ label: 'ช่วงเวลาที่จะโทร', c: ['18:00 – 00:00 น.', 'วันที่ 16–18 ต.ค. เวลา 18:00 – 00:00 น.', 'ภายใน 24 ชั่วโมง'].map((x) => [x, { 'ช่วงเวลาที่จะโทรติดต่อ': x }]) }],
   pickup: [{ label: 'ช่วงเวลารับ', c: ['10:00 – 18:00 น.', '12:00 – 20:00 น.', '16:00 – 19:00 น.'].map((x) => [x, { 'ช่วงเวลารับสินค้า': x }]) }],
 };
 const DK_T = [
@@ -3989,9 +4056,9 @@ const DK_T = [
       body: DK_DEAR_ALL + '\n\nชิ้นงานของ {รอบพรีออเดอร์} ได้ทยอยออกเดินทางไปหาทุกท่านแล้ว ตั้งแต่วันที่ {วันที่จัดส่ง}\n\nบริษัทขนส่ง — {บริษัทขนส่ง}\nคาดว่าจะถึงมือทุกท่าน — {วันที่คาดว่าได้รับ}\n\nหมายเลขพัสดุของแต่ละท่าน เราได้แจ้งไว้ในอีเมลรายบุคคล และสามารถดูได้ในหน้าคำสั่งซื้อส่วนตัว เมื่อได้รับแล้ว หากมีสิ่งใดไม่เป็นไปตามที่คาดหวัง โปรดแจ้งเราภายใน 7 วัน' } },
   { id: 'express', en: 'Express Delivery', th: 'จัดส่งด่วน · นัดหมาย',
     subject: 'Arranging Your Delivery · คำสั่งซื้อ {เลขคำสั่งซื้อ}',
-    body: 'เรียน คุณ{ชื่อลูกค้า}\n\nชิ้นงานในคำสั่งซื้อ {เลขคำสั่งซื้อ} พร้อมส่งมอบถึงมือคุณแล้ว และจะจัดส่งแบบด่วนเป็นพิเศษ\n\nทีมงานของเราจะโทรติดต่อคุณที่หมายเลขซึ่งให้ไว้ในคำสั่งซื้อ เพื่อนัดหมายวันและเวลาที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nหากคุณสะดวกรับสายในช่วงเวลาใดเป็นพิเศษ หรือต้องการเปลี่ยนสถานที่รับ เพียงตอบกลับอีเมลฉบับนี้ เราพร้อมดูแลตามที่คุณสะดวก',
+    body: 'เรียน คุณ{ชื่อลูกค้า}\n\nชิ้นงานในคำสั่งซื้อ {เลขคำสั่งซื้อ} จะจัดส่งถึงมือคุณแบบด่วนเป็นพิเศษ\n\nทีมงานของเราจะโทรติดต่อคุณที่หมายเลขซึ่งให้ไว้ในคำสั่งซื้อ เพื่อนัดหมายวันและเวลาที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nการโทรอาจมาจากเบอร์ที่คุณไม่คุ้นเคย โปรดเปิดรับสายในช่วงเวลาดังกล่าว หากคุณสะดวกรับสายในช่วงเวลาใดเป็นพิเศษ หรือต้องการเปลี่ยนสถานที่รับ เพียงตอบกลับอีเมลฉบับนี้ เราพร้อมดูแลตามที่คุณสะดวก',
     all: { subject: 'Arranging Your Delivery · {รอบพรีออเดอร์}',
-      body: DK_DEAR_ALL + '\n\nชิ้นงานของ {รอบพรีออเดอร์} ส่วนหนึ่งจะจัดส่งแบบด่วนเป็นพิเศษ ท่านที่อยู่ในกลุ่มนี้จะไม่มีเลขพัสดุ\n\nทีมงานของเราจะโทรติดต่อแต่ละท่าน เพื่อนัดหมายวันและเวลาที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nโปรดเปิดรับสายจากเบอร์ {เบอร์โทรร้าน} หากต้องการแจ้งเวลาที่สะดวก เพียงตอบกลับอีเมลฉบับนี้' } },
+      body: DK_DEAR_ALL + '\n\nชิ้นงานของ {รอบพรีออเดอร์} ส่วนหนึ่งจะจัดส่งแบบด่วนเป็นพิเศษ ท่านที่อยู่ในกลุ่มนี้จะไม่มีเลขพัสดุ\n\nทีมงานของเราจะโทรติดต่อแต่ละท่าน เพื่อนัดหมายวันและเวลาที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nการโทรอาจมาจากเบอร์ที่ท่านไม่คุ้นเคย โปรดเปิดรับสายในช่วงเวลาดังกล่าว หากต้องการแจ้งเวลาที่สะดวก เพียงตอบกลับอีเมลฉบับนี้' } },
   { id: 'pickup', en: 'Ready for Collection', th: 'พร้อมให้รับสินค้า',
     subject: 'Ready for Collection · คำสั่งซื้อ {เลขคำสั่งซื้อ}',
     body: 'เรียน คุณ{ชื่อลูกค้า}\n\nชิ้นงานในคำสั่งซื้อ {เลขคำสั่งซื้อ} พร้อมรอให้คุณมารับแล้ว\n\nสถานที่ — {สถานที่รับสินค้า}\nวันที่ — {วันที่เริ่มรับสินค้า} ถึง {วันที่สิ้นสุดการรับ}\nเวลา — {ช่วงเวลารับสินค้า}\n\nโปรดแสดงหมายเลขคำสั่งซื้อหรืออีเมลฉบับนี้แก่เจ้าหน้าที่ หากมีผู้มารับแทน กรุณาแจ้งชื่อให้เราทราบล่วงหน้า เพื่อความเรียบร้อยในการส่งมอบ',
@@ -4413,6 +4480,7 @@ const admList = (o) => o.i.reduce((t, x) => t + (prod('tl-racing') ? prod('tl-ra
 const admSzSort = (a, b) => ADM_SIZES.indexOf(a) - ADM_SIZES.indexOf(b);
 const admStatus = (o) => { const x = admOps[o.id] || {}; if (x.track || (o.tk || []).length) return 'shipped'; if (o.sm === 'x') return 'express'; return x.packed ? 'packed' : 'open'; };
 const ADM_ST = { open: 'รอจัดส่ง', packed: 'แพ็กแล้ว', express: 'ส่งด่วน · โทรนัด', shipped: 'ส่งแล้ว' };
+if (!(CONFIG.dispatch || {}).shipped) ADM_ST.shipped = 'มีเลขพัสดุ · รอส่งออก';
 
 function admTop(cur) {
   const t = (id, href, en) => `<a class="chip ad-chiptab" href="${href}" aria-pressed="${cur === id}">${en}</a>`;
@@ -4502,7 +4570,7 @@ function admOrdersView() {
   return `${admHead('Orders', 'คำสั่งซื้อทั้งหมด', 'แตะที่คำสั่งซื้อเพื่อดูรายละเอียด บันทึกการแพ็ก ใส่เลขพัสดุ หรือเขียนจดหมายถึงลูกค้า')}
   <section class="ad-tools">
     <label class="ad-search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg><input id="ad-q" data-adm="q" value="${esc(ui.admQ || '')}" placeholder="ค้นหาชื่อ เลขคำสั่งซื้อ อีเมล หรือชื่อหลังเสื้อ" autocomplete="off" autocapitalize="off" spellcheck="false"></label>
-    <div class="ad-filters">${admChips('admround', ui.admR || 'all', [['all', 'ทุกรอบ'], ['1', 'รอบ 1'], ['2', 'รอบ 2']])}${admChips('admst', ui.admSt || 'all', [['all', 'ทุกสถานะ'], ['express', 'ส่งด่วน · โทรนัด'], ['shipped', 'ส่งแล้ว'], ['open', 'รอจัดส่ง'], ['packed', 'แพ็กแล้ว']])}</div>
+    <div class="ad-filters">${admChips('admround', ui.admR || 'all', [['all', 'ทุกรอบ'], ['1', 'รอบ 1'], ['2', 'รอบ 2']])}${admChips('admst', ui.admSt || 'all', [['all', 'ทุกสถานะ'], ['express', 'ส่งด่วน · โทรนัด'], ['shipped', ADM_ST.shipped], ['open', 'รอจัดส่ง'], ['packed', 'แพ็กแล้ว']])}</div>
   </section>
   <div id="ad-olist">${admOrderList()}</div>`;
 }
@@ -4520,7 +4588,7 @@ function admOrderRow(o) {
     <button type="button" class="ad-o-h" data-act="admopen" data-id="${o.id}" aria-expanded="${open}">
       <span class="ad-o-pic">${admPic(o.i[0][1])}${cols.length > 1 ? `<b>+${cols.length - 1}</b>` : ''}</span>
       <span class="stack" style="min-width:0;gap:3px"><span class="ad-o-id">${esc(o.id)}</span><span class="name ad-o-n">${esc(o.n)}</span><span class="ad-o-sub">${cols.map((c) => `<i class="ad-sw" style="background:${admColor(c)}"></i>`).join('')}<span>${admQty(o)} ตัว · ${Object.keys(sizes).sort(admSzSort).map((z) => z + (sizes[z] > 1 ? '×' + sizes[z] : '')).join(' ')}</span></span></span>
-      <span class="ad-st ${st}"><span class="ad-st-en">${{ open: 'Pending', packed: 'Packed', express: 'Express', shipped: 'Shipped' }[st]}</span>${ADM_ST[st]}</span>
+      <span class="ad-st ${st}"><span class="ad-st-en">${{ open: 'Pending', packed: 'Packed', express: 'Express', shipped: dispatched() ? 'Shipped' : 'Ready' }[st]}</span>${ADM_ST[st]}</span>
     </button>
     ${open ? `<div class="ad-o-b">
       <table class="ad-t"><thead><tr><th>#</th><th>ไซซ์</th><th>สี</th><th>ชื่อหลังเสื้อ</th><th>เบอร์</th></tr></thead><tbody>
@@ -4531,8 +4599,8 @@ function admOrderRow(o) {
         <div><dt>ยอดตามชีต</dt><dd>${o.t ? money(o.t) : '<span class="small">ไม่มีในชีต</span>'}</dd></div>
         <div><dt>ตามราคาเสื้อ</dt><dd>${money(admList(o))} <span class="small">ก่อนหักโปรโมชั่น</span></dd></div>
       </dl>
-      ${(o.tk || []).length ? `<div class="ad-tklist"><span class="pf-en">Tracking · จัดส่งแบบปกติ</span>${o.tk.map(([to, code, idx]) => `<div><span class="stack" style="gap:1px;min-width:0"><span>${o.tk.length > 1 ? esc(to) + (idx ? ' · ตัวที่ ' + idx.map((i) => i + 1).join(', ') : '') : 'เลขพัสดุ'}</span><b>${esc(code)}</b></span><button type="button" data-act="copytext" data-v="${esc(code)}">คัดลอก</button></div>`).join('')}</div>`
-        : o.sm === 'x' ? '<div class="ad-tklist"><span class="pf-en">Express · จัดส่งด่วน</span><div><span>ไม่มีเลขพัสดุ · ทีมงานโทรนัดจัดส่งกับลูกค้า</span></div></div>' : ''}
+      ${(o.tk || []).length ? `<div class="ad-tklist"><span class="pf-en">Tracking · จัดส่งแบบปกติ${dispatched() ? '' : ' · ส่งออก ' + esc(dispatchRange())}</span>${o.tk.map(([to, code, idx]) => `<div><span class="stack" style="gap:1px;min-width:0"><span>${o.tk.length > 1 ? esc(to) + (idx ? ' · ตัวที่ ' + idx.map((i) => i + 1).join(', ') : '') : 'เลขพัสดุ'}</span><b>${esc(code)}</b></span><button type="button" data-act="copytext" data-v="${esc(code)}">คัดลอก</button></div>`).join('')}</div>`
+        : o.sm === 'x' ? '<div class="ad-tklist"><span class="pf-en">Express · จัดส่งด่วน</span><div><span>ไม่มีเลขพัสดุ · ทีมงานโทรนัดจัดส่ง ช่วง 18:00 – 00:00 น.</span></div></div>' : ''}
       <div class="ad-ops">
         <label class="ad-check"><input type="checkbox" data-admpack="${o.id}" ${ops.packed ? 'checked' : ''}><span>แพ็กเรียบร้อย</span></label>
         <div class="ad-ops-row">
@@ -4607,7 +4675,7 @@ function admLetterFor(id) {
   dk.vals['ชื่อลูกค้า'] = o.n; dk.vals['อีเมลลูกค้า'] = o.e || ''; dk.vals['เลขคำสั่งซื้อ'] = o.id;
   dk.vals['รายการสินค้า'] = 'เสื้อ Racing ' + Object.entries(lines).map(([k, q]) => k + ' × ' + q).join(', ');
   if (o.t) dk.vals['ยอดชำระ'] = o.t.toLocaleString('en-US');
-  if ((o.tk || []).length && !ops.track) { dk.tpl = 'shipped'; dk.vals['เลขพัสดุ'] = o.tk.map((t) => (o.tk.length > 1 ? t[0] + ' ' : '') + t[1]).join(', '); }
+  if ((o.tk || []).length && !ops.track) { if (dispatched()) dk.tpl = 'shipped'; dk.vals['เลขพัสดุ'] = o.tk.map((t) => (o.tk.length > 1 ? t[0] + ' ' : '') + t[1]).join(', '); }
   else if (o.sm === 'x' && !ops.track) dk.tpl = 'express';
   if (ops.track) { dk.tpl = ops.carrier === 'รับเองที่ร้าน' ? 'pickup' : 'shipped'; dk.vals['เลขพัสดุ'] = ops.track; if (ops.carrier && ops.carrier !== 'รับเองที่ร้าน') dk.vals['บริษัทขนส่ง'] = ops.carrier; }
   dkSave(); location.hash = '#desk-letters';
@@ -4636,6 +4704,7 @@ function render() {
   else if (h === 'favs') html = vFavs();
   else if (h === 'racing') { if (!paddockOn()) { ui.filter = 'racing'; location.replace('#shop'); return; } html = vRacing(); }
   else if (h === 'profile') html = vProfile();
+  else if (h === 'story') html = vStory();
   else if (h === 'desk' || h.startsWith('desk-')) html = vAdmin(h);
   else if (h.startsWith('p-')) html = vProduct(h.slice(2));
   else if (h.startsWith('o-')) html = vOrder(h.slice(2));
