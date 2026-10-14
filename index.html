@@ -474,8 +474,8 @@ a{color:inherit}
 .lv-tab{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:10px;border:1px solid var(--line);background:var(--white);cursor:pointer;text-align:left;min-height:76px}
 .lv-tab.on{border-color:var(--black)}
 .lv-sw{width:30px;height:19px;border-radius:3px;background:linear-gradient(135deg,#2B2B2B,#050505);box-shadow:0 1px 3px rgba(0,0,0,.25)}
-.lv-tab.lv-platinum .lv-sw{background:linear-gradient(115deg,#F6F7F9,#B7BCC3 45%,#E6E8EB)}
-.lv-tab.lv-gold .lv-sw{background:linear-gradient(120deg,#F8E9B4,#C9982F 45%,#E6C673)}
+.mt-levels .lv-platinum .lv-sw,.lv-tab.lv-platinum .lv-sw{background:linear-gradient(115deg,#F6F7F9,#B7BCC3 45%,#E6E8EB)}
+.mt-levels .lv-gold .lv-sw,.lv-tab.lv-gold .lv-sw{background:linear-gradient(120deg,#F8E9B4,#C9982F 45%,#E6C673)}
 .lv-name{font-family:var(--wide);font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .lv-st{font-size:10.5px;color:var(--mute)}
 .lv-lock{position:absolute;top:10px;right:10px;color:var(--mute)}
@@ -988,6 +988,10 @@ a{color:inherit}
 .services svg{width:24px;height:24px}
 .foot{padding:48px 24px calc(28px);display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
 .foot .crest-wrap{width:72px}
+.ft-guil{position:relative;overflow:hidden;background:radial-gradient(90% 60% at 50% 22%,#161616,#050505 70%)}
+.ft-guil > *:not(.ft-pattern){position:relative;z-index:1}
+.ft-pattern{position:absolute;inset:0;width:100%;height:100%;opacity:.13;pointer-events:none}
+.ft-guil::after{content:"";position:absolute;left:24px;right:24px;top:14px;bottom:14px;border:1px solid rgba(233,220,192,.12);pointer-events:none}
 
 /* drawer */
 .drawer{position:fixed;inset:0;z-index:60;background:var(--black);color:var(--white);overflow-y:auto;padding-top:env(safe-area-inset-top,0px);animation:fadein .35s ease both}
@@ -1500,7 +1504,8 @@ img.shirt-img{max-width:100%}
 .lk-btn{margin-top:16px;min-height:50px;border:0;background:#FFFFFF;color:#0A0A0A;font:inherit;font-size:13.5px;font-weight:500;letter-spacing:.04em;cursor:pointer}
 .lk-btn:disabled{opacity:.6;cursor:wait}
 .lk-msg{margin:10px 0 0;font-size:12px;line-height:1.6;color:#FF9A8A}
-.lk-foot{display:flex;justify-content:center;margin-top:14px}
+.lk-foot{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;text-align:center}
+.lk-foot .lk-pl{font-size:11px;color:#A9A9A9;margin-left:0}
 .lk-foot span{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:#7A7A7A}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 /* client correspondence desk */
@@ -1585,25 +1590,183 @@ mark.dk-hole{background:#F5EBCF;color:#6B5212;padding:0 4px;font-size:12px;borde
 .st-sign{font-size:11px;letter-spacing:.32em;color:#A9A9A9}
 .box.sheet th{letter-spacing:0;font-family:var(--sans);text-transform:none;font-weight:500}
 .hp{background:var(--white)}
-.hp-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:52px 28px 48px}
+.hp-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:56px 26px 92px}
 .hp-hero > *:not(.sky){position:relative;z-index:1}
-.hp-jump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--line)}
-.hp-jump a{display:flex;flex-direction:column;gap:3px;padding:14px 20px;text-decoration:none;color:var(--black);border-top:1px solid var(--line);font-size:13px}
-.hp-jump a:nth-child(odd){border-right:1px solid var(--line)}
-.hp-jump .pf-en{color:var(--mute);font-size:8.5px}
-.hp-qs{border-top:1px solid var(--line)}
+.hp-crest{width:88px;margin-bottom:8px}
+.hp-crest.sm{width:52px;margin-bottom:4px}
+.hp-k{font-family:var(--wide);font-size:10px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--glow);padding-left:.34em}
+.hp-t{font-size:30px;letter-spacing:.1em;line-height:1.1;margin:4px 0 0;font-weight:600}
+.hp-th{font-size:16px;color:#E2E2E2}
+.hp-orn{display:flex;align-items:center;gap:10px;margin:8px 0 2px}
+.hp-orn i{width:42px;height:1px;background:#4A4A4A}
+.hp-orn b{width:6px;height:6px;transform:rotate(45deg);border:1px solid var(--glow)}
+.hp-orn.sm{margin-top:12px}
+.hp-orn.sm i{background:var(--line-2);width:34px}
+.hp-orn.sm b{border-color:#9A9A9A}
+.hp-lede{margin:6px 0 0;font-size:13.5px;line-height:1.95;color:#BDBDBD;font-weight:300}
+.hp-hero{padding-bottom:44px;background:radial-gradient(80% 38% at 50% 18%,#171717,#000 72%)}
+.hero-dummy{}
+.hp-hero > .hp-pat{position:absolute;left:0;right:0;top:4px;height:min(300px,77vw);pointer-events:none;z-index:0}
+.hp-pat-svg{width:100%;height:100%;opacity:.12;display:block}
+.hp-pat::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:linear-gradient(180deg,transparent,#000)}
+.bc-pat{position:absolute;inset:0;width:100%;height:100%;opacity:.14;pointer-events:none}
+.bc-pat path{stroke:#D6BA78}
+.hp-end.ft-guil{margin-top:56px}
+.bcard{aspect-ratio:90/52;max-width:380px}
+.bcard .mc-face{border-radius:4px}
+.bcard .bc-front{box-shadow:inset 0 0 0 1px #B8954C,inset 0 0 0 2px rgba(255,244,214,.7)}
+.bc-front{background:linear-gradient(160deg,#FDFBF6 0%,#F6F1E6 55%,#EFE8D8 100%);color:#1A1A1A;padding:7% 8% 6.5%;display:flex;flex-direction:column;justify-content:space-between;text-align:left}
+.bc-front::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(90,70,30,.018) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(90,70,30,.014) 0 1px,transparent 1px 4px)}
+.bc-front > *{position:relative}
+.bc-frame{position:absolute!important;inset:8px;border:.5px solid rgba(166,134,75,.45);pointer-events:none}
+.bc-frame::after{display:none}
+.bc-frame.dark{inset:7px;border:1px solid rgba(214,186,120,.4)}
+.bc-frame.dark::after{display:block;content:"";position:absolute;inset:3px;border:.5px solid rgba(214,186,120,.18)}
+.bc-foil{display:block;background:linear-gradient(115deg,#7A5A1E 0%,#C9A656 26%,#F4E2A6 42%,#B48E3F 58%,#7E5D22 78%,#D2B064 100%);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.bc-emboss{position:absolute!important;right:-7%;top:50%;width:52%;aspect-ratio:1;transform:translateY(-50%);filter:drop-shadow(-.7px -.7px 0 rgba(255,255,255,.95)) drop-shadow(.9px .9px .2px rgba(110,85,40,.28));pointer-events:none;opacity:.9}
+.bc-emboss i{display:block;width:100%;height:100%;background:#EEE6D5;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.bc-head{display:flex;align-items:center;gap:10px}
+.bc-crest{width:28px;height:28px;flex:0 0 auto}
+.bc-house{display:flex;flex-direction:column;gap:2px;line-height:1.2}
+.bc-house b{font-family:var(--wide);font-weight:600;font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:#1C1C1C}
+.bc-house small{font-family:var(--wide);font-size:5.8px;letter-spacing:.34em;text-transform:uppercase;color:#9A7B3E}
+.bc-name{display:flex;flex-direction:column;gap:4px}
+.bc-n{font-family:var(--wide);font-weight:500;font-size:clamp(14px,4.3vw,17px);letter-spacing:.16em;text-transform:uppercase;line-height:1.1;background:linear-gradient(100deg,#7A5A1E,#C9A656 30%,#F0DC9C 46%,#A8833A 62%,#6F5119 84%,#B8954C);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bc-r{font-size:9px;color:#6A645A;letter-spacing:0}
+.bc-r em{font-style:normal;color:#B8954C;margin:0 3px}
+.bc-rule{display:none}
+.bc-info{margin:0;display:flex;flex-direction:column;gap:2.5px;max-width:84%}
+.bc-info div{display:grid;grid-template-columns:16px minmax(0,1fr);gap:7px;align-items:baseline}
+.bc-info dt{font-family:var(--wide);font-size:6px;font-weight:600;letter-spacing:.16em;color:#A6864B}
+.bc-info dd{margin:0;font-family:var(--wide);font-size:clamp(7.6px,2.3vw,9px);letter-spacing:.05em;color:#2A2A2A;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bc-addr{position:absolute!important;right:8%;bottom:7%;font-family:var(--wide);font-size:5.6px;letter-spacing:.3em;text-transform:uppercase;color:#9A7B3E}
+.bc-back{transform:rotateY(180deg);background:radial-gradient(120% 100% at 30% 20%,#1E1E1E,#0A0A0A 60%,#040404);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#E9DCC0}
+.bc-back::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(100deg,rgba(255,255,255,.02) 0 1px,transparent 1px 3px)}
+.bc-bcrest{width:22%;aspect-ratio:1;position:relative}
+
+.bc-bwm{position:relative;font-family:var(--wide);font-weight:600;font-size:11px;letter-spacing:.34em;text-transform:uppercase;padding-left:.34em;background:linear-gradient(100deg,#B8954C,#F1DFA8 45%,#A8843E 70%,#E6CF8E);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bc-born{position:relative;display:flex;align-items:center;gap:7px}
+.bc-born i{width:26px;height:1px;background:rgba(214,186,120,.5)}
+.bc-born b{width:4px;height:4px;transform:rotate(45deg);border:1px solid rgba(214,186,120,.8)}
+.bc-bsub{position:relative;font-family:var(--wide);font-size:6.5px;letter-spacing:.28em;text-transform:uppercase;color:#9A8A66}
+.hp-cardwrap .bcard{margin:0 auto}
+.hp-cardwrap{width:min(90%,360px);margin-top:28px;filter:drop-shadow(0 24px 30px rgba(0,0,0,.75))}
+.hp-acard .mc-tier b{font-size:10px;letter-spacing:.2em}
+.hp-acard .mc-num{font-size:clamp(15px,4.8vw,19px)}
+.hp-acard .mc-name{font-size:11px!important;letter-spacing:.1em!important}
+.hp-hint{font-size:11px;color:#8C8C8C;margin-top:8px}
+.hp-back{display:flex;flex-direction:column;gap:6px;padding:10px 16px 0}
+.hp-back div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:5px}
+.hp-back small{font-family:var(--wide);font-size:6px;letter-spacing:.24em;text-transform:uppercase;opacity:.55}
+.hp-back b{font-family:'Space Mono',ui-monospace,monospace;font-weight:400;font-size:10.5px;letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hp-back-t{flex:1;margin:0;font-size:7.5px;line-height:1.5;opacity:.6}
+.hp-contactlist{margin:0 18px;padding-top:28px}
+.hp-contactlist a{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;padding:15px 2px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--black)}
+.hp-contactlist a:first-child{border-top:1px solid var(--black)}
+.hp-cl-ic{width:40px;height:40px;border:1px solid var(--line-2);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hp-cl-ic svg{width:18px;height:18px}
+.hp-contactlist .pf-en{color:var(--mute);font-size:8.5px}
+.hp-contactlist b{font-weight:500;font-size:14px;overflow-wrap:anywhere}
+.hp-contactlist i{font-style:normal;color:var(--mute);transition:transform .2s}
+.hp-contactlist a:hover i{transform:translateX(3px);color:var(--black)}
+.hp-contactlist a:hover .hp-cl-ic{background:var(--black);color:var(--white);border-color:var(--black)}
+.hp-cl-note{margin:12px 0 0;font-size:11.5px;color:var(--mute);text-align:center}
+.hp-advisor{position:relative;overflow:hidden;margin:-58px 18px 0;border-radius:16px;padding:22px 20px 16px;color:#FFFFFF;background:radial-gradient(120% 90% at 0% 0%,#2A2A2A,#0C0C0C 58%,#050505);box-shadow:0 26px 50px rgba(0,0,0,.28);z-index:2}
+.hp-advisor .lk-guil{position:absolute;opacity:.1;width:300px;height:300px;right:-110px;top:-110px;pointer-events:none}
+.hp-advisor > *:not(.lk-guil){position:relative}
+.hp-adv-top{display:flex;align-items:center;gap:12px}
+.hp-adv-top .lk-chip{margin-left:auto;flex:0 0 auto}
+.hp-adv-top .lk-brand{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.hp-adv-rows a{grid-template-columns:76px minmax(0,1fr) auto}
+.hp-adv-t{margin:18px 0 6px;font-size:15px;font-weight:500}
+.hp-adv-rows{border-top:1px solid #2A2A2A}
+.hp-adv-rows a{display:grid;grid-template-columns:86px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #222;text-decoration:none;color:#FFFFFF}
+.hp-adv-rows .pf-en{color:#8C8C8C;font-size:8.5px}
+.hp-adv-rows b{font-weight:500;font-size:13px;overflow-wrap:anywhere;min-width:0}
+.hp-adv-rows i{font-style:normal;color:#8C8C8C;transition:transform .2s}
+.hp-adv-rows a:hover i{transform:translateX(3px);color:#FFFFFF}
+.hp-adv-foot{display:flex;justify-content:space-between;margin-top:12px;font-size:11px;color:#8C8C8C}
+.hp-adv-foot span:last-child{font-family:var(--wide);font-size:8.5px;letter-spacing:.26em;text-transform:uppercase}
+.hp-index{margin:34px 18px 0;border-top:1px solid var(--black)}
+.hp-index a{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:12px;padding:15px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--black);transition:background .2s,padding .2s}
+.hp-index a:hover{background:var(--mist);padding-left:10px}
+.hp-ix-n{font-family:var(--wide);font-weight:300;font-size:24px;color:#BDBDBD;line-height:1}
+.hp-index .pf-en{color:var(--mute);font-size:8.5px}
+.hp-ix-th{font-size:15px;font-weight:500}
+.hp-ix-c{font-family:var(--wide);font-size:10px;font-weight:600;color:var(--mute);border:1px solid var(--line-2);padding:3px 8px;border-radius:999px}
+.hp-sec{padding:58px 18px 10px;scroll-margin-top:70px}
+.hp-sec-h{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;margin-bottom:22px}
+.hp-roman{font-family:var(--wide);font-weight:300;font-size:38px;line-height:1;color:#C8C8C8}
+.hp-sec-h .pf-en{color:var(--mute)}
+.hp-sec-h h2{margin:0;font-family:var(--sans);font-weight:500;font-size:21px}
+.hp-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--black);margin-bottom:18px}
+.hp-facts div{display:flex;flex-direction:column;align-items:center;gap:3px;padding:14px 6px;text-align:center}
+.hp-facts div + div{border-left:1px solid var(--line)}
+.hp-facts .pf-en{color:var(--mute);font-size:8px}
+.hp-facts b{font-family:var(--wide);font-weight:500;font-size:19px}
+.hp-facts span:last-child{font-size:11px;color:var(--mute)}
+.hp-policy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.hp-pol{display:flex;flex-direction:column;gap:6px;padding:18px 14px;border:1px solid var(--black)}
+.hp-pol.dark{background:var(--black);color:#FFFFFF}
+.hp-pol .pf-en{color:var(--mute);font-size:8.5px}
+.hp-pol.dark .pf-en{color:#8C8C8C}
+.hp-pol b{font-size:15px;font-weight:600;line-height:1.4}
+.hp-pol span:last-child{font-size:11.5px;line-height:1.7;color:var(--mute)}
+.hp-pol.dark span:last-child{color:#BDBDBD}
+.hp-seal{display:flex;align-items:center;gap:14px;padding:16px;background:var(--black);color:#FFFFFF;margin-bottom:18px;font-size:12.5px;line-height:1.7;color:#D6D6D6}
+.hp-seal b{font-family:var(--wide);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#FFFFFF;font-weight:600}
+.hp-seal svg{flex:0 0 auto;color:var(--glow)}
+.hp-qs{border-top:1px solid var(--black)}
 .hp-q{border-bottom:1px solid var(--line)}
-.hp-q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 0;border:0;background:none;cursor:pointer;text-align:left;font-size:14.5px;font-weight:500;color:var(--black);min-height:56px}
-.hp-q button i{font-style:normal;font-family:var(--wide);font-size:18px;font-weight:300;flex:0 0 auto}
-.hp-q p{margin:0 0 18px;font-size:13.5px;line-height:1.95;color:#3A3A3A;font-weight:300}
-.hp-end{margin:40px 20px 30px;padding:24px 20px;background:var(--mist);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
-.hp-end .pf-en{color:var(--mute)}
-.hp-end p{margin:0;font-size:15px;font-weight:500}
-.hp-contact{display:flex;flex-direction:column;gap:6px;margin-top:6px;font-size:13px}
-.hp-contact em{font-style:normal;color:var(--mute);margin-right:8px}
+.hp-q button{width:100%;display:grid;grid-template-columns:30px minmax(0,1fr) 18px;align-items:center;gap:10px;padding:17px 0;border:0;background:none;cursor:pointer;text-align:left;color:var(--black);min-height:58px}
+.hp-qn{font-family:var(--wide);font-size:10px;font-weight:600;color:#A8A8A8;letter-spacing:.06em}
+.hp-qt{font-size:14.5px;font-weight:500;line-height:1.5}
+.hp-q button i{position:relative;width:12px;height:12px;justify-self:end}
+.hp-q button i::before,.hp-q button i::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--black);transition:transform .25s}
+.hp-q button i::after{transform:rotate(90deg)}
+.hp-q.on button i::after{transform:rotate(0)}
+.hp-q.on{background:linear-gradient(180deg,var(--mist),var(--white))}
+.hp-q.on .hp-qn{color:var(--black)}
+.hp-q p{margin:0 0 20px 40px;padding-left:14px;border-left:1px solid var(--black);font-size:13.5px;line-height:1.95;color:#3A3A3A;font-weight:300}
+.hp-end{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;margin-top:56px;padding:56px 24px calc(64px + env(safe-area-inset-bottom,0px))}
+.hp-end-t{margin:2px 0 6px;font-size:19px;font-weight:400;color:#FFFFFF}
+.hp-end-btns{display:flex;flex-direction:column;gap:8px;width:100%;max-width:320px}
+.hp-ghost{color:#FFFFFF;border-color:#FFFFFF}
+.hp-ghost:hover{background:#FFFFFF;color:#000}
+.hp-sign{font-size:9.5px;letter-spacing:.28em;color:#8C8C8C;margin-top:18px}
 .ft-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-top:14px}
 .ft-links a{font-size:12px;color:#BDBDBD;text-decoration:underline;text-underline-offset:3px}
 .lk-pl{color:inherit;text-decoration:underline;text-underline-offset:3px;margin-left:4px}
+.lv-tagl{display:block;font-size:10px;color:var(--mute);line-height:1.35;margin-top:2px;font-family:var(--sans);letter-spacing:0;text-transform:none}
+.mt-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding:30px 20px 6px;text-align:center}
+.mt-card{position:relative;width:100%;max-width:340px;margin-bottom:10px}
+.mt-card .mcard{filter:blur(5px) saturate(.7);opacity:.75;cursor:default;pointer-events:none}
+.mt-lock{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.72);color:#FFFFFF;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.25)}
+.mt-wrap .pf-en{color:var(--mute)}
+.mt-t{margin:0;font-size:17px;font-weight:500}
+.mt-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;width:100%;max-width:380px;margin-top:12px}
+.mt-levels div{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 10px;border:1px solid var(--line);text-align:left}
+.mt-levels b{font-family:var(--wide);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.mt-levels small{font-size:11px;color:var(--mute)}
+.mt-levels em{font-style:normal;font-size:10.5px;color:var(--black);line-height:1.4}
+.ob{display:flex;flex-direction:column;gap:8px;padding:20px 20px 0}
+.ob-c{display:flex;flex-direction:column;gap:6px;padding:18px 18px 16px;background:var(--black);color:#FFFFFF;text-decoration:none;position:relative;overflow:hidden}
+.ob-c::before{content:"";position:absolute;inset:6px;border:1px solid rgba(233,220,192,.16);pointer-events:none}
+.ob-c .pf-en{color:var(--glow)}
+.ob-id{font-family:var(--wide);font-size:10px;font-weight:600;letter-spacing:.14em;color:#BDBDBD}
+.ob-t{font-size:15.5px;font-weight:500;line-height:1.5}
+.ob-s{font-size:12px;color:#BDBDBD;overflow-wrap:anywhere}
+.ob-call{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:4px;padding:5px 10px;background:#FFFFFF;color:#000;font-size:12px;font-weight:500}
+.ob-go{font-size:12px;color:#FFFFFF;margin-top:4px;text-decoration:underline;text-underline-offset:3px}
+.lk-hint{font-style:normal;font-family:var(--sans);font-size:10px;letter-spacing:0;text-transform:none;color:#7A7A7A;margin-left:6px}
+.lk-help{display:block;text-align:center;margin-top:12px;font-size:12.5px;color:#D6D6D6;text-decoration:underline;text-underline-offset:3px}
+.a2hs{position:fixed;left:12px;right:12px;margin:0 auto;max-width:456px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:12px;padding:12px 10px 12px 12px;background:#0A0A0A;color:#FFFFFF;box-shadow:0 14px 34px rgba(0,0,0,.35);animation:fadein .35s ease both}
+.a2hs-ic{width:36px;height:36px;flex:0 0 auto;background:#000;border:1px solid #333;border-radius:9px;padding:4px}
+.a2hs b{font-size:12.5px;font-weight:500}
+.a2hs span{font-size:11.5px;color:#BDBDBD;line-height:1.6}
+.a2hs-go{flex:0 0 auto;min-height:34px;padding:0 12px;background:#FFFFFF;color:#000;border:0;font-size:12px;cursor:pointer}
+.a2hs-x{flex:0 0 auto;width:30px;height:30px;border:0;background:transparent;color:#8C8C8C;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.a2hs-x svg{width:16px;height:16px}
 .od-ship{margin-bottom:14px;padding:18px 16px;background:var(--black);color:#FFFFFF;display:flex;flex-direction:column;gap:10px}
 .od-ship .pf-en{color:#A9A9A9}
 .od-ship-tag{font-size:11px;padding:3px 10px;border:1px solid #444;color:#E2E2E2}
@@ -1986,17 +2149,19 @@ const CONFIG = {
   // {team} ในข้อความ = แทนด้วยราคาทีมจาก CONFIG.racing.teamPricing อัตโนมัติ
   membership: {
     levels: [
-      { id: 'noir', name: 'Noir', min: 0, discount: 0, perks: [
+      { id: 'noir', name: 'Noir', min: 0, discount: 0, tag: 'ราคาตามจำนวน', perks: [
         ['บัตรสมาชิกดิจิทัล', 'เลขสมาชิกส่วนตัว พลิกดูได้ในแอป ใช้ยืนยันสิทธิ์กับร้าน'],
         ['ส่วนลดตามจำนวนในแต่ละรอบ', '{team}'],
         ['แจ้งข่าวรอบพรีออเดอร์ใหม่', 'รู้ก่อนเมื่อเปิดรอบ Racing และคอลเลกชันใหม่']
       ] },
-      { id: 'platinum', name: 'Platinum', min: 3000, discount: 0, perks: [
-        ['จองรอบพรีออเดอร์ก่อนคนทั่วไป', 'เข้าสั่งได้ก่อนเปิดรอบทั่วไป ไม่พลาดไซซ์ที่ต้องการ']
+      { id: 'platinum', name: 'Platinum', min: 3000, discount: 0, tag: 'จองก่อน 24 ชม.', perks: [
+        ['จองรอบพรีออเดอร์ใหม่ก่อน 24 ชั่วโมง', 'เข้าสั่งได้ก่อนเปิดรอบทั่วไป ไม่พลาดไซซ์และสีที่ต้องการ'],
+        ['สิทธิ์จองไซซ์ใหญ่ก่อนใคร', 'ไซซ์ 3XL–5XL ผลิตจำนวนน้อย สมาชิก Platinum จองได้ก่อนเปิดรอบทั่วไป']
       ] },
-      { id: 'gold', name: 'Gold', min: 10000, discount: 0, perks: [
+      { id: 'gold', name: 'Gold', min: 10000, discount: 0, tag: 'รุ่นพิเศษ · ผู้ดูแลส่วนตัว', perks: [
         ['สินค้ารุ่นพิเศษเฉพาะสมาชิก Gold', 'สิทธิ์สั่งรุ่นจำนวนจำกัดที่ไม่เปิดขายทั่วไป'],
-        ['ผู้ดูแลลูกค้าส่วนตัว', 'Client Advisor ดูแลไซซ์ คำสั่งซื้อ และคำขอพิเศษให้โดยตรง']
+        ['ผู้ดูแลลูกค้าส่วนตัว', 'Client Advisor ดูแลไซซ์ คำสั่งซื้อ และคำขอพิเศษให้โดยตรง'],
+        ['ของที่ระลึกประจำรอบ', 'รับของที่ระลึกพิเศษจากแบรนด์ ในทุกรอบพรีออเดอร์ที่คุณสั่งซื้อ']
       ] }
     ]
   },
@@ -2013,6 +2178,8 @@ const CONFIG = {
   },
   // รอบจัดส่งจากร้าน: เปลี่ยน shipped เป็น true เมื่อร้านส่งพัสดุให้บริษัทขนส่งแล้ว
   dispatch: { from: '2026-10-16', to: '2026-10-18', shipped: false },
+  // ส่งด่วน = แบรนด์นำส่งเอง ไม่ผ่านบริษัทขนส่ง
+  express: { area: 'บริเวณรอบมหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต', when: 'ภายในวันที่ชิ้นงานมาถึงเรา', call: '18:00 – 00:00 น.' },
   // ไซซ์ใหญ่: บวกเพิ่มต่อตัว
   sizeSurcharge: { sizes: ['3XL', '4XL', '5XL'], fee: 100 },
   shipping: [
@@ -2311,7 +2478,7 @@ function vHome() {
     ${CONFIG.services.map((s) => `<div class="stack center" style="gap:10px">${I[s.icon] || ''}<div class="small">${br(s.text)}</div></div>`).join('')}
   </section>
 
-  <footer class="foot night">
+  <footer class="foot night ft-guil">${guillocheWaves('ft-pattern')}
     <div class="crest-wrap">${crest()}</div>
     <div class="wm" style="font-size:16px;letter-spacing:.12em">${esc(CONFIG.brand)}</div>
     <div class="stack" style="gap:4px">${CONFIG.contact.map((c) => `<span class="small">${esc(c.label)} · ${contactLink(c)}</span>`).join('')}</div>
@@ -2743,6 +2910,24 @@ function guilloche(cls = '', color = '#FFFFFF') {
   GUIL[color] = `<svg class="guil " viewBox="0 0 320 320" aria-hidden="true"><g fill="none" stroke="${color}" stroke-width=".35">${paths.map((d) => d.replace(/(\d+\.\d)/g, (m) => m)).join('')}</g></svg>`;
   return GUIL[color].replace('class="guil "', `class="guil ${cls}"`);
 }
+// footer pattern: woven banknote waves along the edges + a rosette medallion (sibling of guilloche(), not a copy)
+let WAVES = '';
+function guillocheWaves(cls = '') {
+  if (!WAVES) {
+    const W = 400, H = 300, P = [];
+    const band = (y0, amp, n, count, f) => { for (let k = 0; k < count; k++) { const ph = k / count * Math.PI * 2, pts = [];
+      for (let x = 0; x <= W; x += 2) { const t = x / W * Math.PI * 2; pts.push(`${x} ${(y0 + amp * Math.sin(n * t + ph) * Math.cos(f * t - ph / 2)).toFixed(1)}`); }
+      P.push(`<path d="M${pts.join(' L')}"/>`); } };
+    band(26, 14, 3, 14, 1); band(H - 26, 14, 3, 14, 1); band(46, 6, 9, 6, 0); band(H - 46, 6, 9, 6, 0);
+    const cx = W / 2, cy = 128;   // rosette (epitrochoid petals) behind the crest
+    for (let k = 0; k < 18; k++) { const ph = k / 18 * Math.PI * 2 / 9, pts = [];
+      for (let i = 0; i <= 720; i++) { const t = i / 720 * Math.PI * 2, r = 70 + 18 * Math.cos(9 * t + ph * 9) + 6 * Math.sin(27 * t); pts.push(`${(cx + r * Math.cos(t)).toFixed(1)} ${(cy + r * Math.sin(t)).toFixed(1)}`); }
+      P.push(`<path d="M${pts.join(' L')}Z"/>`); }
+    for (let k = 0; k < 3; k++) { const pts = []; for (let i = 0; i <= 900; i++) { const t = i / 900 * Math.PI * 2, r = 104 + k * 5 + 3 * Math.sin(60 * t + k); pts.push(`${(cx + r * Math.cos(t)).toFixed(1)} ${(cy + r * Math.sin(t)).toFixed(1)}`); } P.push(`<path d="M${pts.join(' L')}Z"/>`); }
+    WAVES = `<svg class="gwave " viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#FFFFFF" stroke-width=".35">${P.join('')}</g></svg>`;
+  }
+  return WAVES.replace('class="gwave "', `class="gwave ${cls}"`);
+}
 const LV_ACC = { noir: '#E9E9E9', platinum: '#E2E5EA', gold: '#D9B25A' };
 const PHASE_EN = ['Order received', 'Payment confirmed', 'In the atelier', 'Quality & packing', 'On its way', 'Delivered'];
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
@@ -2905,7 +3090,7 @@ function vOrder(id) {
   const tlFind = (re) => tl.find((x) => re.test(x[0]));
   const prodT = tlFind(/production/i), shipT = tlFind(/shipping/i), delT = tlFind(/delivery/i), verT = tlFind(/verification/i);
   // when each order phase is expected to happen (only known for racing pre-orders)
-  const when = [o.date, '', prodT ? 'ถึง ' + thDate(prodT[2]) : '', shipT ? thRange(shipT[1], shipT[2]) : '', (CONFIG.dispatch || {}).from ? dispatchRange() : shipT ? thDate(shipT[2]) : '', (CONFIG.dispatch || {}).from ? '1–3 วันหลังส่งออก' : delT ? thRange(delT[1], delT[2]) : ''];
+  const when = [o.date, '', prodT ? 'ถึง ' + thDate(prodT[2]) : '', shipT ? thRange(shipT[1], shipT[2]) : '', o.shipMode === 'express' ? 'ทีมงานนำส่งเอง' : (CONFIG.dispatch || {}).from ? dispatchRange() : shipT ? thDate(shipT[2]) : '', o.shipMode === 'express' ? 'ภายในวันที่ของถึงร้าน' : (CONFIG.dispatch || {}).from ? '1–3 วันหลังส่งออก' : delT ? thRange(delT[1], delT[2]) : ''];
   const eta = delT ? thRange(delT[1], delT[2]) : '';
   const paid = st.s >= 2;
   const qty = items.reduce((s, it) => s + (it.qty || 0), 0);
@@ -2933,7 +3118,7 @@ function vOrder(id) {
     <div class="od-dial">${guilloche('od-guil')}${phaseRing(st.s, st.n, acc)}</div>
     <h1 class="od-status">${esc(ph[1])}</h1>
     <p class="od-desc">${esc(ph[2])}${st.s === 3 && prodT ? ` คาดว่าผลิตเสร็จ ${thDate(prodT[2])}` : ''}</p>
-    ${(CONFIG.dispatch || {}).from && o.real && st.s < st.n ? `<div class="od-eta"><span class="pf-en">${dispatched() ? 'Dispatched' : 'Dispatch from the Maison'}</span><b>${esc(dispatched() ? 'ส่งออกแล้ว · ' + dispatchRange() : 'ส่งออกจากร้าน ' + dispatchRange())}</b></div>` : eta && st.s < st.n ? `<div class="od-eta"><span class="pf-en">Estimated arrival</span><b>${esc(eta)}</b></div>` : ''}
+    ${o.shipMode === 'express' && st.s < st.n ? `<div class="od-eta"><span class="pf-en">Hand Delivery</span><b>นำส่งโดยทีมงาน · มธ. รังสิต</b></div>` : (CONFIG.dispatch || {}).from && o.real && st.s < st.n ? `<div class="od-eta"><span class="pf-en">${dispatched() ? 'Dispatched' : 'Dispatch from the Maison'}</span><b>${esc(dispatched() ? 'ส่งออกแล้ว · ' + dispatchRange() : 'ส่งออกจากร้าน ' + dispatchRange())}</b></div>` : eta && st.s < st.n ? `<div class="od-eta"><span class="pf-en">Estimated arrival</span><b>${esc(eta)}</b></div>` : ''}
     ${o.demo ? `<div class="od-demo">คำสั่งซื้อตัวอย่าง ไม่นับยอดสะสม · <button class="ulink" data-act="deldemo" data-id="${o.id}">ลบตัวอย่าง</button></div>` : ''}
   </section>
 
@@ -3085,7 +3270,7 @@ function memberSection(pr) {
   <div class="mc-hint"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 12 A8 8 0 0 1 18 7 M18 3 V7 H14 M20 12 A8 8 0 0 1 6 17 M6 21 V17 H10"/></svg>แตะบัตรเพื่อพลิก</div>
 
   <div class="lv-tabs" role="group" aria-label="ดูบัตรแต่ละระดับ">
-    ${levels.map((l, i) => { const got = i <= ci; return `<button class="lv-tab lv-${l.id}${l === view ? ' on' : ''}" data-act="lvview" data-id="${l.id}" aria-pressed="${l === view}"><span class="lv-sw"></span><span class="lv-name">${esc(l.name)}</span><span class="lv-st">${l === cur ? 'ระดับปัจจุบัน' : got ? 'ผ่านแล้ว' : '฿' + l.min.toLocaleString('th-TH') + '+'}</span>${got ? '' : '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" class="lv-lock" aria-label="ยังไม่ปลดล็อก"><rect x="5" y="11" width="14" height="9"/><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"/></svg>'}</button>`; }).join('')}
+    ${levels.map((l, i) => { const got = i <= ci; return `<button class="lv-tab lv-${l.id}${l === view ? ' on' : ''}" data-act="lvview" data-id="${l.id}" aria-pressed="${l === view}"><span class="lv-sw"></span><span class="lv-name">${esc(l.name)}</span><span class="lv-st">${l === cur ? 'ระดับปัจจุบัน' : got ? 'ผ่านแล้ว' : '฿' + l.min.toLocaleString('th-TH') + '+'}</span>${l.tag ? `<span class="lv-tagl">${esc(l.tag)}</span>` : ''}${got ? '' : '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.6" class="lv-lock" aria-label="ยังไม่ปลดล็อก"><rect x="5" y="11" width="14" height="9"/><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"/></svg>'}</button>`; }).join('')}
   </div>
 
   <div class="lv-progress">
@@ -3272,17 +3457,51 @@ function saveProfile(f) {
   ui.pfAddr = false; save(); toast('บันทึกข้อมูลแล้ว'); location.hash = '#account';
 }
 
+function a2hsBanner(h) {
+  let seen = false; try { seen = localStorage.getItem('tl-a2hs') === '1'; } catch (e) {}
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent), standalone = window.navigator.standalone || (window.matchMedia && matchMedia('(display-mode: standalone)').matches);
+  let framed = false; try { framed = window.self !== window.top; } catch (e) { framed = true; }
+  if (seen || ui.a2hsOff || !ios || standalone || framed || !['home', 'account', 'orders'].includes(h) && !h.startsWith('o-')) return '';
+  return `<div class="a2hs" role="dialog" aria-label="เพิ่มไว้บนหน้าจอโฮม">
+    <span class="a2hs-ic">${crest()}</span>
+    <div class="stack" style="gap:2px;min-width:0;flex:1"><b>เพิ่ม Thammasat Legacy ไว้บนหน้าจอโฮม</b>
+      ${ui.a2hsOpen ? `<span>1. กดปุ่มแชร์ <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:-2px"><path d="M12 3 V15 M8 7 L12 3 L16 7 M6 11 H5 V21 H19 V11 H18"/></svg> ด้านล่างของ Safari<br>2. เลือก “เพิ่มไปยังหน้าจอโฮม”</span>` : '<span>เช็กคำสั่งซื้อได้ทุกเมื่อ ด้วยไอคอนของแบรนด์</span>'}</div>
+    ${ui.a2hsOpen ? '' : '<button type="button" class="a2hs-go" data-act="a2hsopen">วิธีเพิ่ม</button>'}
+    <button type="button" class="a2hs-x" data-act="a2hsclose" aria-label="ปิด">${I.close}</button>
+  </div>`;
+}
+function memberTeaser() {
+  const levels = LV();
+  return `<section class="mt-wrap">
+    <div class="mt-card" aria-hidden="true">${memberCard({ memberNo: '2026000000001934', name: 'Your Name', since: '10/26', cohort: '--' }, levels[0], { id: 'mcard-t', static: true })}<span class="mt-lock"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"/></svg></span></div>
+    <span class="pf-en">The Member Card</span>
+    <p class="mt-t">เข้าสู่ระบบเพื่อเปิดบัตรสมาชิกของคุณ</p>
+    <p class="small" style="margin:0;text-align:center">บัตรดิจิทัลพร้อมชื่อของคุณ ระดับบัตรตามยอดสะสม และสิทธิ์เฉพาะสมาชิก</p>
+    <div class="mt-levels">${levels.map((l) => `<div class="lv-${l.id}"><span class="lv-sw"></span><b>${esc(l.name)}</b><small>${l.min ? '฿' + l.min.toLocaleString('th-TH') + '+' : 'เริ่มต้น'}</small><em>${esc(l.tag || '')}</em></div>`).join('')}</div>
+  </section>`;
+}
+function orderBrief() {
+  const real = store.orders.filter((o) => o.real);
+  if (!real.length) return '';
+  return `<section class="ob">${real.map((o) => { const st = orderStatus(o), x = o.shipMode === 'express', qty = o.items.reduce((t, it) => t + (it.qty || 0), 0);
+    return `<a class="ob-c${x ? ' x' : ''}" href="#o-${esc(o.id)}">
+      <div class="row between"><span class="pf-en">${x ? 'Hand Delivery' : 'Your Order'}</span><span class="ob-id">${esc(o.id)}</span></div>
+      <b class="ob-t">${esc(st.title)}</b>
+      <span class="ob-s">${qty} ตัว · ${x ? 'ทีมงานนำส่งเองรอบ มธ. รังสิต ภายในวันที่ของถึง' : (o.tracks || []).length ? 'Flash Express · เลขพัสดุ ' + esc(o.tracks[0].code) + (o.tracks.length > 1 ? ' +' + (o.tracks.length - 1) : '') : esc(o.date || '')}</span>
+      ${x ? `<span class="ob-call"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 3.5 H10 L11.5 8 L9.5 9.5 C10.5 11.8 12.2 13.5 14.5 14.5 L16 12.5 L20.5 14 V17 C20.5 18.9 19 20.5 17 20.5 C9.5 20 4 14.5 3.5 7 C3.5 5 5 3.5 7 3.5 Z"/></svg>โปรดเปิดรับสาย ${esc(CONFIG.express.call)}</span>` : ''}
+      <span class="ob-go">ดูคำสั่งซื้อ →</span></a>`; }).join('')}</section>`;
+}
 function vAccount() {
   const pr = store.profile;
   return `${header()}<div class="view">
   <section class="chapter-head" style="padding-block:32px 4px"><div class="label mute">My Account</div><h1 class="th-title">สวัสดี, ${esc(pr.name ? 'คุณ' + pr.name.split(' ')[0] : 'ผู้มาเยือน')}</h1></section>
 
   ${lookupCard()}
-  ${memberSection(pr)}
+  ${store.member ? orderBrief() + memberSection(pr) : memberTeaser()}
 
-  <div class="wrap row" style="justify-content:center;padding-top:16px"><a class="btn btn-ghost" href="#profile" style="max-width:380px"><span class="th">ดูและแก้ไขข้อมูลส่วนตัว</span></a></div>
+  ${store.member ? `<div class="wrap row" style="justify-content:center;padding-top:16px"><a class="btn btn-ghost" href="#profile" style="max-width:380px"><span class="th">ดูและแก้ไขข้อมูลส่วนตัว</span></a></div>` : ''}
 
-  <div class="stats"><a href="#orders"><span class="big">${store.orders.length}</span><span class="small">คำสั่งซื้อ</span></a><a href="#favs"><span class="big">${store.favs.length}</span><span class="small">รายการโปรด</span></a><a href="#bag"><span class="big">${totals().count}</span><span class="small">ในถุง</span></a></div>
+  <div class="stats"${store.member || store.orders.length || store.favs.length || store.cart.length ? '' : ' style="display:none"'}><a href="#orders"><span class="big">${store.orders.length}</span><span class="small">คำสั่งซื้อ</span></a><a href="#favs"><span class="big">${store.favs.length}</span><span class="small">รายการโปรด</span></a><a href="#bag"><span class="big">${totals().count}</span><span class="small">ในถุง</span></a></div>
 
   <nav class="menu" aria-label="เมนูบัญชี" style="margin-top:26px;border-top:1px solid var(--line)">
     <a href="#profile"><span class="stack"><span class="name">ข้อมูลส่วนตัว</span><span class="small">ชื่อ เบอร์ คณะ ไซซ์ประจำ และการแจ้งเตือน</span></span>${I.chev}</a>
@@ -3311,7 +3530,7 @@ function orderStatus(o) {
   const n = CONFIG.phases.length, s = Math.min(o.stage || 1, n);
   const verify = CONFIG.reviewPhases.includes(s) && !(o.verify && o.verify.status) && !o.shipMode;
   const kind = s >= n ? 'done' : s >= n - 1 || o.shipMode ? 'ship' : s === 1 ? 'wait' : verify ? 'verify' : 'work';
-  const title = o.shipMode && s < n && !dispatched() ? 'กำลังเดินทางมาที่ร้าน · ส่งออก ' + dispatchRange() : o.shipMode === 'express' && s < n ? 'จัดส่งด่วน · รอทีมงานโทรนัดหมาย' : o.shipMode === 'normal' && s < n ? 'จัดส่งแล้ว · ติดตามด้วยเลขพัสดุ' : verify ? 'รอคุณตรวจสอบข้อมูล' : CONFIG.phases[s - 1][1];
+  const title = o.shipMode === 'express' && s < n && !dispatched() ? 'กำลังเดินทางมาที่ร้าน · ส่งด่วนโดยทีมงานภายในวันที่ถึง' : o.shipMode && s < n && !dispatched() ? 'กำลังเดินทางมาที่ร้าน · ส่งออก ' + dispatchRange() : o.shipMode === 'express' && s < n ? 'จัดส่งด่วน · ทีมงานนำส่งด้วยตนเอง' : o.shipMode === 'normal' && s < n ? 'จัดส่งแล้ว · ติดตามด้วยเลขพัสดุ' : verify ? 'รอคุณตรวจสอบข้อมูล' : CONFIG.phases[s - 1][1];
   return { s, n, kind, title };
 }
 
@@ -3366,9 +3585,9 @@ const dispatched = () => !!(CONFIG.dispatch || {}).shipped;
 function odShipCard(o) {
   if (o.shipMode === 'express') return `<div class="od-ship express">
       <div class="row between"><span class="pf-en">Express Delivery</span><span class="od-ship-tag">จัดส่งด่วน</span></div>
-      <p class="od-ship-t">ทีมงานจะโทรติดต่อคุณ เพื่อนัดหมายวันและเวลาจัดส่ง${dispatched() ? '' : ` ในช่วงวันที่ ${esc(dispatchRange())}`}</p>
-      ${dispatched() ? '' : '<p class="small" style="margin:0">ขณะนี้ชิ้นงานกำลังเดินทางจากผู้ผลิตมาที่ร้าน</p>'}
-      <div class="od-call"><span class="pf-en">Call Window</span><b>18:00 – 00:00 น.</b><span>ทีมงานอาจโทรหาคุณในช่วงเย็นถึงเที่ยงคืน โปรดเปิดรับสาย แม้เป็นเบอร์ที่ไม่คุ้นเคย</span></div>
+      <p class="od-ship-t">ทีมงาน Thammasat Legacy จะนำส่งถึงมือคุณด้วยตนเอง ${esc(CONFIG.express.when)}</p>
+      <p class="small" style="margin:0">ไม่ผ่านบริษัทขนส่ง จึงไม่มีเลขพัสดุ · พื้นที่นำส่ง${esc(CONFIG.express.area)}${dispatched() ? '' : ' · ขณะนี้ชิ้นงานกำลังเดินทางจากผู้ผลิตมาที่ร้าน'}</p>
+      <div class="od-call"><span class="pf-en">Call Window</span><b>${esc(CONFIG.express.call)}</b><span>ทีมงานจะโทรนัดจุดและเวลารับกับคุณในช่วงเย็นถึงเที่ยงคืน โปรดเปิดรับสาย แม้เป็นเบอร์ที่ไม่คุ้นเคย</span></div>
       <p class="small" style="margin:0">หากพลาดสาย หรือต้องการแจ้งเวลาที่สะดวก ติดต่อเราทาง Instagram ${esc(dkContact('Instagram', '@tu.legacy.jersey'))}</p>
     </div>`;
   if (o.shipMode !== 'normal' || !(o.tracks || []).length) return '';
@@ -3408,10 +3627,11 @@ function lookupCard() {
       <p class="lk-p">ลูกค้าพรีออเดอร์ เข้าสู่ระบบด้วยอีเมลและเบอร์โทรที่ใช้สั่งซื้อ เพื่อดูข้อมูลส่วนตัว ที่อยู่จัดส่ง และคำสั่งซื้อทั้งหมดของคุณ</p></div>
     <form id="lkf" class="lk-f" novalidate>
       <label class="lk-field" for="lk-em"><span>Email</span><input id="lk-em" type="email" inputmode="email" value="${esc(ui.lkEm || '')}" placeholder="name@email.com" autocomplete="email" autocapitalize="off" spellcheck="false"></label>
-      <label class="lk-field" for="lk-ph"><span>Phone</span><input id="lk-ph" value="${esc(ui.lkPh || '')}" inputmode="numeric" maxlength="12" placeholder="08X XXX XXXX" autocomplete="tel"></label>
+      <label class="lk-field" for="lk-ph"><span>Phone <i class="lk-hint">มีขีดหรือไม่มีก็ได้</i></span><input id="lk-ph" value="${esc(ui.lkPh || '')}" inputmode="numeric" maxlength="12" placeholder="08X XXX XXXX" autocomplete="tel"></label>
       ${ui.lkMsg ? `<p class="lk-msg" role="alert">${esc(ui.lkMsg)}</p>` : store.reLogin ? '<p class="lk-msg" style="color:#D9C59A">ข้อมูลคำสั่งซื้ออัปเดตใหม่ กรุณาเข้าสู่ระบบอีกครั้ง</p>' : ''}
       <button class="lk-btn" type="submit" ${ui.lkBusy ? 'disabled' : ''}><span class="th">${ui.lkBusy ? 'กำลังตรวจสอบ…' : 'เข้าสู่ระบบ'}</span></button>
     </form>
+    <a class="lk-help" href="#help" data-act="hpgo" data-id="hp-I" data-q="I-1">เข้าสู่ระบบไม่ได้?</a>
     <div class="lk-foot"><span>${lock}เข้ารหัสแยกรายบุคคล เปิดได้เฉพาะเจ้าของข้อมูล</span> <a href="#help" data-act="hpgo" data-id="hp-IV" class="lk-pl">นโยบายความเป็นส่วนตัว</a></div>
   </section>`;
 }
@@ -3576,8 +3796,40 @@ function vFavs() {
   return `${header('', true)}<div class="view"><div class="chapter-head" style="padding-block:28px 18px"><h1 class="title">Wishlist</h1></div>${list.length ? `<div class="grid2" style="padding-bottom:40px">${list.map(card).join('')}</div>`
     : `<div class="empty"><div class="crest-wrap">${crest('ink')}</div><p class="body" style="text-align:center">แตะรูปหัวใจบนสินค้าเพื่อบันทึกไว้ที่นี่</p><a class="btn btn-black btn-fit" href="#shop"><span class="th">เลือกชมสินค้า</span></a></div>`}</div>${tabs('account')}`;
 }
+const HP_IC = {
+  ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".7" fill="currentColor"/></svg>',
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3.5" y="5.5" width="17" height="13"/><path d="M3.5 6 L12 13 L20.5 6"/></svg>',
+  tel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 3.5 H10 L11.5 8 L9.5 9.5 C10.5 11.8 12.2 13.5 14.5 14.5 L16 12.5 L20.5 14 V17 C20.5 18.9 19 20.5 17 20.5 C9.5 20 4 14.5 3.5 7 C3.5 5 5 3.5 7 3.5 Z"/></svg>'
+};
+function advisorCard(ig, em, ph) {
+  return `<div class="mcard bcard" id="acard" data-act="aflip" role="button" tabindex="0" aria-pressed="false" aria-label="นามบัตร Client Services แตะเพื่อพลิก">
+    <div class="mc-in">
+      <div class="mc-face bc-front">
+        <span class="mc-sheen" aria-hidden="true"></span>
+        <span class="bc-frame" aria-hidden="true"></span>
+        <span class="bc-emboss" aria-hidden="true"><i style="-webkit-mask-image:url(${CREST});mask-image:url(${CREST})"></i></span>
+        <div class="bc-head"><span class="bc-foil bc-crest" style="-webkit-mask-image:url(${CREST});mask-image:url(${CREST})"></span><span class="bc-house"><b>Thammasat Legacy</b><small>Maison · Est. 1934</small></span></div>
+        <div class="bc-name"><span class="bc-n">Client Services</span><span class="bc-r">Client Advisor <em>·</em> ผู้ดูแลลูกค้า</span></div>
+        <dl class="bc-info">
+          <div><dt>T</dt><dd>${esc(ph)}</dd></div>
+          <div><dt>E</dt><dd>${esc(em)}</dd></div>
+          <div><dt>IG</dt><dd>${esc(ig)}</dd></div>
+        </dl>
+        <span class="bc-addr">Tha Phra Chan · Bangkok</span>
+      </div>
+      <div class="mc-face bc-back" aria-hidden="true">
+        <span class="mc-sheen" aria-hidden="true"></span>
+        <span class="bc-frame dark" aria-hidden="true"></span>${guillocheWaves('bc-pat')}
+        <span class="bc-bcrest bc-foil" style="-webkit-mask-image:url(${CREST});mask-image:url(${CREST})"></span>
+        <span class="bc-bwm">Thammasat Legacy</span>
+        <span class="bc-born"><i></i><b></b><i></i></span>
+        <span class="bc-bsub">Every design, a memory of the Dome</span>
+      </div>
+    </div>
+  </div>`;
+}
 function vHelp() {
-  const ig = dkContact('Instagram', '@tu.legacy.jersey'), em = dkContact('Email', 'thammasat.legacy@gmail.com');
+  const ig = dkContact('Instagram', '@tu.legacy.jersey'), em = dkContact('Email', 'thammasat.legacy@gmail.com'), ph = dkContact('Phone', '(+66) 64 579 1198');
   const tp = CONFIG.racing.teamPricing || [], base = prod('tl-racing') ? prod('tl-racing').price : 529;
   const S = [
     ['I', 'Orders', 'การสั่งซื้อและราคา', [
@@ -3589,7 +3841,7 @@ function vHelp() {
     ]],
     ['II', 'Delivery', 'การจัดส่ง', [
       ['จัดส่งอย่างไร', `จัดส่งทั่วประเทศโดย Flash Express ค่าจัดส่ง ${money((CONFIG.shipping[0] || {}).fee || 0)} ต่อคำสั่งซื้อ ติดตามพัสดุได้จากเลขพัสดุในหน้าคำสั่งซื้อ`],
-      ['จัดส่งด่วนคืออะไร', 'คำสั่งซื้อที่ไม่มีเลขพัสดุจะจัดส่งแบบด่วน ทีมงานจะโทรนัดหมายวันและเวลาจัดส่งกับคุณโดยตรง ในช่วง 18:00 – 00:00 น. การโทรอาจมาจากเบอร์ที่คุณไม่คุ้นเคย โปรดเปิดรับสาย'],
+      ['จัดส่งด่วนคืออะไร', `คำสั่งซื้อที่ไม่มีเลขพัสดุ ทีมงาน Thammasat Legacy จะนำส่งถึงมือคุณด้วยตนเอง ${CONFIG.express.area} ${CONFIG.express.when} โดยไม่ผ่านบริษัทขนส่ง ทีมงานจะโทรนัดจุดและเวลารับในช่วง ${CONFIG.express.call} การโทรอาจมาจากเบอร์ที่คุณไม่คุ้นเคย โปรดเปิดรับสาย`],
       ['พลาดสายจากทีมงาน', `ส่งข้อความหาเราทาง Instagram ${ig} พร้อมเลขคำสั่งซื้อ และเวลาที่สะดวก เราจะติดต่อกลับ`],
       ['รับสินค้าเองที่ร้านได้ไหม', 'ขออภัย ขณะนี้ยังไม่มีบริการนัดรับสินค้าด้วยตนเอง ทุกคำสั่งซื้อจัดส่งถึงที่อยู่ของคุณ'],
       ['เปลี่ยนที่อยู่จัดส่งได้ไหม', `แจ้งเราก่อนวันจัดส่งทาง Instagram ${ig} หรืออีเมล ${em} หากพัสดุออกจากร้านแล้วจะไม่สามารถเปลี่ยนได้`]
@@ -3608,18 +3860,47 @@ function vHelp() {
     ]]
   ];
   const open = ui.helpOpen || '';
+  const shipFee = (CONFIG.shipping[0] || {}).fee || 0;
+  const igC = CONFIG.contact.find((c) => c.label === 'Instagram') || {}, emC = CONFIG.contact.find((c) => c.label === 'Email') || {};
+  const extra = {
+    II: `<div class="hp-facts"><div><span class="pf-en">Carrier</span><b>Flash</b><span>Express</span></div><div><span class="pf-en">Shipping</span><b>${money(shipFee).replace('฿ ', '฿')}</b><span>ต่อคำสั่งซื้อ</span></div><div><span class="pf-en">Express</span><b>TU</b><span>รังสิต · ส่งเอง</span></div></div>`,
+    III: `<div class="hp-policy"><div class="hp-pol"><span class="pf-en">Sizing</span><b>ไม่รับเปลี่ยนไซซ์</b><span>ทุกตัวผลิตตามคำสั่งซื้อ โปรดตรวจสอบตารางไซซ์ก่อนสั่ง</span></div><div class="hp-pol dark"><span class="pf-en">Craft</span><b>มีตำหนิ เปลี่ยนทันที</b><span>ไม่มีค่าใช้จ่าย เพียงแจ้งพร้อมภาพและเลขคำสั่งซื้อ</span></div></div>`,
+    IV: `<div class="hp-seal"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11 V8 a4 4 0 0 1 8 0 V11"/></svg><span><b>Your details, sealed.</b><br>ข้อมูลของคุณถูกเข้ารหัสแยกรายบุคคล เปิดได้เฉพาะคุณเท่านั้น</span></div>`
+  };
   return `${header('dark', true)}<div class="view hp">
-  <section class="hp-hero night">${sky('sky')}
-    <span class="st-crest sm">${crest()}</span>
-    <div class="label" style="color:var(--glow)">Client Services</div>
-    <h1 class="th-title" style="font-weight:400">เราพร้อมดูแลคุณ</h1>
-    <p class="body" style="text-align:center;color:#D6D6D6">คำถามที่พบบ่อย การจัดส่ง การเปลี่ยนสินค้า และความเป็นส่วนตัวของคุณ</p>
+  <section class="hp-hero night">${sky('sky')}<div class="hp-pat">${guillocheWaves('hp-pat-svg')}</div>
+    <span class="hp-crest">${crest()}</span>
+    <span class="hp-k">Client Services</span>
+    <h1 class="wm hp-t">At Your Service</h1>
+    <span class="hp-th">เราพร้อมดูแลคุณ</span>
+    <span class="hp-orn" aria-hidden="true"><i></i><b></b><i></i></span>
+    <p class="hp-lede">ทุกคำถามของคุณ เราดูแลด้วยความใส่ใจ<br>เช่นเดียวกับเสื้อทุกตัวที่ออกจากห้องเสื้อของเรา</p>
+    <div class="hp-cardwrap">${advisorCard(ig, em, ph)}</div>
+    <span class="hp-hint">แตะนามบัตรเพื่อพลิกดูด้านหลัง</span>
   </section>
-  <nav class="hp-jump">${S.map(([n, en, th]) => `<a href="#help" data-act="hpjump" data-id="hp-${n}"><span class="pf-en">${en}</span><span>${th}</span></a>`).join('')}</nav>
-  ${S.map(([n, en, th, qs]) => `<section class="pf-sec" id="hp-${n}"><header class="pf-sec-h"><span class="pf-roman">${n}</span><div class="stack" style="gap:2px"><span class="pf-en">${en}</span><h2>${th}</h2></div></header>
-    <div class="hp-qs">${qs.map(([q, a], i) => { const id = n + '-' + i, on = open === id; return `<div class="hp-q${on ? ' on' : ''}"><button type="button" data-act="hpq" data-id="${id}" aria-expanded="${on}"><span>${esc(q)}</span><i aria-hidden="true">${on ? '–' : '+'}</i></button>${on ? `<p>${esc(a)}</p>` : ''}</div>`; }).join('')}</div></section>`).join('')}
-  <section class="hp-end"><span class="pf-en">Still need help</span><p>ทีมงานพร้อมตอบทุกคำถาม</p>
-    <div class="hp-contact">${CONFIG.contact.map((c) => `<span><em>${esc(c.label)}</em>${contactLink(c)}</span>`).join('')}</div></section>
+
+  <section class="hp-contactlist">
+    <a href="${esc(igC.href || '#')}" target="_blank" rel="noopener"><span class="hp-cl-ic">${HP_IC.ig}</span><span class="stack" style="gap:2px;min-width:0"><span class="pf-en">Instagram</span><b>${esc(ig)}</b></span><i aria-hidden="true">→</i></a>
+    <a href="${esc(emC.href || 'mailto:' + em)}"><span class="hp-cl-ic">${HP_IC.mail}</span><span class="stack" style="gap:2px;min-width:0"><span class="pf-en">Email</span><b>${esc(em)}</b></span><i aria-hidden="true">→</i></a>
+    <a href="tel:${esc(ph.replace(/[^0-9+]/g, ''))}"><span class="hp-cl-ic">${HP_IC.tel}</span><span class="stack" style="gap:2px;min-width:0"><span class="pf-en">Phone</span><b>${esc(ph)}</b></span><i aria-hidden="true">→</i></a>
+    <p class="hp-cl-note">ตอบกลับภายใน 24 ชั่วโมง · ส่งด่วนรอบ มธ. รังสิต โทรนัด 18:00 – 00:00 น.</p>
+  </section>
+
+  <nav class="hp-index" aria-label="หมวดคำถาม">${S.map(([n, en, th, qs]) => `<a href="#help" data-act="hpjump" data-id="hp-${n}"><span class="hp-ix-n">${n}</span><span class="stack" style="gap:2px;min-width:0"><span class="pf-en">${en}</span><span class="hp-ix-th">${th}</span></span><span class="hp-ix-c">${qs.length}</span></a>`).join('')}</nav>
+
+  ${S.map(([n, en, th, qs]) => `<section class="hp-sec" id="hp-${n}">
+    <header class="hp-sec-h"><span class="hp-roman">${n}</span><span class="pf-en">${en}</span><h2>${th}</h2><span class="hp-orn sm" aria-hidden="true"><i></i><b></b><i></i></span></header>
+    ${extra[n] || ''}
+    <div class="hp-qs">${qs.map(([q, a], i) => { const id = n + '-' + i, on = open === id; return `<div class="hp-q${on ? ' on' : ''}"><button type="button" data-act="hpq" data-id="${id}" aria-expanded="${on}"><span class="hp-qn">${String(i + 1).padStart(2, '0')}</span><span class="hp-qt">${esc(q)}</span><i aria-hidden="true"></i></button>${on ? `<p>${esc(a)}</p>` : ''}</div>`; }).join('')}</div>
+  </section>`).join('')}
+
+  <section class="hp-end night ft-guil">${guillocheWaves('ft-pattern')}
+    <span class="hp-crest sm">${crest()}</span>
+    <span class="hp-k">Still need assistance</span>
+    <p class="hp-end-t">ทีมงานพร้อมตอบทุกคำถาม</p>
+    <div class="hp-end-btns"><a class="btn btn-white" href="${esc(igC.href || '#')}" target="_blank" rel="noopener"><span class="th">ส่งข้อความทาง Instagram</span></a><a class="btn btn-ghost hp-ghost" href="${esc(emC.href || 'mailto:' + em)}"><span class="th">ส่งอีเมลถึงเรา</span></a></div>
+    <span class="hp-sign wm">Thammasat Legacy · Client Services</span>
+  </section>
   </div>${tabs('')}`;
 }
 function vStory() {
@@ -4091,7 +4372,7 @@ const DK_OPTS = {
     ['พร้อมส่ง', { 'สถานะที่ร้าน': 'ชิ้นงานทั้งหมดได้รับการบรรจุเรียบร้อย และพร้อมออกเดินทาง' }],
   ] }],
   shipped: [{ label: 'บริษัทขนส่ง', c: ['ไปรษณีย์ไทย EMS', 'Kerry Express', 'Flash Express', 'J&T Express'].map((x) => [x, { 'บริษัทขนส่ง': x }]) }],
-  express: [{ label: 'ช่วงเวลาที่จะโทร', c: ['18:00 – 00:00 น.', 'วันที่ 16–18 ต.ค. เวลา 18:00 – 00:00 น.', 'ภายใน 24 ชั่วโมง'].map((x) => [x, { 'ช่วงเวลาที่จะโทรติดต่อ': x }]) }],
+  express: [{ label: 'ช่วงเวลาที่จะโทร', c: ['18:00 – 00:00 น.', 'วันนี้ 18:00 – 00:00 น.', 'ภายในวันที่ชิ้นงานมาถึงเรา'].map((x) => [x, { 'ช่วงเวลาที่จะโทรติดต่อ': x }]) }],
   pickup: [{ label: 'ช่วงเวลารับ', c: ['10:00 – 18:00 น.', '12:00 – 20:00 น.', '16:00 – 19:00 น.'].map((x) => [x, { 'ช่วงเวลารับสินค้า': x }]) }],
 };
 const DK_T = [
@@ -4137,9 +4418,9 @@ const DK_T = [
       body: DK_DEAR_ALL + '\n\nชิ้นงานของ {รอบพรีออเดอร์} ได้ทยอยออกเดินทางไปหาทุกท่านแล้ว ตั้งแต่วันที่ {วันที่จัดส่ง}\n\nบริษัทขนส่ง — {บริษัทขนส่ง}\nคาดว่าจะถึงมือทุกท่าน — {วันที่คาดว่าได้รับ}\n\nหมายเลขพัสดุของแต่ละท่าน เราได้แจ้งไว้ในอีเมลรายบุคคล และสามารถดูได้ในหน้าคำสั่งซื้อส่วนตัว เมื่อได้รับแล้ว หากมีสิ่งใดไม่เป็นไปตามที่คาดหวัง โปรดแจ้งเราภายใน 7 วัน' } },
   { id: 'express', en: 'Express Delivery', th: 'จัดส่งด่วน · นัดหมาย',
     subject: 'Arranging Your Delivery · คำสั่งซื้อ {เลขคำสั่งซื้อ}',
-    body: 'เรียน คุณ{ชื่อลูกค้า}\n\nชิ้นงานในคำสั่งซื้อ {เลขคำสั่งซื้อ} จะจัดส่งถึงมือคุณแบบด่วนเป็นพิเศษ\n\nทีมงานของเราจะโทรติดต่อคุณที่หมายเลขซึ่งให้ไว้ในคำสั่งซื้อ เพื่อนัดหมายวันและเวลาที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nการโทรอาจมาจากเบอร์ที่คุณไม่คุ้นเคย โปรดเปิดรับสายในช่วงเวลาดังกล่าว หากคุณสะดวกรับสายในช่วงเวลาใดเป็นพิเศษ หรือต้องการเปลี่ยนสถานที่รับ เพียงตอบกลับอีเมลฉบับนี้ เราพร้อมดูแลตามที่คุณสะดวก',
+    body: 'เรียน คุณ{ชื่อลูกค้า}\n\nชิ้นงานในคำสั่งซื้อ {เลขคำสั่งซื้อ} จะได้รับการดูแลเป็นพิเศษ ทีมงาน Thammasat Legacy จะนำส่งถึงมือคุณด้วยตนเอง บริเวณรอบมหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต ภายในวันที่ชิ้นงานมาถึงเรา\n\nทีมงานจะโทรติดต่อคุณที่หมายเลขซึ่งให้ไว้ในคำสั่งซื้อ เพื่อนัดหมายจุดและเวลารับที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nการโทรอาจมาจากเบอร์ที่คุณไม่คุ้นเคย โปรดเปิดรับสายในช่วงเวลาดังกล่าว หากคุณสะดวกรับสายในช่วงเวลาใดเป็นพิเศษ หรือต้องการเปลี่ยนสถานที่รับ เพียงตอบกลับอีเมลฉบับนี้ เราพร้อมดูแลตามที่คุณสะดวก',
     all: { subject: 'Arranging Your Delivery · {รอบพรีออเดอร์}',
-      body: DK_DEAR_ALL + '\n\nชิ้นงานของ {รอบพรีออเดอร์} ส่วนหนึ่งจะจัดส่งแบบด่วนเป็นพิเศษ ท่านที่อยู่ในกลุ่มนี้จะไม่มีเลขพัสดุ\n\nทีมงานของเราจะโทรติดต่อแต่ละท่าน เพื่อนัดหมายวันและเวลาที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nการโทรอาจมาจากเบอร์ที่ท่านไม่คุ้นเคย โปรดเปิดรับสายในช่วงเวลาดังกล่าว หากต้องการแจ้งเวลาที่สะดวก เพียงตอบกลับอีเมลฉบับนี้' } },
+      body: DK_DEAR_ALL + '\n\nชิ้นงานของ {รอบพรีออเดอร์} ส่วนหนึ่งจะจัดส่งแบบด่วน โดยทีมงาน Thammasat Legacy นำส่งถึงมือด้วยตนเอง บริเวณรอบมหาวิทยาลัยธรรมศาสตร์ ศูนย์รังสิต ภายในวันที่ชิ้นงานมาถึงเรา ท่านที่อยู่ในกลุ่มนี้จะไม่มีเลขพัสดุ\n\nทีมงานจะโทรติดต่อแต่ละท่าน เพื่อนัดหมายจุดและเวลารับที่สะดวกที่สุด\nช่วงเวลาที่เราจะติดต่อ — {ช่วงเวลาที่จะโทรติดต่อ}\n\nการโทรอาจมาจากเบอร์ที่ท่านไม่คุ้นเคย โปรดเปิดรับสายในช่วงเวลาดังกล่าว หากต้องการแจ้งเวลาที่สะดวก เพียงตอบกลับอีเมลฉบับนี้' } },
   { id: 'pickup', en: 'Ready for Collection', th: 'พร้อมให้รับสินค้า',
     subject: 'Ready for Collection · คำสั่งซื้อ {เลขคำสั่งซื้อ}',
     body: 'เรียน คุณ{ชื่อลูกค้า}\n\nชิ้นงานในคำสั่งซื้อ {เลขคำสั่งซื้อ} พร้อมรอให้คุณมารับแล้ว\n\nสถานที่ — {สถานที่รับสินค้า}\nวันที่ — {วันที่เริ่มรับสินค้า} ถึง {วันที่สิ้นสุดการรับ}\nเวลา — {ช่วงเวลารับสินค้า}\n\nโปรดแสดงหมายเลขคำสั่งซื้อหรืออีเมลฉบับนี้แก่เจ้าหน้าที่ หากมีผู้มารับแทน กรุณาแจ้งชื่อให้เราทราบล่วงหน้า เพื่อความเรียบร้อยในการส่งมอบ',
@@ -4560,7 +4841,7 @@ const admQty = (o) => o.i.length;
 const admList = (o) => o.i.reduce((t, x) => t + (prod('tl-racing') ? prod('tl-racing').price : 529) + sizeFee(x[0]), 0) + ((CONFIG.shipping.find((s) => s.id === 'std') || {}).fee || 0);
 const admSzSort = (a, b) => ADM_SIZES.indexOf(a) - ADM_SIZES.indexOf(b);
 const admStatus = (o) => { const x = admOps[o.id] || {}; if (x.track || (o.tk || []).length) return 'shipped'; if (o.sm === 'x') return 'express'; return x.packed ? 'packed' : 'open'; };
-const ADM_ST = { open: 'รอจัดส่ง', packed: 'แพ็กแล้ว', express: 'ส่งด่วน · โทรนัด', shipped: 'ส่งแล้ว' };
+const ADM_ST = { open: 'รอจัดส่ง', packed: 'แพ็กแล้ว', express: 'ส่งด่วน · ส่งเอง', shipped: 'ส่งแล้ว' };
 if (!(CONFIG.dispatch || {}).shipped) ADM_ST.shipped = 'มีเลขพัสดุ · รอส่งออก';
 
 function admTop(cur) {
@@ -4651,7 +4932,7 @@ function admOrdersView() {
   return `${admHead('Orders', 'คำสั่งซื้อทั้งหมด', 'แตะที่คำสั่งซื้อเพื่อดูรายละเอียด บันทึกการแพ็ก ใส่เลขพัสดุ หรือเขียนจดหมายถึงลูกค้า')}
   <section class="ad-tools">
     <label class="ad-search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M16 16 L21 21"/></svg><input id="ad-q" data-adm="q" value="${esc(ui.admQ || '')}" placeholder="ค้นหาชื่อ เลขคำสั่งซื้อ อีเมล หรือชื่อหลังเสื้อ" autocomplete="off" autocapitalize="off" spellcheck="false"></label>
-    <div class="ad-filters">${admChips('admround', ui.admR || 'all', [['all', 'ทุกรอบ'], ['1', 'รอบ 1'], ['2', 'รอบ 2']])}${admChips('admst', ui.admSt || 'all', [['all', 'ทุกสถานะ'], ['express', 'ส่งด่วน · โทรนัด'], ['shipped', ADM_ST.shipped], ['open', 'รอจัดส่ง'], ['packed', 'แพ็กแล้ว']])}</div>
+    <div class="ad-filters">${admChips('admround', ui.admR || 'all', [['all', 'ทุกรอบ'], ['1', 'รอบ 1'], ['2', 'รอบ 2']])}${admChips('admst', ui.admSt || 'all', [['all', 'ทุกสถานะ'], ['express', 'ส่งด่วน · ส่งเอง'], ['shipped', ADM_ST.shipped], ['open', 'รอจัดส่ง'], ['packed', 'แพ็กแล้ว']])}</div>
   </section>
   <div id="ad-olist">${admOrderList()}</div>`;
 }
@@ -4681,7 +4962,7 @@ function admOrderRow(o) {
         <div><dt>ตามราคาเสื้อ</dt><dd>${money(admList(o))} <span class="small">ก่อนหักโปรโมชั่น</span></dd></div>
       </dl>
       ${(o.tk || []).length ? `<div class="ad-tklist"><span class="pf-en">Tracking · จัดส่งแบบปกติ${dispatched() ? '' : ' · ส่งออก ' + esc(dispatchRange())}</span>${o.tk.map(([to, code, idx]) => `<div><span class="stack" style="gap:1px;min-width:0"><span>${o.tk.length > 1 ? esc(to) + (idx ? ' · ตัวที่ ' + idx.map((i) => i + 1).join(', ') : '') : 'เลขพัสดุ'}</span><b>${esc(code)}</b></span><button type="button" data-act="copytext" data-v="${esc(code)}">คัดลอก</button></div>`).join('')}</div>`
-        : o.sm === 'x' ? '<div class="ad-tklist"><span class="pf-en">Express · จัดส่งด่วน</span><div><span>ไม่มีเลขพัสดุ · ทีมงานโทรนัดจัดส่ง ช่วง 18:00 – 00:00 น.</span></div></div>' : ''}
+        : o.sm === 'x' ? '<div class="ad-tklist"><span class="pf-en">Express · จัดส่งด่วน</span><div><span>ไม่มีเลขพัสดุ · ทีมงานนำส่งเองรอบ มธ. รังสิต ภายในวันที่ของถึง · โทรนัด 18:00 – 00:00 น.</span></div></div>' : ''}
       <div class="ad-ops">
         <label class="ad-check"><input type="checkbox" data-admpack="${o.id}" ${ops.packed ? 'checked' : ''}><span>แพ็กเรียบร้อย</span></label>
         <div class="ad-ops-row">
@@ -4793,7 +5074,7 @@ function render() {
   else html = vMissing();
   const raceSkin = paddockOn() && (h === 'racing' || (h.startsWith('p-') && isRace(prod(h.slice(2)))));
   app.className = 'app' + (h === 'welcome' ? ' bare' : '') + (raceSkin ? ' race' : '') + ((h === 'desk' || h.startsWith('desk-')) && dkAuthed() ? ' admin' : '');
-  app.innerHTML = html + (ui.search ? searchOverlay() : '') + (ui.menu ? menuOverlay() : '') + ceremonyOverlay();
+  app.innerHTML = html + a2hsBanner(h) + (ui.search ? searchOverlay() : '') + (ui.menu ? menuOverlay() : '') + ceremonyOverlay();
   const fresh = h !== lastRoute;
   if (fresh) { window.scrollTo(0, 0); lastRoute = h; }
   onScroll();
@@ -4855,6 +5136,7 @@ const acts = {
   tier(el) { ui.tier = +el.dataset.i; ui.teamN = CONFIG.racing.teamPricing.slice().sort((a, b) => a.min - b.min)[ui.tier].min; ttRefresh(); },
   teamn(el) { ui.teamN = Math.max(1, Math.min(99, (ui.teamN || 6) + (+el.dataset.v))); ttRefresh(); },
   teamset(el) { ui.teamN = +el.dataset.v; ttRefresh(); },
+  aflip() { const c = document.getElementById('acard'); if (!c) return; const on = c.classList.toggle('flipped'); c.setAttribute('aria-pressed', on); },
   flip() { const c = document.getElementById('mcard'); if (!c) return; const on = c.classList.toggle('flipped'); c.setAttribute('aria-pressed', on); },
   lvview(el) { const cur = levelFor(spent()); ui.previewLevel = el.dataset.id === cur.id ? null : el.dataset.id; render(); },
   upgdemo() { const L = LV(), ci = L.indexOf(levelFor(spent())); const from = L[Math.min(ci, L.length - 2)], to = L[L.indexOf(from) + 1]; ui.ceremony = { from: from.id, to: to.id, demo: true }; render(); },
@@ -4975,7 +5257,9 @@ const acts = {
   admletter(el) { admLetterFor(el.dataset.id); },
   admcopy(el) { const o = admOrders().find((x) => x.id === el.dataset.id); if (o) copy(admOrderText(o), 'คัดลอกรายการ ' + o.id + ' แล้ว'); },
   admprodcopy(el) { copy(admProdText(el.dataset.v), 'คัดลอกแล้ว วางใน Excel หรือ Google Sheets ได้เลย'); },
-  hpgo(el) { setTimeout(() => { const t = document.getElementById(el.dataset.id); if (t) t.scrollIntoView({ block: 'start' }); }, 120); },
+  a2hsopen() { ui.a2hsOpen = true; render(); },
+  a2hsclose() { ui.a2hsOff = true; try { localStorage.setItem('tl-a2hs', '1'); } catch (e) {} render(); },
+  hpgo(el) { if (el.dataset.q) ui.helpOpen = el.dataset.q; setTimeout(() => { const t = document.getElementById(el.dataset.id); if (t) t.scrollIntoView({ block: 'start' }); }, 120); },
   hpq(el) { ui.helpOpen = ui.helpOpen === el.dataset.id ? '' : el.dataset.id; const y = window.scrollY; render(); window.scrollTo(0, y); },
   hpjump(el, e) { e.preventDefault(); const t = document.getElementById(el.dataset.id); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); },
   dkmode(el) { dk.mode = el.dataset.v; dkSave(); dkPaint(true); },
@@ -4995,15 +5279,15 @@ document.addEventListener('click', (e) => {
   fn(el, e);
 });
 document.addEventListener('pointermove', (e) => {
-  const c = e.target.closest && e.target.closest('#mcard');
+  const c = e.target.closest && e.target.closest('#mcard,#acard');
   if (!c || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
   c.style.setProperty('--ry', ((x - .5) * 14).toFixed(2) + 'deg'); c.style.setProperty('--rx', ((.5 - y) * 10).toFixed(2) + 'deg');
   c.style.setProperty('--gx', (x * 100).toFixed(1) + '%'); c.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
 });
-document.addEventListener('pointerout', (e) => { const c = e.target.closest && e.target.closest('#mcard'); if (c && !c.contains(e.relatedTarget)) { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); } });
+document.addEventListener('pointerout', (e) => { const c = e.target.closest && e.target.closest('#mcard,#acard'); if (c && !c.contains(e.relatedTarget)) { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); } });
 document.addEventListener('keydown', (e) => {
-  if ((e.key === 'Enter' || e.key === ' ') && e.target.id === 'mcard') { e.preventDefault(); acts.flip(); return; } if (e.key === 'Escape' && (ui.menu || ui.search)) { ui.menu = false; ui.search = false; render(); } });
+  if ((e.key === 'Enter' || e.key === ' ') && (e.target.id === 'mcard' || e.target.id === 'acard')) { e.preventDefault(); e.target.id === 'acard' ? acts.aflip() : acts.flip(); return; } if (e.key === 'Escape' && (ui.menu || ui.search)) { ui.menu = false; ui.search = false; render(); } });
 document.addEventListener('input', (e) => {
   if (e.target.dataset && e.target.dataset.dk) { dkInput(e.target); return; }
   if (e.target.dataset && e.target.dataset.adm === 'q') { ui.admQ = e.target.value; const l = document.getElementById('ad-olist'); if (l) l.innerHTML = admOrderList(); return; }
