@@ -1583,6 +1583,27 @@ mark.dk-hole{background:#F5EBCF;color:#6B5212;padding:0 4px;font-size:12px;borde
 .st-end{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:60px 28px calc(70px + env(safe-area-inset-bottom,0px))}
 .st-quote{margin:6px 0 0;font-size:20px;line-height:1.6;font-weight:400;max-width:14em;color:#FFFFFF}
 .st-sign{font-size:11px;letter-spacing:.32em;color:#A9A9A9}
+.box.sheet th{letter-spacing:0;font-family:var(--sans);text-transform:none;font-weight:500}
+.hp{background:var(--white)}
+.hp-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:52px 28px 48px}
+.hp-hero > *:not(.sky){position:relative;z-index:1}
+.hp-jump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.hp-jump a{display:flex;flex-direction:column;gap:3px;padding:14px 20px;text-decoration:none;color:var(--black);border-top:1px solid var(--line);font-size:13px}
+.hp-jump a:nth-child(odd){border-right:1px solid var(--line)}
+.hp-jump .pf-en{color:var(--mute);font-size:8.5px}
+.hp-qs{border-top:1px solid var(--line)}
+.hp-q{border-bottom:1px solid var(--line)}
+.hp-q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 0;border:0;background:none;cursor:pointer;text-align:left;font-size:14.5px;font-weight:500;color:var(--black);min-height:56px}
+.hp-q button i{font-style:normal;font-family:var(--wide);font-size:18px;font-weight:300;flex:0 0 auto}
+.hp-q p{margin:0 0 18px;font-size:13.5px;line-height:1.95;color:#3A3A3A;font-weight:300}
+.hp-end{margin:40px 20px 30px;padding:24px 20px;background:var(--mist);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.hp-end .pf-en{color:var(--mute)}
+.hp-end p{margin:0;font-size:15px;font-weight:500}
+.hp-contact{display:flex;flex-direction:column;gap:6px;margin-top:6px;font-size:13px}
+.hp-contact em{font-style:normal;color:var(--mute);margin-right:8px}
+.ft-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-top:14px}
+.ft-links a{font-size:12px;color:#BDBDBD;text-decoration:underline;text-underline-offset:3px}
+.lk-pl{color:inherit;text-decoration:underline;text-underline-offset:3px;margin-left:4px}
 .od-ship{margin-bottom:14px;padding:18px 16px;background:var(--black);color:#FFFFFF;display:flex;flex-direction:column;gap:10px}
 .od-ship .pf-en{color:#A9A9A9}
 .od-ship-tag{font-size:11px;padding:3px 10px;border:1px solid #444;color:#E2E2E2}
@@ -1600,6 +1621,8 @@ mark.dk-hole{background:#F5EBCF;color:#6B5212;padding:0 4px;font-size:12px;borde
 .od-call b{font-family:var(--wide);font-size:18px;font-weight:600;letter-spacing:.04em}
 .od-call span:last-child{font-size:12.5px;color:#D6D6D6;line-height:1.7}
 .od-note b{color:var(--black);font-weight:600}
+.od-flash{display:flex;align-items:center;justify-content:center;min-height:46px;background:#FFFFFF;color:#000;text-decoration:none;font-size:13.5px;font-weight:500}
+.od-flash:hover{background:#E2E2E2}
 .od-note{margin:14px 0 0;font-size:11.5px;line-height:1.75;color:var(--mute);padding:12px 14px;background:var(--mist)}
 .dk-gate{padding:28px 16px 120px;background:var(--white)}
 .dk-mode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-bottom:14px;border:1px solid var(--black)}
@@ -1872,7 +1895,7 @@ const SHIRT = { f1: 'data:image/webp;base64,UklGRr6WAABXRUJQVlA4WAoAAAAQAAAANgIA
 const CONFIG = {
   brand: 'Thammasat Legacy',
   // true = แสดงแถบ "ข้อมูลตัวอย่าง" เปลี่ยนเป็น false เมื่อใส่ราคาและสินค้าจริงแล้ว
-  demoNotice: true,
+  demoNotice: false,
   currency: '฿',
 
   welcome: { line: 'Maison of Tha Phra Chan', tagline: 'มรดกแห่งท่าพระจันทร์ ถักทอเป็นเสื้อผ้าที่สวมใส่ได้ทุกวัน' },
@@ -1908,8 +1931,8 @@ const CONFIG = {
     image: ''
   },
   services: [
-    { icon: 'gift', text: 'กล่องของขวัญ\nทุกคำสั่งซื้อ' },
-    { icon: 'needle', text: 'ปักชื่อ\nและรุ่น' },
+    { icon: 'limited', text: 'ผลิต\nจำนวนจำกัด' },
+    { icon: 'screen', text: 'สกรีนชื่อ\nและเบอร์' },
     { icon: 'truck', text: 'จัดส่ง\nทั่วประเทศ' }
   ],
   // หมวดสินค้า (title/desc แสดงบนหัวหน้า Shop เมื่อเลือกหมวดนั้น)
@@ -1965,13 +1988,13 @@ const CONFIG = {
     levels: [
       { id: 'noir', name: 'Noir', min: 0, discount: 0, perks: [
         ['บัตรสมาชิกดิจิทัล', 'เลขสมาชิกส่วนตัว พลิกดูได้ในแอป ใช้ยืนยันสิทธิ์กับร้าน'],
-        ['ราคาทีม Team Tournament', '{team}'],
+        ['ส่วนลดตามจำนวนในแต่ละรอบ', '{team}'],
         ['แจ้งข่าวรอบพรีออเดอร์ใหม่', 'รู้ก่อนเมื่อเปิดรอบ Racing และคอลเลกชันใหม่']
       ] },
-      { id: 'platinum', name: 'Platinum', min: 3000, discount: 5, perks: [
+      { id: 'platinum', name: 'Platinum', min: 3000, discount: 0, perks: [
         ['จองรอบพรีออเดอร์ก่อนคนทั่วไป', 'เข้าสั่งได้ก่อนเปิดรอบทั่วไป ไม่พลาดไซซ์ที่ต้องการ']
       ] },
-      { id: 'gold', name: 'Gold', min: 10000, discount: 10, perks: [
+      { id: 'gold', name: 'Gold', min: 10000, discount: 0, perks: [
         ['สินค้ารุ่นพิเศษเฉพาะสมาชิก Gold', 'สิทธิ์สั่งรุ่นจำนวนจำกัดที่ไม่เปิดขายทั่วไป'],
         ['ผู้ดูแลลูกค้าส่วนตัว', 'Client Advisor ดูแลไซซ์ คำสั่งซื้อ และคำขอพิเศษให้โดยตรง']
       ] }
@@ -1981,13 +2004,19 @@ const CONFIG = {
   giftWrap: { fee: 0, text: 'กล่องสีดำประทับตราแบรนด์ ริบบิ้น และการ์ดเขียนข้อความด้วยลายมือ' },
   // โค้ดส่วนลด: ชื่อโค้ด → เปอร์เซ็นต์
   promoCodes: { 'LEGACY10': 10 },
+  // นโยบายร้าน (แสดงในหน้าสินค้าและหน้า Client Services)
+  policy: {
+    exchange: [
+      'ไซซ์ไม่พอดี ไม่สามารถเปลี่ยนหรือคืนได้ เนื่องจากผลิตตามคำสั่งซื้อ โปรดตรวจสอบตารางไซซ์ก่อนสั่ง',
+      'หากพบตำหนิจากการผลิต หรือได้รับไม่ตรงกับที่สั่ง ส่งเปลี่ยนได้ทันทีโดยไม่มีค่าใช้จ่าย'
+    ]
+  },
   // รอบจัดส่งจากร้าน: เปลี่ยน shipped เป็น true เมื่อร้านส่งพัสดุให้บริษัทขนส่งแล้ว
   dispatch: { from: '2026-10-16', to: '2026-10-18', shipped: false },
   // ไซซ์ใหญ่: บวกเพิ่มต่อตัว
   sizeSurcharge: { sizes: ['3XL', '4XL', '5XL'], fee: 100 },
   shipping: [
-    { id: 'std', name: 'จัดส่งทั่วประเทศ', eta: '[จำนวน] วันทำการ', fee: 50 },
-    { id: 'pick', name: 'รับเองที่ท่าพระจันทร์', eta: '[จุดรับสินค้า · วันเวลา]', fee: 0 }
+    { id: 'std', name: 'จัดส่งทั่วประเทศ · Flash Express', eta: 'มีเลขพัสดุติดตามได้', fee: 50 }
   ],
   payments: [
     { id: 'pp', name: 'พร้อมเพย์ (QR)', detail: 'พร้อมเพย์: [เบอร์ / เลขประจำตัว] · ชื่อบัญชี [ชื่อ]' },
@@ -2011,9 +2040,9 @@ const CONFIG = {
   // เฟสที่ขอให้ลูกค้าตรวจสอบข้อมูลคำสั่งซื้อ (ระหว่างผลิต ก่อนจัดส่ง) — ไม่หยุดการผลิต
   reviewPhases: [3, 4],
   sizeGuide: {
-    note: 'หน่วยเป็นนิ้ว วัดเสื้อวางราบ',
-    cols: ['ไซซ์', 'รอบอก', 'ความยาว'],
-    rows: [['XS','—','—'],['S','—','—'],['M','—','—'],['L','—','—'],['XL','—','—'],['2XL','—','—']]
+    note: 'หน่วยเป็นนิ้ว · ไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดเทียบกับเสื้อที่ใส่ประจำก่อนสั่งซื้อ',
+    cols: ['ไซซ์', 'รอบอก (นิ้ว)', 'ความยาว (นิ้ว)'],
+    rows: [['S','38','27'],['M','40','28'],['L','42','29'],['XL','44','30'],['2XL','46','30.5'],['3XL','48','30.5'],['4XL','50','31.5'],['5XL','52','31.5']]
   }
 };
 
@@ -2052,31 +2081,31 @@ const C = {
 const PRODUCTS = [
   { id: 'tl-racing', name: 'Thammasat Legacy Racing Jersey', line: 'Motorspot', group: 'racing', tag: 'Pre-Order', price: 529, art: 'polo',
     colors: [C.f1, C.f2, C.f3, C.f4], sizes: ['S','M','L','XL','2XL','3XL','4XL','5XL'], soldOut: [], status: 'พรีออเดอร์รอบที่ 4', personalisable: false, image: '',
-    desc: '[คำบรรยายเสื้อ Racing — ทรงโปโล โลโก้ทีม และรายละเอียดการตัดเย็บ]', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'ทรงโปโลแรงบันดาลใจจากชุดทีมแข่งรถ ตัดต่อแผงสีอย่างคมชัด ประดับโลโก้ทีม TU Racing และตราประจำแบรนด์ทั่วตัวเสื้อ\nสกรีนชื่อและเบอร์ของคุณที่ด้านหลัง ผลิตจำนวนจำกัดเฉพาะรอบพรีออเดอร์', material: 'วัสดุ: Micro Polyester 100% · เนื้อผ้าเบา ระบายอากาศดี แห้งไว\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น ไม่ใช้น้ำยาฟอกขาว ห้ามรีดทับลายสกรีน ตากในที่ร่ม', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'heritage-polo', name: 'Heritage Polo', line: 'Heritage', group: 'heritage', tag: 'New', price: 479,
     colors: [C.hnavy, C.hwhite, C.hblack], sizes: ['XS','S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: true, image: '',
-    desc: 'โปโลทรงคลาสสิก ปักตราประจำแบรนด์ที่อกซ้าย และอักษร THAMMASAT แบบเซริฟกลางอก\nเรียบ สง่า สวมได้ทุกโอกาส ในสามสี กรมท่า ขาว และดำ', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'โปโลทรงคลาสสิกที่เรียบที่สุดในคอลเลกชัน ตราประจำแบรนด์ที่อกซ้าย และอักษร THAMMASAT แบบเซริฟกลางอก\nสง่าในแบบที่ไม่ต้องพยายาม สวมได้ทุกโอกาส ในสามสี กรมท่า ขาว และดำ', material: 'วัสดุ: Cotton 100% · เนื้อผ้านุ่ม สวมสบายตลอดวัน\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น แยกผ้าสีเข้ม ไม่ใช้น้ำยาฟอกขาว รีดไฟอ่อน ไม่รีดทับลาย', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'royal-stripe', name: 'Royal Stripe Jersey', line: 'Royal', group: 'royal', tag: 'New', price: 529,
     colors: [C.rstripe], sizes: ['S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: true, image: '',
-    desc: 'ลายริ้วแนวตั้งแดง–ขาวอันเป็นเอกลักษณ์ ตัดด้วยอักษร THAMMASAT สีทอง และตราประจำแบรนด์บนอก\nขลิบทองที่ปกคอวีและปลายแขน ด้านหลังประดับสัญลักษณ์ EST.1934 พร้อมพื้นที่สำหรับชื่อและเบอร์สีทอง', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'ลายริ้วแนวตั้งแดง–ขาวอันเป็นเอกลักษณ์ ตัดด้วยอักษร THAMMASAT สีทอง และตราประจำแบรนด์บนอก\nขลิบทองที่ปกคอวีและปลายแขน ด้านหลังประดับสัญลักษณ์ EST.1934 พร้อมชื่อและเบอร์สีทอง', material: 'วัสดุ: Micro Polyester 100% · เนื้อผ้าเบา ระบายอากาศดี แห้งไว\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น ไม่ใช้น้ำยาฟอกขาว ห้ามรีดทับลายสกรีน ตากในที่ร่ม', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'royal-sash', name: 'Royal Sash Jersey', line: 'Royal', group: 'royal', tag: 'New', price: 529,
     colors: [C.rsash], sizes: ['S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: true, image: '',
-    desc: 'ตัวเสื้อสีขาวพาดแถบแดงทแยงจากไหล่ อักษร THAMMASAT EST.1934 สีทอง คู่กับตราคบเพลิงและตราประจำแบรนด์\nขลิบทองที่ปกและปลายแขน ด้านหลังเรียบหรูด้วยชื่อและเบอร์สีทอง', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'ตัวเสื้อสีขาวพาดแถบแดงทแยงจากไหล่ ดุจสายสะพายในวันสำคัญ อักษร THAMMASAT EST.1934 สีทอง คู่กับตราคบเพลิงและตราประจำแบรนด์\nขลิบทองที่ปกและปลายแขน ด้านหลังเรียบหรูด้วยชื่อและเบอร์สีทอง', material: 'วัสดุ: Micro Polyester 100% · เนื้อผ้าเบา ระบายอากาศดี แห้งไว\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น ไม่ใช้น้ำยาฟอกขาว ห้ามรีดทับลายสกรีน ตากในที่ร่ม', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'league-jersey', name: 'League Jersey', line: 'League', group: 'league', tag: 'New', price: 529,
     colors: [C.lmaroon], sizes: ['S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: true, image: '',
-    desc: 'ตัวเสื้อสีแดงเลือดหมูทอลายกราฟิกโทนเดียว แถบโค้งสีทองตัดข้างลำตัว\nอักษร THAMMASAT EST.1934 สีทอง คู่กับตราคบเพลิงและตราประจำแบรนด์ ขลิบทองที่ปกและปลายแขน\nด้านหลังประดับสัญลักษณ์ EST.1934 พร้อมชื่อและเบอร์สีทอง', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'เสื้อแข่งสีแดงเลือดหมูทอลายกราฟิกโทนเดียว แถบโค้งสีทองตัดข้างลำตัว สำหรับทุกคนที่ลงสนามในนามธรรมศาสตร์\nอักษร THAMMASAT EST.1934 สีทอง คู่กับตราคบเพลิงและตราประจำแบรนด์ ขลิบทองที่ปกและปลายแขน ด้านหลังพร้อมชื่อและเบอร์สีทอง', material: 'วัสดุ: Micro Polyester 100% · เนื้อผ้าเบา ระบายอากาศดี แห้งไว\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น ไม่ใช้น้ำยาฟอกขาว ห้ามรีดทับลายสกรีน ตากในที่ร่ม', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'beach-sail', name: 'Legacy League Sail Polo', line: 'Beach', group: 'beach', tag: 'New', price: 529,
     colors: [C.bsail], sizes: ['S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: false, image: '',
-    desc: 'โปโลกีฬาสีกรมท่า แผงสีขาวโค้งจากไหล่ลงข้างลำตัว ปกและปลายแขนขลิบริ้วขาว\nอักษร THAMMASAT ทรงโค้งกลางอก คู่กับ LEGACY LEAGUE และสัญลักษณ์สมอเรือ', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'โปโลสีกรมท่าที่ได้แรงบันดาลใจจากเรือใบ แผงสีขาวโค้งจากไหล่ลงข้างลำตัว ปกและปลายแขนขลิบริ้วขาว\nอักษร THAMMASAT ทรงโค้งกลางอก คู่กับ LEGACY LEAGUE และสัญลักษณ์สมอเรือ', material: 'วัสดุ: Cotton 100% · เนื้อผ้านุ่ม สวมสบายตลอดวัน\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น แยกผ้าสีเข้ม ไม่ใช้น้ำยาฟอกขาว รีดไฟอ่อน ไม่รีดทับลาย', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'beach-rugby', name: 'Rugby Stripe Polo', line: 'Beach', group: 'beach', tag: 'New', price: 529,
     colors: [C.brugby], sizes: ['S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: false, image: '',
-    desc: 'โปโลทรงรักบี้ลายริ้วขวางกว้างกรมท่า–ขาว ปกขาวคลาสสิก\nปักตราประจำแบรนด์สีแดงที่อกซ้าย', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'โปโลทรงรักบี้ลายริ้วขวางกว้างกรมท่า–ขาว กับปกขาวคลาสสิก ชิ้นที่ใส่ได้ทั้งวันริมทะเลและวันธรรมดา\nตราประจำแบรนด์สีแดงที่อกซ้าย', material: 'วัสดุ: Cotton 100% · เนื้อผ้านุ่ม สวมสบายตลอดวัน\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น แยกผ้าสีเข้ม ไม่ใช้น้ำยาฟอกขาว รีดไฟอ่อน ไม่รีดทับลาย', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'beach-cricket', name: 'Cricket Polo', line: 'Beach', group: 'beach', tag: 'New', price: 529,
     colors: [C.bcricket], sizes: ['S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: false, image: '',
-    desc: 'โปโลสีกรมท่าแรงบันดาลใจจากเสื้อคริกเก็ต ริ้วคู่สีครีมรูปตัววีรอบคอ ปลายแขนและชายเสื้อ\nปักตราประจำแบรนด์สีขาวที่อกซ้าย', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'โปโลสีกรมท่าแรงบันดาลใจจากเสื้อคริกเก็ตแบบอังกฤษ ริ้วคู่สีครีมรูปตัววีรอบคอ ปลายแขน และชายเสื้อ\nตราประจำแบรนด์สีขาวที่อกซ้าย เรียบ ละมุน และไม่มีวันตกยุค', material: 'วัสดุ: Cotton 100% · เนื้อผ้านุ่ม สวมสบายตลอดวัน\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น แยกผ้าสีเข้ม ไม่ใช้น้ำยาฟอกขาว รีดไฟอ่อน ไม่รีดทับลาย', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
   { id: 'beach-tee', name: 'Since 1934 Tee', line: 'Beach', group: 'beach', tag: 'New', price: 529,
     colors: [C.btee], sizes: ['S','M','L','XL','2XL'], soldOut: [], status: 'พร้อมส่ง', personalisable: false, image: '',
-    desc: 'เสื้อยืดคอกลมสีขาว อักษร THAMMASAT ทรงโค้งแบบวาร์ซิตี้สีกรมท่า\nคู่กับตราประจำแบรนด์และ SINCE 1934', material: 'วัสดุ: [ชนิดผ้า]\nการดูแล: [วิธีดูแล]', fit: 'ทรง: [Regular / Relaxed]' },
+    desc: 'เสื้อยืดคอกลมสีขาว อักษร THAMMASAT ทรงโค้งแบบวาร์ซิตี้สีกรมท่า\nคู่กับตราประจำแบรนด์และ SINCE 1934 ชิ้นพื้นฐานที่บอกเล่าความภูมิใจได้ในทุกวัน', material: 'วัสดุ: Cotton 100% · เนื้อผ้านุ่ม สวมสบายตลอดวัน\nการดูแล: กลับด้านก่อนซัก ซักด้วยน้ำเย็น แยกผ้าสีเข้ม ไม่ใช้น้ำยาฟอกขาว รีดไฟอ่อน ไม่รีดทับลาย', fit: 'ทรง: ดูรอบอกและความยาวจากตารางไซซ์ (หน่วยนิ้ว)\nไซซ์ไม่พอดีไม่สามารถเปลี่ยนได้ โปรดตรวจสอบก่อนสั่งซื้อ' },
 ];
 // แยกสินค้าหลายสีออกเป็นสินค้า 1 ชิ้นต่อ 1 สี (หน้าร้านแสดงแยกกัน) · splitColors: false = รวมหลายสีไว้ในสินค้าเดียว
 const SPLIT_COLORS = true;
@@ -2101,6 +2130,7 @@ function load() {
   try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s) out = Object.assign(base, s); } catch (e) {}
   const pf = out.profile || (out.profile = { name: '', cohort: '', tier: 'ALUMNI' });
   if (!pf.memberNo) pf.memberNo = '2026' + Array.from({ length: 12 }, () => Math.floor(Math.random() * 10)).join('');
+  if (!CONFIG.shipping.some((x) => x.id === out.ship)) out.ship = CONFIG.shipping[0].id;
   if (out.member && out.accV !== ACC_V) { out.orders = (out.orders || []).filter((o) => !o.real); out.member = null; out.reLogin = true; }
   if (!pf.since) { const d = new Date(); pf.since = String(d.getMonth() + 1).padStart(2, '0') + '/' + String(d.getFullYear()).slice(2); }
   return out;
@@ -2133,6 +2163,8 @@ const I = {
   minus: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12 H19"/></svg>',
   lock: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="5" y="10" width="14" height="10"/><path d="M8 10 V7 a4 4 0 0 1 8 0 V10"/></svg>',
   gift: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="4" y="9" width="16" height="11"/><path d="M4 13 H20 M12 9 V20 M12 9 C9 4 5 6 8 9 M12 9 C15 4 19 6 16 9"/></svg>',
+  limited: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="12" cy="10" r="6"/><path d="M8.5 14.8 L7 21 L12 18.5 L17 21 L15.5 14.8"/><path d="M12 7 V13 M9.5 9.5 H14.5"/></svg>',
+  screen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M8 3 L4 5.5 L5.5 9 L7 8.4 V21 H17 V8.4 L18.5 9 L20 5.5 L16 3 C15 4.6 13.6 5.2 12 5.2 C10.4 5.2 9 4.6 8 3 Z"/><path d="M10 11 V17 M14 11 V17 M10 11 H14 M10 14 H13"/></svg>',
   needle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M4 19 L16 7 M14 5 L19 10 M6 21 H20"/></svg>',
   truck: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M2 7 H14 V17 H2 Z M14 10 H19 L22 13 V17 H14"/><circle cx="6" cy="18.5" r="1.5"/><circle cx="18" cy="18.5" r="1.5"/></svg>'
 };
@@ -2255,7 +2287,7 @@ function vHome() {
   ${rc.enabled && racer && paddockOn() ? paddockTeaser(rc, racer) : ''}
 
   <section class="night">
-    ${CONFIG.story.image ? `<img src="${esc(CONFIG.story.image)}" alt="" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover">` : `<div class="ph" style="aspect-ratio:4/5;font-family:var(--sans);letter-spacing:0;font-size:12px;font-weight:400">ภาพเอดิทอเรียล · ยอดโดมยามค่ำ</div>`}
+    ${CONFIG.story.image ? `<img src="${esc(CONFIG.story.image)}" alt="" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover">` : `<span class="st-crest" style="display:block;margin:56px auto 0">${crest()}</span>`}
     <div class="stack center" style="gap:16px;padding:48px 28px 64px">
       <div class="label" style="color:var(--glow)">${esc(CONFIG.story.label)}</div>
       <h2 class="th-title" style="font-weight:400">${esc(CONFIG.story.title)}</h2>
@@ -2283,6 +2315,7 @@ function vHome() {
     <div class="crest-wrap">${crest()}</div>
     <div class="wm" style="font-size:16px;letter-spacing:.12em">${esc(CONFIG.brand)}</div>
     <div class="stack" style="gap:4px">${CONFIG.contact.map((c) => `<span class="small">${esc(c.label)} · ${contactLink(c)}</span>`).join('')}</div>
+    <nav class="ft-links"><a href="#help">คำถามที่พบบ่อย</a><a href="#help" data-act="hpgo" data-id="hp-III">การเปลี่ยนสินค้า</a><a href="#help" data-act="hpgo" data-id="hp-IV">ความเป็นส่วนตัว</a></nav>
   </footer>
   </div>${tabs('home')}`;
 }
@@ -2471,8 +2504,7 @@ function vProduct(id) {
   const on = store.favs.includes(p.id);
   const pf = CONFIG.personalisation;
   const panels = [['desc', 'รายละเอียดสินค้า', p.desc], ['material', 'เนื้อผ้าและการดูแล', p.material], ['fit', 'ทรงและไซซ์', p.fit],
-    ['ship', 'การจัดส่งและการคืนสินค้า', CONFIG.shipping.map((s) => `${s.name} · ${s.eta} · ${fee(s.fee)}`).join('\n')],
-    ['gift', 'บรรจุภัณฑ์และของขวัญ', CONFIG.giftWrap.text]];
+    ['ship', 'การจัดส่งและการเปลี่ยนสินค้า', CONFIG.shipping.map((s) => `${s.name} · ${s.eta} · ${fee(s.fee)}`).join('\n') + '\n' + CONFIG.policy.exchange.join('\n')]];
   const rp = isRace(p), race = rp && paddockOn(), rc = CONFIG.racing, closed = rp && !rc.orderingOpen;
   return `${race ? header('dark', true) : header('', true)}${demo()}<div class="view${race ? ' f1' : ''}">
   ${race ? `<div class="f1-strip"><span>${esc(rc.round)}</span><span>${esc(rc.window)}</span></div>` : ''}
@@ -2599,7 +2631,7 @@ const fmtPhone = (v) => { const d = String(v || '').replace(/\D/g, '').slice(0, 
 function vCheckout() {
   if (!store.cart.length) { location.hash = '#bag'; return ''; }
   const a = store.addr, e = ui.errors, t = totals();
-  const pickup = store.ship === 'pick';
+  const pickup = store.ship === 'pick' && CONFIG.shipping.some((s) => s.id === 'pick');
   const bkk = isBkk(a);
   const f = (id, label, ph, o = {}) => `<label class="field fx ${e[id] ? 'err' : ''}${o.wide ? ' wide' : ''}" for="${id}">
       <span class="fl">${label}${o.opt ? '<i>ไม่บังคับ</i>' : ''}</span>
@@ -3068,7 +3100,7 @@ function memberSection(pr) {
 }
 function levelPerks(l) {
   const tp = CONFIG.racing.teamPricing || [];
-  const team = tp.length ? `สั่งเสื้อ Racing รวม ${tp[0].min} ตัวขึ้นไป ราคาเหลือตัวละ ${money(tp[0].price)} และถูกลงเมื่อสั่งมากขึ้น` : 'ราคาพิเศษเมื่อสั่งเป็นทีม';
+  const team = tp.length ? `นับจากจำนวนเสื้อ Racing ที่สั่งในรอบนั้น ${tp.map((t) => `${t.min} ตัวขึ้นไป ตัวละ ${money(t.price)}`).join(' · ')} (ราคาปกติ ${money(prod('tl-racing') ? prod('tl-racing').price : 529)})` : 'ราคาพิเศษเมื่อสั่งเป็นทีม';
   return [...(l.discount ? [[`ส่วนลดสมาชิก ${l.discount}% ทุกคำสั่งซื้อ`, 'หักให้อัตโนมัติในตะกร้า ใช้ร่วมกับโค้ดส่วนลดได้']] : []), ...(l.perks || [])]
     .map((x) => Array.isArray(x) ? x : [x, '']).map(([t, d]) => [t, String(d).replace('{team}', team)]);
 }
@@ -3347,7 +3379,8 @@ function odShipCard(o) {
       ${dispatched() ? '' : `<p class="small" style="margin:0">ขณะนี้ชิ้นงานกำลังเดินทางจากผู้ผลิตมาที่ร้าน เราเตรียมเลขพัสดุ${multi ? `แยก ${o.tracks.length} พัสดุ` : ''}ไว้ให้แล้ว และจะเริ่มติดตามได้หลังจากวันจัดส่ง</p>`}
       <ul class="od-tk">${o.tracks.map((t) => { const its = (t.items || []).map((i) => o.items[i]).filter(Boolean);
         return `<li><span class="stack" style="gap:2px;min-width:0"><span class="od-tk-k">${multi ? esc(t.to) : 'เลขพัสดุ'}</span><span class="od-tk-c">${esc(t.code)}</span>${multi && its.length ? `<span class="small">${its.map((it) => esc(it.size + ' · ' + (it.personal && it.personal.name ? it.personal.name : 'ไม่สกรีนชื่อ'))).join(', ')}</span>` : ''}</span><button type="button" class="od-tk-cp" data-act="copytext" data-v="${esc(t.code)}">คัดลอก</button></li>`; }).join('')}</ul>
-      <p class="small" style="margin:0">${dispatched() ? 'ใช้เลขพัสดุนี้ติดตามสถานะกับบริษัทขนส่ง' : 'เลขพัสดุจะเริ่มแสดงสถานะเมื่อพัสดุถึงมือบริษัทขนส่งแล้ว'}</p>
+      <a class="od-flash" href="https://www.flashexpress.co.th/fle/tracking?se=${encodeURIComponent(o.tracks.map((t) => t.code).join(','))}" target="_blank" rel="noopener">ติดตามพัสดุกับ Flash Express</a>
+      <p class="small" style="margin:0">${dispatched() ? 'จัดส่งโดย Flash Express' : 'จัดส่งโดย Flash Express · เลขพัสดุจะเริ่มแสดงสถานะเมื่อพัสดุถึงมือ Flash แล้ว'}</p>
     </div>`;
 }
 function preorderToOrder(po, acc) {
@@ -3379,7 +3412,7 @@ function lookupCard() {
       ${ui.lkMsg ? `<p class="lk-msg" role="alert">${esc(ui.lkMsg)}</p>` : store.reLogin ? '<p class="lk-msg" style="color:#D9C59A">ข้อมูลคำสั่งซื้ออัปเดตใหม่ กรุณาเข้าสู่ระบบอีกครั้ง</p>' : ''}
       <button class="lk-btn" type="submit" ${ui.lkBusy ? 'disabled' : ''}><span class="th">${ui.lkBusy ? 'กำลังตรวจสอบ…' : 'เข้าสู่ระบบ'}</span></button>
     </form>
-    <div class="lk-foot"><span>${lock}เข้ารหัสแยกรายบุคคล เปิดได้เฉพาะเจ้าของข้อมูล</span></div>
+    <div class="lk-foot"><span>${lock}เข้ารหัสแยกรายบุคคล เปิดได้เฉพาะเจ้าของข้อมูล</span> <a href="#help" data-act="hpgo" data-id="hp-IV" class="lk-pl">นโยบายความเป็นส่วนตัว</a></div>
   </section>`;
 }
 async function submitLookup(f) {
@@ -3543,6 +3576,52 @@ function vFavs() {
   return `${header('', true)}<div class="view"><div class="chapter-head" style="padding-block:28px 18px"><h1 class="title">Wishlist</h1></div>${list.length ? `<div class="grid2" style="padding-bottom:40px">${list.map(card).join('')}</div>`
     : `<div class="empty"><div class="crest-wrap">${crest('ink')}</div><p class="body" style="text-align:center">แตะรูปหัวใจบนสินค้าเพื่อบันทึกไว้ที่นี่</p><a class="btn btn-black btn-fit" href="#shop"><span class="th">เลือกชมสินค้า</span></a></div>`}</div>${tabs('account')}`;
 }
+function vHelp() {
+  const ig = dkContact('Instagram', '@tu.legacy.jersey'), em = dkContact('Email', 'thammasat.legacy@gmail.com');
+  const tp = CONFIG.racing.teamPricing || [], base = prod('tl-racing') ? prod('tl-racing').price : 529;
+  const S = [
+    ['I', 'Orders', 'การสั่งซื้อและราคา', [
+      ['ดูคำสั่งซื้อของฉันได้ที่ไหน', 'เข้าสู่ระบบที่หน้า Account ด้วยอีเมลและเบอร์โทรศัพท์ที่ใช้สั่งซื้อ คุณจะเห็นรายการเสื้อ ไซซ์ ชื่อและเบอร์หลังเสื้อ สถานะการผลิต และเลขพัสดุ'],
+      ['เข้าสู่ระบบไม่ได้ หรือจำอีเมลที่ใช้สั่งไม่ได้', `ติดต่อเราทาง Instagram ${ig} หรืออีเมล ${em} พร้อมชื่อ-นามสกุลและเบอร์โทรที่ใช้สั่งซื้อ ทีมงานจะตรวจสอบให้`],
+      ['ราคาในหน้าคำสั่งซื้อไม่ตรงกับยอดที่โอน', `ราคาที่แสดงคำนวณจากราคาเสื้อต่อตัว ${money(base)} รวมค่าจัดส่ง ยอดที่โอนอาจต่ำกว่าเพราะโปรโมชั่น ราคาตามจำนวน หรือส่วนลดในช่วงพรีออเดอร์ ยอดที่คุณชำระและร้านยืนยันแล้วคือยอดที่ถูกต้อง ไม่มีค่าใช้จ่ายเพิ่มเติม`],
+      ['ราคาตามจำนวนคิดอย่างไร', tp.length ? `นับจากจำนวนเสื้อ Racing ที่สั่งในรอบนั้น ${tp.map((t) => `${t.min} ตัวขึ้นไป ตัวละ ${money(t.price)}`).join(' · ')} ระบบคิดให้อัตโนมัติในถุงช้อปปิ้ง` : 'ระบบคิดให้อัตโนมัติในถุงช้อปปิ้ง'],
+      ['ไซซ์ 3XL ขึ้นไปมีค่าใช้จ่ายเพิ่มไหม', `มีค่าเพิ่มตัวละ ${money((CONFIG.sizeSurcharge || {}).fee || 0)} สำหรับไซซ์ 3XL, 4XL และ 5XL`]
+    ]],
+    ['II', 'Delivery', 'การจัดส่ง', [
+      ['จัดส่งอย่างไร', `จัดส่งทั่วประเทศโดย Flash Express ค่าจัดส่ง ${money((CONFIG.shipping[0] || {}).fee || 0)} ต่อคำสั่งซื้อ ติดตามพัสดุได้จากเลขพัสดุในหน้าคำสั่งซื้อ`],
+      ['จัดส่งด่วนคืออะไร', 'คำสั่งซื้อที่ไม่มีเลขพัสดุจะจัดส่งแบบด่วน ทีมงานจะโทรนัดหมายวันและเวลาจัดส่งกับคุณโดยตรง ในช่วง 18:00 – 00:00 น. การโทรอาจมาจากเบอร์ที่คุณไม่คุ้นเคย โปรดเปิดรับสาย'],
+      ['พลาดสายจากทีมงาน', `ส่งข้อความหาเราทาง Instagram ${ig} พร้อมเลขคำสั่งซื้อ และเวลาที่สะดวก เราจะติดต่อกลับ`],
+      ['รับสินค้าเองที่ร้านได้ไหม', 'ขออภัย ขณะนี้ยังไม่มีบริการนัดรับสินค้าด้วยตนเอง ทุกคำสั่งซื้อจัดส่งถึงที่อยู่ของคุณ'],
+      ['เปลี่ยนที่อยู่จัดส่งได้ไหม', `แจ้งเราก่อนวันจัดส่งทาง Instagram ${ig} หรืออีเมล ${em} หากพัสดุออกจากร้านแล้วจะไม่สามารถเปลี่ยนได้`]
+    ]],
+    ['III', 'Exchange', 'การเปลี่ยนสินค้า', [
+      ['ไซซ์ไม่พอดี เปลี่ยนได้ไหม', 'ไม่สามารถเปลี่ยนหรือคืนได้ เนื่องจากเสื้อทุกตัวผลิตตามคำสั่งซื้อ พร้อมชื่อและเบอร์เฉพาะของคุณ โปรดตรวจสอบตารางไซซ์ในหน้าสินค้าก่อนสั่ง'],
+      ['ได้รับสินค้ามีตำหนิ หรือไม่ตรงกับที่สั่ง', `ส่งเปลี่ยนได้ทันทีโดยไม่มีค่าใช้จ่าย ถ่ายภาพหรือวิดีโอตำหนิ แล้วแจ้งเราทาง Instagram ${ig} หรืออีเมล ${em} พร้อมเลขคำสั่งซื้อ`],
+      ['ชื่อหรือเบอร์หลังเสื้อผิดจากที่สั่ง', 'ถือเป็นความรับผิดชอบของเรา เราจะผลิตและจัดส่งตัวใหม่ให้โดยไม่มีค่าใช้จ่าย ชื่อจะสกรีนตามที่คุณกรอกทุกตัวอักษร รวมถึงตัวพิมพ์ใหญ่และพิมพ์เล็ก']
+    ]],
+    ['IV', 'Privacy', 'ความเป็นส่วนตัวของคุณ', [
+      ['ข้อมูลที่เราเก็บ', 'ชื่อ-นามสกุล เบอร์โทรศัพท์ อีเมล ที่อยู่จัดส่ง และรายละเอียดคำสั่งซื้อ เช่น ไซซ์ สี ชื่อและเบอร์หลังเสื้อ'],
+      ['เราใช้ข้อมูลเพื่ออะไร', 'เพื่อผลิตและจัดส่งคำสั่งซื้อ แจ้งความคืบหน้า และติดต่อคุณเรื่องคำสั่งซื้อเท่านั้น เราไม่ขายหรือส่งต่อข้อมูลของคุณเพื่อการตลาดของผู้อื่น'],
+      ['ข้อมูลถูกส่งต่อให้ใคร', 'เฉพาะเท่าที่จำเป็น ได้แก่ ผู้ผลิต (ไซซ์ สี ชื่อและเบอร์หลังเสื้อ) และบริษัทขนส่ง (ชื่อ เบอร์โทร และที่อยู่จัดส่ง)'],
+      ['เราปกป้องข้อมูลอย่างไร', 'ข้อมูลคำสั่งซื้อบนเว็บไซต์ถูกเข้ารหัสแยกรายบุคคล เปิดได้เฉพาะเมื่อกรอกอีเมลและเบอร์โทรของคุณถูกต้องทั้งคู่ ส่วนถุงช้อปปิ้งและรายการโปรดเก็บไว้ในเบราว์เซอร์ของคุณเอง'],
+      ['สิทธิ์ของคุณ', `คุณขอดู แก้ไข หรือขอให้ลบข้อมูลของคุณได้ทุกเมื่อ ติดต่อ ${em} เราเก็บข้อมูลไว้เท่าที่จำเป็นต่อการดูแลคำสั่งซื้อและบริการหลังการขายเท่านั้น`]
+    ]]
+  ];
+  const open = ui.helpOpen || '';
+  return `${header('dark', true)}<div class="view hp">
+  <section class="hp-hero night">${sky('sky')}
+    <span class="st-crest sm">${crest()}</span>
+    <div class="label" style="color:var(--glow)">Client Services</div>
+    <h1 class="th-title" style="font-weight:400">เราพร้อมดูแลคุณ</h1>
+    <p class="body" style="text-align:center;color:#D6D6D6">คำถามที่พบบ่อย การจัดส่ง การเปลี่ยนสินค้า และความเป็นส่วนตัวของคุณ</p>
+  </section>
+  <nav class="hp-jump">${S.map(([n, en, th]) => `<a href="#help" data-act="hpjump" data-id="hp-${n}"><span class="pf-en">${en}</span><span>${th}</span></a>`).join('')}</nav>
+  ${S.map(([n, en, th, qs]) => `<section class="pf-sec" id="hp-${n}"><header class="pf-sec-h"><span class="pf-roman">${n}</span><div class="stack" style="gap:2px"><span class="pf-en">${en}</span><h2>${th}</h2></div></header>
+    <div class="hp-qs">${qs.map(([q, a], i) => { const id = n + '-' + i, on = open === id; return `<div class="hp-q${on ? ' on' : ''}"><button type="button" data-act="hpq" data-id="${id}" aria-expanded="${on}"><span>${esc(q)}</span><i aria-hidden="true">${on ? '–' : '+'}</i></button>${on ? `<p>${esc(a)}</p>` : ''}</div>`; }).join('')}</div></section>`).join('')}
+  <section class="hp-end"><span class="pf-en">Still need help</span><p>ทีมงานพร้อมตอบทุกคำถาม</p>
+    <div class="hp-contact">${CONFIG.contact.map((c) => `<span><em>${esc(c.label)}</em>${contactLink(c)}</span>`).join('')}</div></section>
+  </div>${tabs('')}`;
+}
 function vStory() {
   const st = CONFIG.story, ch = st.chapters || [];
   return `${header('dark', true)}<div class="view st">
@@ -3608,6 +3687,8 @@ function menuOverlay() {
         ${link('#account', 'My Account', 'บัญชีและบัตรสมาชิก', esc(lv.name))}
         ${link('#orders', 'My Orders', 'คำสั่งซื้อและสถานะ', act ? act + ' active' : '')}
         ${link('#favs', 'Wishlist', 'รายการโปรด', store.favs.length ? String(store.favs.length) : '')}
+        ${link('#help', 'Client Services', 'คำถาม การจัดส่ง และการเปลี่ยนสินค้า')}
+        ${link('#story', 'The Story', 'เรื่องราวของเรา')}
         ${link('#home', 'Home', 'หน้าแรก')}
       </nav>
     </section>
@@ -4705,6 +4786,7 @@ function render() {
   else if (h === 'racing') { if (!paddockOn()) { ui.filter = 'racing'; location.replace('#shop'); return; } html = vRacing(); }
   else if (h === 'profile') html = vProfile();
   else if (h === 'story') html = vStory();
+  else if (h === 'help') html = vHelp();
   else if (h === 'desk' || h.startsWith('desk-')) html = vAdmin(h);
   else if (h.startsWith('p-')) html = vProduct(h.slice(2));
   else if (h.startsWith('o-')) html = vOrder(h.slice(2));
@@ -4893,6 +4975,9 @@ const acts = {
   admletter(el) { admLetterFor(el.dataset.id); },
   admcopy(el) { const o = admOrders().find((x) => x.id === el.dataset.id); if (o) copy(admOrderText(o), 'คัดลอกรายการ ' + o.id + ' แล้ว'); },
   admprodcopy(el) { copy(admProdText(el.dataset.v), 'คัดลอกแล้ว วางใน Excel หรือ Google Sheets ได้เลย'); },
+  hpgo(el) { setTimeout(() => { const t = document.getElementById(el.dataset.id); if (t) t.scrollIntoView({ block: 'start' }); }, 120); },
+  hpq(el) { ui.helpOpen = ui.helpOpen === el.dataset.id ? '' : el.dataset.id; const y = window.scrollY; render(); window.scrollTo(0, y); },
+  hpjump(el, e) { e.preventDefault(); const t = document.getElementById(el.dataset.id); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); },
   dkmode(el) { dk.mode = el.dataset.v; dkSave(); dkPaint(true); },
   dkopt(el) { dkPickOpt(+el.dataset.g, +el.dataset.i); },
   dkfmt(el) { dk.fmt = el.dataset.v; dkSave(); const f = document.getElementById('dk-fmt'); if (f) f.innerHTML = dkFmtHTML(); },
@@ -4985,7 +5070,7 @@ document.addEventListener('submit', (e) => {
   if (e.target.id !== 'co') return;
   keepForm();
   const a = store.addr, err = {};
-  const pickup = store.ship === 'pick';
+  const pickup = store.ship === 'pick' && CONFIG.shipping.some((s) => s.id === 'pick');
   if (!a.first) err.first = 'กรอกชื่อจริง';
   if (!a.last) err.last = 'กรอกนามสกุล';
   if (!/^0[689]\d{8}$|^0[2-7]\d{7}$/.test(a.phone || '')) err.phone = 'เบอร์มือถือ 10 หลักขึ้นต้นด้วย 06/08/09 หรือเบอร์บ้าน 9 หลัก';
