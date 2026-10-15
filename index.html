@@ -114,7 +114,7 @@ a{color:inherit}
 .hero .stage{width:calc(100% + 48px);margin-top:28px;aspect-ratio:4/4.4;max-width:none;position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
 .hero .stage svg{width:66%;height:auto;margin-bottom:-4%}
 .hero .stage img{width:100%;height:100%;object-fit:cover}
-.hero .stage::before{content:"";position:absolute;inset:0 0 auto 0;height:40%;background:linear-gradient(var(--black),rgba(0,0,0,0));z-index:1;pointer-events:none}
+.hero .stage::before{content:none}
 
 /* sections */
 .chapter{padding-block:64px;display:flex;flex-direction:column;gap:26px}
@@ -993,6 +993,75 @@ a{color:inherit}
 .ft-pattern{position:absolute;inset:0;width:100%;height:100%;opacity:.13;pointer-events:none}
 .ft-guil::after{content:"";position:absolute;left:24px;right:24px;top:14px;bottom:14px;border:1px solid rgba(233,220,192,.12);pointer-events:none}
 
+/* home — the story */
+.hs{position:relative;overflow:hidden;background:radial-gradient(70% 42% at 50% 20%,rgba(255,255,255,.08),rgba(0,0,0,0) 70%),radial-gradient(120% 80% at 50% 30%,#141414,#040404 75%)}
+.hs-clock{position:absolute;left:50%;top:-30px;width:640px;max-width:none;height:640px;transform:translateX(-50%);opacity:.085;pointer-events:none;-webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);mask-image:radial-gradient(closest-side,#000 62%,transparent 100%)}
+
+.hs-rays{position:absolute;left:0;top:0;width:100%;height:100%;opacity:.11;pointer-events:none;-webkit-mask-image:radial-gradient(75% 45% at 50% 25%,#000 20%,transparent 85%);mask-image:radial-gradient(75% 45% at 50% 25%,#000 20%,transparent 85%)}
+.hs-dome{position:absolute;left:0;right:0;bottom:28px;width:100%;max-width:480px;margin:0 auto;height:auto;overflow:visible;pointer-events:none}
+.hs-white{position:relative;display:block;width:100%;height:100%;background:linear-gradient(160deg,#FFFFFF 0%,#F2F2F2 40%,#CFCFCF 62%,#FFFFFF 100%);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.hs-img{position:relative;display:block;width:calc(100% - 32px);margin:16px auto 0;aspect-ratio:4/5;object-fit:cover}
+.hs-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:60px 40px 360px}
+.hs-est{font-family:Montserrat,sans-serif;font-size:9.5px;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:30px}
+.hs-est span{color:rgba(255,255,255,.4);margin:0 .3em}
+.hs-crest{position:relative;display:block;width:132px;height:112px;margin-bottom:30px}
+.hs-crest::before{content:"";position:absolute;inset:-34px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.14),rgba(255,255,255,0));pointer-events:none}
+.hs-label{display:flex;align-items:center;gap:14px;font-family:Montserrat,sans-serif;font-size:10.5px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.88);margin-bottom:22px}
+.hs-label i{display:block;width:34px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55))}
+.hs-label i:last-child{transform:scaleX(-1)}
+.hs-title{margin:0 0 26px;letter-spacing:0;font-family:var(--sans);font-weight:300;line-height:1.35;color:#fff}
+.hs-title span{display:block;font-size:17px;font-weight:300;color:rgba(255,255,255,.62);margin-bottom:6px}
+.hs-title em{display:block;letter-spacing:0;font-style:normal;font-size:30px;font-weight:400;color:#FFFFFF}
+.hs-en-body{font-family:Montserrat,sans-serif;font-size:13px!important;line-height:2!important;letter-spacing:.02em!important;max-width:34ch!important}
+.hs-body{letter-spacing:0;max-width:31ch;margin:0 0 34px;font-size:14px;line-height:1.95;font-weight:300;color:rgba(255,255,255,.62);text-wrap:pretty}
+.hs-toc{list-style:none;margin:0 0 36px;padding:0;width:100%;max-width:300px;border-top:1px solid rgba(255,255,255,.18)}
+.hs-toc li{border-bottom:1px solid rgba(255,255,255,.07)}
+.hs-toc a{display:grid;grid-template-columns:30px 1fr auto;align-items:baseline;gap:10px;padding:13px 2px;color:inherit;text-decoration:none;text-align:left}
+.hs-toc b{font-family:Montserrat,sans-serif;font-weight:300;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.08em}
+.hs-en{font-family:Montserrat,sans-serif;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.hs-th{letter-spacing:0;font-size:12.5px;font-weight:300;color:rgba(255,255,255,.45)}
+.hs-cta{display:inline-flex;align-items:center;gap:14px;padding:15px 26px;border:1px solid rgba(255,255,255,.7);color:#FFFFFF;text-decoration:none;font-size:14px;transition:background .3s,color .3s}
+.hs-cta svg{width:22px;height:11px}
+.hs-cta:hover,.hs-cta:active{background:#FFFFFF;color:#0A0A0A}
+.hs-sign{margin-top:30px;font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+
+/* arrival notice gate */
+.an{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px));background:radial-gradient(80% 50% at 50% 30%,rgba(255,255,255,.07),rgba(0,0,0,0) 70%),#050505;color:#fff;overflow-y:auto;animation:an-in .6s ease both}
+.an.out{animation:an-out .42s ease both}
+@keyframes an-in{from{opacity:0}to{opacity:1}}
+@keyframes an-out{to{opacity:0;transform:scale(1.02)}}
+.an-flies{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.an-flies i{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px rgba(255,255,255,.55),0 0 34px 14px rgba(255,248,230,.16),0 0 80px 30px rgba(255,248,230,.06);opacity:0;animation-name:an-fly,an-drift;animation-timing-function:ease-in-out,ease-in-out;animation-iteration-count:infinite,infinite;animation-direction:normal,alternate}
+@keyframes an-fly{0%,100%{opacity:0}45%,60%{opacity:.85}}
+@keyframes an-drift{from{transform:translate(0,0)}to{transform:translate(18px,-46px)}}
+.an-in{position:relative;width:100%;max-width:400px;margin:auto;display:flex;flex-direction:column;align-items:center;text-align:center}
+.an-crest{display:block;width:92px;margin-bottom:22px;animation:an-in 1s .15s ease both}
+.an-label{font-family:Montserrat,sans-serif;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px}
+.an-t{margin:0 0 16px;font-family:var(--sans);font-weight:400;font-size:25px;line-height:1.42;letter-spacing:0}
+.an-p{margin:0 0 26px;max-width:30ch;font-size:14.5px;line-height:1.95;font-weight:300;color:rgba(255,255,255,.72);letter-spacing:0}
+.an-steps{list-style:none;margin:0 0 24px;padding:0;width:100%;display:grid;grid-template-columns:repeat(3,1fr);position:relative}
+.an-steps::before{content:"";position:absolute;left:16.6%;right:16.6%;top:5px;height:1px;background:rgba(255,255,255,.18)}
+.an-flow{position:absolute;left:16.6%;width:33.4%;top:5px;height:1px;background:rgba(255,255,255,.42);overflow:hidden;pointer-events:none}
+.an-flow i{position:absolute;top:-1px;left:0;width:46%;height:3px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.95) 82%,rgba(255,255,255,0));filter:blur(.6px);box-shadow:0 0 8px rgba(255,255,255,.5);transform:translateX(-100%);animation:an-flow 3.6s cubic-bezier(.45,0,.35,1) infinite}
+@keyframes an-flow{0%{transform:translateX(-100%);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateX(220%);opacity:0}}
+.an-steps li{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:11.5px;line-height:1.5;color:rgba(255,255,255,.45);letter-spacing:0}
+.an-steps b{width:11px;height:11px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:#050505}
+.an-steps li.done b{background:#fff;border-color:#fff}
+.an-steps li.now{color:#fff}
+.an-steps li.now b{background:#fff;border-color:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.12),0 0 18px 4px rgba(255,255,255,.35);animation:an-pulse 2.6s ease-in-out infinite}
+@keyframes an-pulse{50%{box-shadow:0 0 0 7px rgba(255,255,255,.06),0 0 26px 8px rgba(255,255,255,.22)}}
+.an-info{width:100%;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:14px}
+.an-info > div{padding:14px 8px;display:flex;flex-direction:column;gap:4px}
+.an-info > div + div{border-left:1px solid rgba(255,255,255,.14)}
+.an-info > div:only-child{grid-column:1/-1}
+.an-info small{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:0}
+.an-info strong{font-size:13.5px;font-weight:500;letter-spacing:0}
+.an-note{margin:0 0 24px;font-size:12px;line-height:1.7;color:rgba(255,255,255,.55);letter-spacing:0}
+.an-ok{width:100%;letter-spacing:0!important;font-size:14px}
+.an-link{margin-top:16px;font-size:13px;color:rgba(255,255,255,.7);text-decoration:none;letter-spacing:0}
+.an-sign{margin-top:26px;font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+@media (prefers-reduced-motion: reduce){.an,.an-crest,.an-flies i,.an-steps li.now b,.an-flow i{animation:none}.an-flies i{opacity:.5}}
+
 /* drawer */
 .drawer{position:fixed;inset:0;z-index:60;background:var(--black);color:var(--white);overflow-y:auto;padding-top:env(safe-area-inset-top,0px);animation:fadein .35s ease both}
 .drawer .inner{max-width:480px;margin:0 auto;min-height:100%;display:flex;flex-direction:column}
@@ -1578,6 +1647,11 @@ mark.dk-hole{background:#F5EBCF;color:#6B5212;padding:0 4px;font-size:12px;borde
 .st-crest.sm{width:56px;margin-bottom:0}
 .st-title{font-weight:400;font-size:26px;max-width:16em}
 .st-lede{text-align:center;color:#D6D6D6}
+.st-en{font-family:Montserrat,sans-serif;letter-spacing:.01em}
+.st-p.st-en{font-size:13.5px;line-height:2.05;max-width:32em}
+.st-quote.st-en{font-size:18px;font-weight:300;line-height:1.55;letter-spacing:.02em}
+.st-lede.st-en{font-size:13.5px;line-height:2}
+.hs-cta-en{font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
 .st-since{font-family:var(--wide);font-size:9.5px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#8C8C8C;margin-top:6px}
 .st-ch{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:56px 30px;border-bottom:1px solid var(--line)}
 .st-ch.alt{background:var(--mist)}
@@ -2061,6 +2135,8 @@ const CONFIG = {
   demoNotice: false,
   currency: '฿',
 
+  // ประกาศก่อนเข้าร้าน (แสดงครั้งเดียวต่อการเปิดเว็บ · ปิดเองอัตโนมัติเมื่อ dispatch.shipped = true)
+  arrivalNotice: { enabled: true, key: 'arrive-2026-10' },
   welcome: { line: 'Maison of Tha Phra Chan', tagline: 'มรดกแห่งท่าพระจันทร์ ถักทอเป็นเสื้อผ้าที่สวมใส่ได้ทุกวัน' },
   hero: {
     season: 'The Heritage Collection',
@@ -2072,16 +2148,18 @@ const CONFIG = {
   story: {
     label: 'The Story',
     title: 'ทุกการออกแบบ คือความทรงจำของยอดโดม',
+    bodyEn: 'Since 1934, the Dome of Tha Phra Chan has watched generation after generation pass through the same gate. Thammasat Legacy is woven from those memories: the lines, the yellow and red, and the spirit of liberty, crafted into garments that carry the story onward, from one generation to the next.',
     body: 'ตั้งแต่ปี 2477 ยอดโดมแห่งท่าพระจันทร์เฝ้ามองนักศึกษาหลายรุ่นเดินผ่านประตูบานเดียวกัน Thammasat Legacy เกิดจากความทรงจำเหล่านั้น เราหยิบเส้นสาย สีเหลืองแดง และจิตวิญญาณแห่งเสรีภาพ มาถักทอเป็นเสื้อที่ส่งต่อเรื่องราวจากรุ่นสู่รุ่น',
     // หน้า "อ่านเรื่องราว" (#story) — [หัวข้ออังกฤษ, หัวข้อไทย, เนื้อหา]
     chapters: [
-      ['The Dome', 'ยอดโดม', 'ยอดแหลมสีขาวเหนือริมน้ำเจ้าพระยา คือภาพแรกที่ชาวธรรมศาสตร์จดจำ เป็นหมุดหมายของวันแรกที่ก้าวเข้ามา และเป็นที่ที่เรากลับมายืนมองอีกครั้งในวันที่จากไป ยอดโดมไม่เคยเปลี่ยน แต่ทุกคนที่เคยยืนอยู่ใต้มันล้วนเปลี่ยนไปตลอดกาล'],
-      ['1934', 'ประตูที่เปิดให้ทุกคน', 'มหาวิทยาลัยแห่งนี้ถือกำเนิดขึ้นเมื่อวันที่ 27 มิถุนายน 2477 ด้วยความเชื่อเรียบง่ายว่า ความรู้ควรเป็นของทุกคน เกือบหนึ่งศตวรรษผ่านไป ความเชื่อนั้นยังคงอยู่ในทุกห้องเรียน ทุกลานกว้าง และในตัวตนของคนธรรมศาสตร์ทุกรุ่น'],
-      ['The Colours', 'สีเหลืองและแดง', 'สองสีที่เราสวมด้วยความภาคภูมิ ทั้งในวันรับปริญญา บนอัฒจันทร์ และในทุกการเดินทาง สำหรับเรา เหลืองแดงไม่ใช่เพียงสีของเครื่องแบบ แต่คือสีของความทรงจำร่วมกันที่ไม่เคยจางหาย'],
-      ['The Atelier', 'จากยอดโดมสู่เส้นด้าย', 'ทุกคอลเลกชันเริ่มต้นจากการกลับไปมองยอดโดม เส้นโค้งของหลังคา จังหวะของหน้าต่าง และเงาที่ทอดยาวในยามเย็น ถูกถอดออกมาเป็นลายเส้น ตราสัญลักษณ์ และรายละเอียดเล็ก ๆ ที่ซ่อนอยู่บนเสื้อทุกตัว ก่อนจะปิดท้ายด้วยชื่อและหมายเลขของคุณเอง'],
-      ['The Legacy', 'มรดกที่ส่งต่อ', 'เราไม่ได้ทำเพียงเสื้อ แต่เก็บรักษาความทรงจำให้สวมใส่ได้ เพื่อให้วันหนึ่ง เมื่อใครสักคนถามว่าธรรมศาสตร์มีความหมายอย่างไร คุณจะตอบได้โดยไม่ต้องเอ่ยคำใด'],
+      ['The Dome', 'ยอดโดม', 'ยอดแหลมสีขาวเหนือริมน้ำเจ้าพระยา คือภาพแรกที่ชาวธรรมศาสตร์จดจำ เป็นหมุดหมายของวันแรกที่ก้าวเข้ามา และเป็นที่ที่เรากลับมายืนมองอีกครั้งในวันที่จากไป ยอดโดมไม่เคยเปลี่ยน แต่ทุกคนที่เคยยืนอยู่ใต้มันล้วนเปลี่ยนไปตลอดกาล', 'The white spire above the Chao Phraya is the first image every Thammasat student remembers. It marks the day we first walked in, and it is where we return to stand once more on the day we leave. The Dome has never changed, yet everyone who has stood beneath it has been changed forever.'],
+      ['1934', 'ประตูที่เปิดให้ทุกคน', 'มหาวิทยาลัยแห่งนี้ถือกำเนิดขึ้นเมื่อวันที่ 27 มิถุนายน 2477 ด้วยความเชื่อเรียบง่ายว่า ความรู้ควรเป็นของทุกคน เกือบหนึ่งศตวรรษผ่านไป ความเชื่อนั้นยังคงอยู่ในทุกห้องเรียน ทุกลานกว้าง และในตัวตนของคนธรรมศาสตร์ทุกรุ่น', 'The university was founded on 27 June 1934 on a simple belief: that knowledge should belong to everyone. Nearly a century on, that belief lives in every classroom, every open courtyard, and in every generation of Thammasat.'],
+      ['The Colours', 'สีเหลืองและแดง', 'สองสีที่เราสวมด้วยความภาคภูมิ ทั้งในวันรับปริญญา บนอัฒจันทร์ และในทุกการเดินทาง สำหรับเรา เหลืองแดงไม่ใช่เพียงสีของเครื่องแบบ แต่คือสีของความทรงจำร่วมกันที่ไม่เคยจางหาย', 'Two colours we wear with pride: on graduation day, in the stands, and on every journey. To us, yellow and red are not merely the colours of a uniform, but the colours of a shared memory that never fades.'],
+      ['The Atelier', 'จากยอดโดมสู่เส้นด้าย', 'ทุกคอลเลกชันเริ่มต้นจากการกลับไปมองยอดโดม เส้นโค้งของหลังคา จังหวะของหน้าต่าง และเงาที่ทอดยาวในยามเย็น ถูกถอดออกมาเป็นลายเส้น ตราสัญลักษณ์ และรายละเอียดเล็ก ๆ ที่ซ่อนอยู่บนเสื้อทุกตัว ก่อนจะปิดท้ายด้วยชื่อและหมายเลขของคุณเอง', 'Every collection begins with a return to the Dome. The curve of its roof, the rhythm of its windows and the long shadows of evening are drawn into line work, emblems and quiet details hidden in every garment, finished with your own name and number.'],
+      ['The Legacy', 'มรดกที่ส่งต่อ', 'เราไม่ได้ทำเพียงเสื้อ แต่เก็บรักษาความทรงจำให้สวมใส่ได้ เพื่อให้วันหนึ่ง เมื่อใครสักคนถามว่าธรรมศาสตร์มีความหมายอย่างไร คุณจะตอบได้โดยไม่ต้องเอ่ยคำใด', 'We do not simply make garments; we preserve memories you can wear. So that one day, when someone asks what Thammasat means, you can answer without saying a word.'],
     ],
     closing: 'ทุกการออกแบบ คือความทรงจำของยอดโดม',
+    closingEn: 'Every design is a memory of the Dome.',
     image: ''
   },
   preorder: {
@@ -2453,13 +2531,17 @@ function vHome() {
 
   ${rc.enabled && racer && paddockOn() ? paddockTeaser(rc, racer) : ''}
 
-  <section class="night">
-    ${CONFIG.story.image ? `<img src="${esc(CONFIG.story.image)}" alt="" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover">` : `<span class="st-crest" style="display:block;margin:56px auto 0">${crest()}</span>`}
-    <div class="stack center" style="gap:16px;padding:48px 28px 64px">
-      <div class="label" style="color:var(--glow)">${esc(CONFIG.story.label)}</div>
-      <h2 class="th-title" style="font-weight:400">${esc(CONFIG.story.title)}</h2>
-      <p class="body" style="text-align:center">${esc(CONFIG.story.body)}</p>
-      <a class="btn btn-ghost btn-fit" href="#story" style="margin-top:8px"><span class="th">อ่านเรื่องราว</span></a>
+  <section class="night hs">
+    ${storyClock()}${storyDome()}
+    ${CONFIG.story.image ? `<img src="${esc(CONFIG.story.image)}" alt="" class="hs-img">` : ''}
+    <div class="hs-in">
+      <div class="hs-est">Est. 1934 <span>·</span> Tha Phra Chan</div>
+      ${CONFIG.story.image ? '' : `<span class="hs-crest"><span class="hs-white" style="-webkit-mask-image:url(${CREST});mask-image:url(${CREST})"></span></span>`}
+      <div class="hs-label"><i></i><span>${esc(CONFIG.story.label)}</span><i></i></div>
+      <h2 class="hs-title">${(() => { const t = CONFIG.story.title.split(/\s*คือ\s*/); return t.length === 2 ? `<span>${esc(t[0])}</span><em>คือความทรงจำ<br>ของยอดโดม</em>` : esc(CONFIG.story.title); })()}</h2>
+      <p class="hs-body hs-en-body">${esc(CONFIG.story.bodyEn || CONFIG.story.body)}</p>
+      <a class="hs-cta" href="#story"><span class="hs-cta-en">Read the Full Story</span><svg viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6h22M17 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1"/></svg></a>
+      <div class="hs-sign">Thammasat Legacy · Maison</div>
     </div>
   </section>
 
@@ -2912,6 +2994,116 @@ function guilloche(cls = '', color = '#FFFFFF') {
 }
 // footer pattern: woven banknote waves along the edges + a rosette medallion (sibling of guilloche(), not a copy)
 let WAVES = '';
+function clockAngles() {
+  const d = new Date(), sec = d.getSeconds(), m = d.getMinutes() + sec / 60, h = (d.getHours() % 12) + m / 60;
+  return { h: h * 30, m: m * 6, s: sec * 6 };
+}
+function tickClock() {
+  const els = document.querySelectorAll('.hs-clock'); if (!els.length) return;
+  const a = clockAngles();
+  els.forEach((el) => { el.querySelector('.ck-h').setAttribute('transform', `rotate(${a.h.toFixed(2)})`); el.querySelector('.ck-m').setAttribute('transform', `rotate(${a.m.toFixed(2)})`); el.querySelector('.ck-s').setAttribute('transform', `rotate(${a.s})`); });
+}
+setInterval(tickClock, 1000);
+let CLOCKFACE = '';
+function storyClock() {   // หน้าปัดนาฬิกาแบบหอนาฬิกาลอนดอน — เข็มเดินตามเวลาจริง
+  if (!CLOCKFACE) {
+    const P = (r, a) => `${(r * Math.sin(a)).toFixed(2)} ${(-r * Math.cos(a)).toFixed(2)}`, R = Math.PI / 180, o = [];
+    [196, 190, 186, 162, 158, 118, 114, 64, 60].forEach((r) => o.push(`<circle r="${r}"/>`));
+    for (let i = 0; i < 60; i++) { const a = i * 6 * R, big = i % 5 === 0;
+      o.push(`<path d="M${P(big ? 162 : 170, a)} L${P(186, a)}"${big ? ' stroke-width="1.2"' : ''}/>`);
+      if (big) o.push(`<circle cx="${(193 * Math.sin(a)).toFixed(2)}" cy="${(-193 * Math.cos(a)).toFixed(2)}" r="1.6"/>`); }
+    const NUM = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
+    NUM.forEach((n, i) => o.push(`<text transform="rotate(${i * 30}) translate(0 -128)" text-anchor="middle" dominant-baseline="middle" font-family="Montserrat, sans-serif" font-weight="300" font-size="21" fill="#FFFFFF" stroke="none" letter-spacing="1">${n}</text>`));
+    for (let i = 0; i < 24; i++) { const a0 = (i * 15 + 1.2) * R, a1 = ((i + 1) * 15 - 1.2) * R, am = (i * 15 + 7.5) * R;   // gothic lancet tracery
+      o.push(`<path d="M${P(64, a0)} L${P(100, a0)} Q${P(110, a0 + 2 * R)} ${P(112, am)} Q${P(110, a1 - 2 * R)} ${P(100, a1)} L${P(64, a1)}"/>`);
+      o.push(`<path d="M${P(70, am)} L${P(96, am)}" stroke-opacity=".5"/>`);
+      o.push(`<circle cx="${(104 * Math.sin(am)).toFixed(2)}" cy="${(-104 * Math.cos(am)).toFixed(2)}" r="2.2" stroke-opacity=".7"/>`); }
+    for (let k = 0; k < 12; k++) { const a = k * 30 * R, b = (k * 30 + 15) * R; o.push(`<path d="M${P(14, a - 9 * R)} Q${P(52, a)} ${P(14, a + 9 * R)}"/><path d="M${P(30, b)} L${P(58, b)}" stroke-opacity=".5"/>`); }
+    o.push('<circle r="14"/><circle r="9"/>');
+    // ornate Victorian hands — cast-iron openwork, fleur-de-lis & spade tips (fill-rule evenodd = cut-outs)
+    const W = 'fill="#FFFFFF" fill-rule="evenodd" stroke="none"';
+    const hour = `<g class="ck-h">
+      <path ${W} d="M-3 0 L-1.8 -72 L1.8 -72 L3 0Z"/>
+      <path ${W} d="M-1.8 -71 C-3 -76 -7 -80 -7.4 -86 L-4.6 -88 L-3.4 -93 L0 -100 L3.4 -93 L4.6 -88 L7.4 -86 C7 -80 3 -76 1.8 -71Z
+        M0 -80 C-1.6 -83 -1.6 -86 0 -89 C1.6 -86 1.6 -83 0 -80Z"/>
+      <path ${W} d="M-2.6 0 L-2.2 10 C-4 11 -4.6 13 -3 14 L-2.2 15 C-4.4 16.5 -4.8 19 -2.8 20 L-2 21 C-4.4 23 -4.6 26 -2.2 27 L-2.6 30
+        C-6 31 -9 34 -8 37 C-6 36 -5 37 -5.4 39 C-3 38 -1.4 39 0 42 C1.4 39 3 38 5.4 39 C5 37 6 36 8 37 C9 34 6 31 2.6 30
+        L2.2 27 C4.6 26 4.4 23 2 21 L2.8 20 C4.8 19 4.4 16.5 2.2 15 L3 14 C4.6 13 4 11 2.2 10 L2.6 0Z"/>
+    </g>`;
+    const minute = `<g class="ck-m">
+      <path ${W} d="M-2.6 0 L-1.1 -168 L0 -172 L1.1 -168 L2.6 0Z"/>
+      <path ${W} d="M-2.2 0 L-1.8 20 L1.8 20 L2.2 0Z"/>
+      <path ${W} d="M0 19 C-4.6 19 -6.4 23 -6.4 27 C-6.4 31.5 -3.4 34 0 34 C3.4 34 6.4 31.5 6.4 27 C6.4 23 4.6 19 0 19Z"/>
+    </g>`;
+    const second = `<g class="ck-s">
+      <path ${W} d="M-.5 24 L-.3 -176 L.3 -176 L.5 24Z"/>
+      <path ${W} d="M0 22 m-2.6 0 a2.6 2.6 0 1 0 5.2 0 a2.6 2.6 0 1 0 -5.2 0Z"/>
+    </g>`;
+    const hub = `<circle r="7.5" fill="#FFFFFF"/><circle r="4.2" fill="none" stroke="#000" stroke-width=".7" stroke-opacity=".55"/><circle r="1.8" fill="#000" fill-opacity=".55"/>`;
+    CLOCKFACE = `<g fill="none" stroke="#FFFFFF" stroke-width=".7">${o.join('')}</g><g class="ck-hands">${hour}${minute}${second}${hub}</g>`;
+  }
+  const a = clockAngles();
+  return `<svg class="hs-clock" viewBox="-200 -200 400 400" aria-hidden="true">${CLOCKFACE.replace('class="ck-h"', `class="ck-h" transform="rotate(${a.h.toFixed(2)})"`).replace('class="ck-m"', `class="ck-m" transform="rotate(${a.m.toFixed(2)})"`).replace('class="ck-s"', `class="ck-s" transform="rotate(${a.s})"`)}</svg>`;
+}
+function storyRays() {
+  const cx = 200, cy = 190, L = [];
+  for (let i = 0; i < 144; i++) { const a = i / 144 * Math.PI * 2, r0 = i % 4 === 0 ? 92 : 104, r1 = 900;
+    L.push(`<path d="M${(cx + r0 * Math.cos(a)).toFixed(1)} ${(cy + r0 * Math.sin(a)).toFixed(1)} L${(cx + r1 * Math.cos(a)).toFixed(1)} ${(cy + r1 * Math.sin(a)).toFixed(1)}"${i % 4 === 0 ? ' stroke-width=".5"' : ''}/>`); }
+  const rings = [84, 88, 150, 153].map((r) => `<circle cx="${cx}" cy="${cy}" r="${r}"/>`).join('');
+  return `<svg class="hs-rays" viewBox="0 0 400 760" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g fill="none" stroke="#FFFFFF" stroke-width=".25">${L.join('')}${rings}</g></svg>`;
+}
+function storyDome() {   // ตึกโดม ท่าพระจันทร์ — line engraving
+  const win = (x, y, w, h, arch) => arch ? `<path d="M${x} ${y + h} L${x} ${y + w / 2} Q${x + w / 2} ${y - w / 4} ${x + w} ${y + w / 2} L${x + w} ${y + h}Z"/>` : `<rect x="${x}" y="${y}" width="${w}" height="${h}"/>`;
+  const rowW = (x0, x1, y, h, step, w, arch) => { let o = ''; for (let x = x0; x + w <= x1; x += step) o += win(x, y, w, h, arch); return o; };
+  const wing = (dir) => { const X = (v) => dir < 0 ? 400 - v : v;   // mirror for the left wing
+    const pts = (arr) => arr.map(([x, y]) => `${X(x).toFixed(1)} ${y}`).join(' L');
+    return `<path d="M${pts([[246, 170], [362, 170], [384, 186], [246, 186]])}"/>
+      <path d="M${pts([[250, 176], [366, 176]])}" stroke-opacity=".5"/>
+      <path d="M${pts([[248, 186], [248, 262], [380, 262], [380, 186]])}"/>
+      <path d="M${pts([[248, 222], [380, 222]])}" stroke-opacity=".6"/>
+      ${dir > 0 ? rowW(256, 378, 194, 20, 13, 6, false) + rowW(256, 378, 230, 24, 13, 6, true) : rowW(22, 144, 194, 20, 13, 6, false) + rowW(22, 144, 230, 24, 13, 6, true)}
+      <path d="M${pts([[300, 170], [306, 160], [312, 170]])}"/><path d="M${pts([[336, 170], [342, 160], [348, 170]])}"/>`; };
+  return `<svg class="hs-dome" viewBox="60 -56 280 228" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <defs>
+      <radialGradient id="hsHalo"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".26"/><stop offset=".25" stop-color="#FFFFFF" stop-opacity=".13"/><stop offset=".6" stop-color="#FFFFFF" stop-opacity=".04"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+      <radialGradient id="hsMoon" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#FBFAF6"/><stop offset=".7" stop-color="#E4E2DC"/><stop offset="1" stop-color="#C9C7C1"/></radialGradient>
+      <filter id="hsBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.8"/></filter>
+      <filter id="hsBloom" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="18"/></filter>
+    </defs>
+    <circle cx="200" cy="20" r="210" fill="url(#hsHalo)"/>
+    <circle cx="200" cy="20" r="54" fill="#FFFFFF" opacity=".22" filter="url(#hsBloom)"/>
+    <g opacity=".4" filter="url(#hsBlur)"><circle cx="200" cy="20" r="40" fill="url(#hsMoon)"/>
+      <circle cx="186" cy="10" r="7" fill="#000" opacity=".06"/><circle cx="216" cy="30" r="9" fill="#000" opacity=".05"/><circle cx="214" cy="4" r="4" fill="#000" opacity=".06"/><circle cx="182" cy="34" r="3.4" fill="#000" opacity=".05"/></g>
+    <path fill="#070707" d="M200 -15 L168 64 L169.4 66.2 L181.3 79.2 L181.3 86.6 L175.6 86.6 L173.5 88.4 L177.3 88.4 L148 131 Q138 152 128 160 L128 168 L272 168 L272 160 Q262 152 252 131 L222.7 88.4 L226.7 88.4 L224.6 86.6 L219.6 86.6 L219.6 79.2 L221.3 79.2 L232.6 66.2 L234 64 Z"/>
+    <g fill="none" stroke="#FFFFFF" stroke-width=".7" stroke-linejoin="round" stroke-linecap="round" opacity=".2">
+    ${(() => {   // หลังคาโดม: ยอดแปดเหลี่ยม · หอโปร่ง · หลังคาปั้นหยาทรงระฆัง · หน้าต่างจั่วคู่ (อิงสัดส่วนภาพถ่าย)
+      const lerp = (a, b, t) => a + (b - a) * t, sh = [];
+      for (let y = -8; y < 63; y += 3.4) { const t = (y + 14.4) / 78.4; sh.push(`M${lerp(200, 170.1, t).toFixed(1)} ${y} L${lerp(200, 231.7, t).toFixed(1)} ${y}`); }
+      const edgeL = (y) => y <= 131 ? lerp(177.3, 148, (y - 87.2) / 43.8) : lerp(148, 129.3, ((y - 131) / 29) ** 1.6);
+      for (let y = 91; y < 159; y += 3.4) { if (y > 113 && y < 137) { sh.push(`M${edgeL(y).toFixed(1)} ${y.toFixed(1)} L178 ${y.toFixed(1)} M199.5 ${y.toFixed(1)} L201 ${y.toFixed(1)} M222 ${y.toFixed(1)} L${(400 - edgeL(y)).toFixed(1)} ${y.toFixed(1)}`); continue; }
+        sh.push(`M${edgeL(y).toFixed(1)} ${y.toFixed(1)} L${(400 - edgeL(y)).toFixed(1)} ${y.toFixed(1)}`); }
+      const dormer = (x0, x1) => { const xm = (x0 + x1) / 2; return `<path d="M${x0 - 1.2} 126 L${xm} 115.2 L${x1 + 1.2} 126"/><path d="M${x0 + 1} 125 L${xm} 117.6 L${x1 - 1} 125" stroke-opacity=".6"/>
+        <path d="M${x0 + 1} 125.4 L${x0 + 1} 136 L${x1 - 1} 136 L${x1 - 1} 125.4"/><rect x="${xm - 3.2}" y="126.4" width="6.4" height="8.6"/><path d="M${xm} 126.4 L${xm} 135" stroke-opacity=".5"/>`; };
+      return `<path d="${sh.join(' ')}" stroke-width=".35" stroke-opacity=".32"/>
+      <path d="M200 -50 L200 -14.4"/><path d="M197.6 -48.4 L202.4 -48.4"/><circle cx="200" cy="-14.8" r="1.1"/>
+      <path d="M200.4 -44 C205 -45 208 -42 212 -43 L211 -35.5 C207 -34.5 204.5 -37.5 200.4 -36.5" stroke-opacity=".75"/>
+      <path d="M200 -14.4 L170.1 64 M200 -14.4 L231.7 64"/>
+      <path d="M200 -14.4 L186 64 M200 -14.4 L214.9 64" stroke-opacity=".55"/>
+      <path d="M168 64 L234 64 L232.6 66.2 L169.4 66.2Z"/>
+      <path d="M169.4 66.2 L181.3 79.2 L221.3 79.2 L232.6 66.2" />
+      <path d="M176 70.4 L226 70.4" stroke-opacity=".3"/>
+      ${[181.8, 188, 194.4, 200, 205.6, 212, 218.6].map((x) => `<path d="M${x} 79.2 L${x} 86.6"/>`).join('')}
+      <path d="M181 82.4 L219.6 82.4 M181 84.4 L219.6 84.4" stroke-opacity=".7"/>
+      <path d="M175.6 86.6 L224.6 86.6 L226.7 88.4 L173.5 88.4Z"/>
+      <path d="M177.3 88.4 L148 131 Q138 152 129.3 160 M222.7 88.4 L252 131 Q262 152 270.7 160"/>
+      <path d="M186.1 88.4 L171 140 Q169 152 167.7 160 M214 88.4 L229 140 Q231 152 232.3 160" stroke-opacity=".55"/>
+      ${dormer(178.9, 198.9)}${dormer(201.1, 221.1)}
+      <path d="M146.6 141.4 L146.6 133.6 L156.4 133.6 L156.4 141.4 M253.4 141.4 L253.4 133.6 L243.6 133.6 L243.6 141.4"/>
+      <path d="M145.6 133.6 L157.4 133.6 M242.6 133.6 L254.4 133.6" stroke-opacity=".6"/>
+      <path d="M125 160 L275 160 L272 168 L128 168 Z"/><path d="M129 164 L271 164" stroke-opacity=".4"/>`;
+    })()}
+  </g></svg>`;
+}
 function guillocheWaves(cls = '') {
   if (!WAVES) {
     const W = 400, H = 300, P = [];
@@ -3575,6 +3767,36 @@ async function openAccount(email, phone) {
   }
   return false;
 }
+function arrivalGate(h) {
+  const n = CONFIG.arrivalNotice || {};
+  if (!n.enabled || ui.noticeOff || dispatched() || h === 'welcome' || h === 'desk' || h.startsWith('desk-')) return '';
+  try { if (sessionStorage.getItem('tl-notice') === n.key) return ''; } catch (e) {}
+  const dr = dispatchRange(), ex = CONFIG.express || {};
+  const flies = Array.from({ length: 9 }, (_, i) => `<i style="left:${[8, 22, 37, 55, 70, 86, 14, 63, 92][i]}%;top:${[18, 64, 34, 80, 22, 52, 88, 8, 74][i]}%;animation-delay:${(i * 1.7).toFixed(1)}s,${(i * 0.9).toFixed(1)}s;animation-duration:${9 + (i % 4) * 2}s,${14 + (i % 3) * 4}s"></i>`).join('');
+  return `<div class="an" role="dialog" aria-modal="true" aria-labelledby="an-t">
+    <div class="an-flies" aria-hidden="true">${flies}</div>
+    <div class="an-in">
+      <span class="an-crest">${crest()}</span>
+      <div class="an-label">A Note from the Maison</div>
+      <h2 class="an-t" id="an-t">ชิ้นงานของคุณ<br>กำลังเดินทางมาถึงเรา</h2>
+      <p class="an-p">ขณะนี้ชิ้นงานทุกตัวกำลังเดินทางมาถึง Thammasat Legacy เมื่อมาถึงแล้ว ทีมงานจะตรวจความเรียบร้อยทีละตัว และเร่งจัดส่งถึงมือคุณโดยเร็วที่สุด</p>
+      <ol class="an-steps" aria-label="สถานะ">
+        <span class="an-flow" aria-hidden="true"><i></i></span>
+        <li class="done"><b></b><span>ผลิตเสร็จสมบูรณ์</span></li>
+        <li class="now"><b></b><span>กำลังเดินทางมาที่ร้าน</span></li>
+        <li><b></b><span>จัดส่งถึงคุณ</span></li>
+      </ol>
+      <div class="an-info">
+        ${dr ? `<div><small>จัดส่งทั่วประเทศ · Flash Express</small><strong>ส่งออก ${esc(dr)}</strong></div>` : ''}
+        <div><small>ส่งด่วนรอบธรรมศาสตร์ รังสิต</small><strong>ภายในวันที่ชิ้นงานมาถึง</strong></div>
+      </div>
+      ${ex.call ? `<p class="an-note">ลูกค้าส่งด่วน ทีมงานจะโทรนัดหมายช่วง ${esc(ex.call)} โปรดเปิดรับสาย</p>` : ''}
+      <button type="button" class="btn btn-white an-ok" data-act="noticeok">เข้าสู่ร้าน</button>
+      <a class="an-link" href="#orders" data-act="noticeorders">ตรวจสอบคำสั่งซื้อของฉัน →</a>
+      <div class="an-sign">With gratitude · Thammasat Legacy</div>
+    </div>
+  </div>`;
+}
 function dispatchRange() {
   const d = CONFIG.dispatch || {}; if (!d.from) return '';
   const a = new Date(d.from + 'T00:00:00'), b = new Date((d.to || d.from) + 'T00:00:00');
@@ -3910,20 +4132,20 @@ function vStory() {
     <span class="st-crest">${crest()}</span>
     <div class="label" style="color:var(--glow)">${esc(st.label)}</div>
     <h1 class="th-title st-title">${esc(st.title)}</h1>
-    <p class="body st-lede">${esc(st.body)}</p>
+    <p class="body st-lede st-en">${esc(st.bodyEn || st.body)}</p>
     <span class="st-since">Est. 1934 · Tha Phra Chan</span>
   </section>
-  ${ch.map(([en, th, body], i) => `<section class="st-ch${i % 2 ? ' alt' : ''}">
+  ${ch.map(([en, th, body, bodyEn], i) => `<section class="st-ch${i % 2 ? ' alt' : ''}">
     <span class="st-no">${['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'][i] || i + 1}</span>
     <span class="pf-en">${esc(en)}</span>
     <h2 class="st-h">${esc(th)}</h2>
-    <p class="st-p">${esc(body)}</p>
+    <p class="st-p st-en">${esc(bodyEn || body)}</p>
   </section>`).join('')}
   <section class="st-end night">
     <span class="st-crest sm">${crest()}</span>
-    <p class="st-quote">${esc(st.closing || st.title)}</p>
+    <p class="st-quote st-en">${esc(st.closingEn || st.closing || st.title)}</p>
     <span class="st-sign wm">Thammasat Legacy</span>
-    <a class="btn btn-white btn-fit" href="#shop" style="margin-top:14px"><span class="th">ค้นพบคอลเลกชัน</span></a>
+    <a class="btn btn-white btn-fit" href="#shop" style="margin-top:14px">Discover the Collection</a>
   </section>
   </div>${tabs('home')}`;
 }
@@ -4007,21 +4229,30 @@ function startSky() {
   let W = 0, H = 0;
   const size = () => { const r = cv.getBoundingClientRect(); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
   size();
-  const N = Math.round(Math.min(70, W * H / 5200));
-  const pts = Array.from({ length: N }, () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.3 + .3, v: Math.random() * .18 + .04, p: Math.random() * 6.28, s: Math.random() * .02 + .006, warm: Math.random() < .35 }));
+  const N = Math.round(Math.min(56, W * H / 6200));
+  const mk = () => ({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.1 + .45, v: Math.random() * .16 + .03, p: Math.random() * 6.28, s: Math.random() * .018 + .005, q: Math.random() * 6.28, qs: Math.random() * .011 + .0035, warm: Math.random() < .45 });
+  // keep the same fireflies across page re-renders so they never jump or blink out
+  if (!window.__ffly || Math.abs(window.__ffly.W - W) > 2 || Math.abs(window.__ffly.H - H) > 2) window.__ffly = { W, H, pts: Array.from({ length: N }, mk) };
+  const pts = window.__ffly.pts;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (cv.dataset.mode === 'race') return raceSky(cv, ctx, W, H, still);
+  // firefly glow sprites (soft halo + bright core), drawn once and stamped
+  const sprite = (rgb) => { const S = 128, c = document.createElement('canvas'); c.width = c.height = S; const g = c.getContext('2d'), rg = g.createRadialGradient(S / 2, S / 2, 0, S / 2, S / 2, S / 2);
+    rg.addColorStop(0, `rgba(${rgb},1)`); rg.addColorStop(.06, `rgba(${rgb},.95)`); rg.addColorStop(.16, `rgba(${rgb},.42)`); rg.addColorStop(.36, `rgba(${rgb},.13)`); rg.addColorStop(.65, `rgba(${rgb},.035)`); rg.addColorStop(1, `rgba(${rgb},0)`);
+    g.fillStyle = rg; g.fillRect(0, 0, S, S); return c; };
+  const SPW = sprite('255,255,255'), SPG = sprite('240,228,200');
   const draw = () => {
     if (!cv.isConnected) return;
     ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
     for (const d of pts) {
-      if (!still) { d.y -= d.v; d.x += Math.sin(d.p) * .08; d.p += d.s; if (d.y < -4) { d.y = H + 4; d.x = Math.random() * W; } }
-      const a = .35 + .55 * (0.5 + 0.5 * Math.sin(d.p * 2));
-      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.283);
-      ctx.fillStyle = d.warm ? `rgba(233,220,192,${a})` : `rgba(255,255,255,${a * .8})`;
-      ctx.shadowColor = 'rgba(255,240,210,.8)'; ctx.shadowBlur = d.r * 6;
-      ctx.fill();
+      if (!still) { d.y -= d.v; d.x += Math.sin(d.p) * .14 + Math.sin(d.q * .7) * .05; d.p += d.s; d.q += d.qs; if (d.y < -20) { d.y = H + 20; d.x = Math.random() * W; d.q = -Math.PI / 4.4; } }
+      const pulse = 0.5 + 0.5 * Math.sin(d.q * 2.2), edge = Math.max(0, Math.min(1, (d.y + 20) / 90, (H + 20 - d.y) / 90)), a = (.18 + .82 * pulse * pulse) * edge;   // slow blink, fades in/out at the edges
+      const R = d.r * (22 + 10 * pulse);
+      ctx.globalAlpha = a;
+      ctx.drawImage(d.warm ? SPG : SPW, d.x - R, d.y - R, R * 2, R * 2);
     }
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
     if (!still) skyRAF = requestAnimationFrame(draw);
   };
   draw();
@@ -5074,7 +5305,7 @@ function render() {
   else html = vMissing();
   const raceSkin = paddockOn() && (h === 'racing' || (h.startsWith('p-') && isRace(prod(h.slice(2)))));
   app.className = 'app' + (h === 'welcome' ? ' bare' : '') + (raceSkin ? ' race' : '') + ((h === 'desk' || h.startsWith('desk-')) && dkAuthed() ? ' admin' : '');
-  app.innerHTML = html + a2hsBanner(h) + (ui.search ? searchOverlay() : '') + (ui.menu ? menuOverlay() : '') + ceremonyOverlay();
+  app.innerHTML = html + (arrivalGate(h) || a2hsBanner(h)) + (ui.search ? searchOverlay() : '') + (ui.menu ? menuOverlay() : '') + ceremonyOverlay();
   const fresh = h !== lastRoute;
   if (fresh) { window.scrollTo(0, 0); lastRoute = h; }
   onScroll();
@@ -5258,6 +5489,8 @@ const acts = {
   admcopy(el) { const o = admOrders().find((x) => x.id === el.dataset.id); if (o) copy(admOrderText(o), 'คัดลอกรายการ ' + o.id + ' แล้ว'); },
   admprodcopy(el) { copy(admProdText(el.dataset.v), 'คัดลอกแล้ว วางใน Excel หรือ Google Sheets ได้เลย'); },
   a2hsopen() { ui.a2hsOpen = true; render(); },
+  noticeok() { ui.noticeOff = true; try { sessionStorage.setItem('tl-notice', (CONFIG.arrivalNotice || {}).key); } catch (e) {} const el = document.querySelector('.an'); if (el) { el.classList.add('out'); setTimeout(render, 420); } else render(); },
+  noticeorders() { ui.noticeOff = true; try { sessionStorage.setItem('tl-notice', (CONFIG.arrivalNotice || {}).key); } catch (e) {} },
   a2hsclose() { ui.a2hsOff = true; try { localStorage.setItem('tl-a2hs', '1'); } catch (e) {} render(); },
   hpgo(el) { if (el.dataset.q) ui.helpOpen = el.dataset.q; setTimeout(() => { const t = document.getElementById(el.dataset.id); if (t) t.scrollIntoView({ block: 'start' }); }, 120); },
   hpq(el) { ui.helpOpen = ui.helpOpen === el.dataset.id ? '' : el.dataset.id; const y = window.scrollY; render(); window.scrollTo(0, y); },
